@@ -1,0 +1,342 @@
+%\documentclass[letter,mathserif,usenames,dvipsnames,aspectratio=169]{gkibeamer}
+\documentclass[letter,mathserif,usenames,dvipsnames]{gkibeamer}
+
+%% note: use this for handout mode!
+%\documentclass[mathserif,handout,4-on-1]{gkibeamer}
+
+
+%% note: use this for handout mode!
+%%\documentclass[mathserif,handout,4-on-1]{gkibeamer}
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{nicefrac}
+\usepackage{array}
+\usepackage{xspace}
+%\usepackage{realboxes}
+%\usepackage{algorithmic}
+
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{enumerate}
+\usepackage[absolute,overlay]{textpos}
+
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning,calc,intersections}
+\newcommand{\TargetVariable}[1]{\underline{#1}}
+%\usetikzlibrary{arrows,petri,automata,snakes}
+
+\tikzstyle{every transition}=[minimum size=4mm]
+\tikzstyle{every place}=[minimum size=4mm]
+\tikzstyle{pnplace}=[shape=circle,place,thick,inner sep=0.05mm]
+\tikzstyle{pntrans}=[transition,thick,inner sep=0.5mm]
+
+\pgfdeclareimage[width=22pt]{mine}{../images/mine}
+
+\pgfmathsetseed{\pdfuniformdeviate 10000000} % new seed at each compilation
+
+\usepackage{framedboxes}
+
+\definecolor{lightskyblue}{cmyk}{0.31,0.11,0.0,0.0}
+\newcommand{\hilite}{\textcolor{structure}}
+
+\newcommand{\Omit}[1]{}
+\newcommand{\NoOmit}[1]{#1}
+\newcommand{\tup}[1]{\langle #1 \rangle}
+\newcommand{\denselist}{\itemsep 0pt \topsep 0pt}
+\newcommand{\sci}[2]{#1\textsc{e}#2}
+
+\newcommand{\TBD}[1]{\textbf{TBD:} #1}
+
+\newcommand{\red}[1]{\textcolor{Red}{#1}}
+\newcommand{\green}[1]{\textcolor{OliveGreen}{#1}}
+
+%\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\newcommand{\G}{\cellcolor[gray]{0.75}}
+
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\R}{\mathcal{R}}
+
+
+\usepackage{relsize}
+\newcommand{\join}{\mathlarger{\Join}}
+\DeclareMathOperator{\bigjoin}{\mathlarger{\mathlarger{\mathlarger{\Join}}}}
+
+\newtheorem{open}{Open Question}
+
+%% Set bold frame titles
+\setbeamerfont{frametitle}{series=\bfseries\centering}
+
+%% This makes invisible the covered items
+\setbeamercovered{invisible}
+
+%% This makes the text in second-/third-level lists same font size as
+%% in first-level lists
+\setbeamerfont{itemize/enumerate subbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubbody}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subitem projected}{size=\normalsize}
+\setbeamerfont{itemize/enumerate subsubitem projected}{size=\normalsize}
+
+%% This makes the bullets in second/third level list same size as
+%% in first-level lists
+\makeatletter
+%\setbeamertemplate{itemize subitem}{\beamer@usesphere{subitem projected}{bigsphere}}
+%\setbeamertemplate{itemize subsubitem}{\beamer@usesphere{subsubitem projected}{bigsphere}}
+\setbeamertemplate{itemize subitem}{\tiny\raise1.5pt\hbox{\donotcoloroutermaths$\blacktriangleright$}}
+%\setbeamercolor{itemize item}{fg=OliveGreen}
+%\setbeamercolor{enumerate item}{fg=OliveGreen}
+\setbeamercolor{itemize item}{fg=black}
+\setbeamercolor{enumerate item}{fg=black}
+%\setbeamercolor{itemize subitem}{fg=OliveGreen}
+%\setbeamercolor{itemize subsubitem}{fg=default}
+\makeatother
+
+%% Reduces list indentation and label space
+\setlength{\leftmargini}{1em}
+\setlength{\leftmarginii}{0.75em}
+\setlength{\leftmarginiii}{0.75em}
+\setlength{\labelsep}{.5em}
+\setlength{\labelwidth}{1em}
+
+\setbeamersize{text margin left=0.75cm, text margin right=0.75cm}
+
+%% this changes the margins on the hand-out version (I think it is
+%% to make it more similar to the slides version).
+\mode<handout>{%
+  \setbeamersize{text margin left=0.75cm}
+  \setbeamersize{text margin right=1.75cm}
+}
+
+\newcommand{\naturals}{\ensuremath{\mathbb{N}}}
+\newcommand{\reals}{\ensuremath{\mathbb{R}}}
+\newcommand{\indicator}[1]{[\![#1]\!]}
+
+\newcommand<>{\textblue}[1]{{\color#2{blue}#1}}
+\newcommand<>{\textbg}[1]{{\color#2{bg}#1}}
+
+\newcommand<>{\gray}[1]{\textcolor#2{gray}{#1}}
+\newenvironment<>{grayenv}{\color#1{gray}}{}
+
+%\newcommand{\Alert}[1]{\alert{\bf #1}}
+\newcommand{\Alert}[1]{\textcolor{blue!70!black}{\bf #1}}
+\newcommand{\RedAlert}[1]{\textcolor{red}{\bf #1}}
+
+
+%\setbeamertemplate{blocks}[framed]
+%\setbeamercolor{block title}{fg=darkblue!80!yellow, bg=gray!30}%white!80!yellow!85!orange}
+\setbeamercolor{block title}{fg=black, bg=gray!40}%white!80!yellow!85!orange}
+%\setbeamercolor{block body}{fg=darkblue!80!yellow, bg=gray!20}%yellow!20!orange}
+\setbeamercolor{block body}{fg=black, bg=gray!20}%yellow!20!orange}
+\setbeamerfont{block title}{series=\bfseries}
+\setbeamerfont{block body}{series=\itshape}
+
+
+\newcommand{\SAS}{\ensuremath{\text{SAS}^+}\xspace}
+\newcommand{\hplus}{\ensuremath{h^+}\xspace}
+\newcommand{\hlmcut}{\ensuremath{h^{\text{LM-cut}}}\xspace}
+\newcommand{\myhlmcut}{\ensuremath{h^{\text{LM-cut}}_{\text{ours}}}\xspace}
+\newcommand{\hla}{\ensuremath{h^{\text{LA}}}\xspace}
+\newcommand{\hms}{\ensuremath{h^{\text{M\&S}}}\xspace}
+\newcommand{\HSPf}{\ensuremath{\text{HSP}^*_F}\xspace}
+\newcommand{\hseq}{\ensuremath{h^{\text{SEQ}}}\xspace}
+\newcommand{\hiseq}{\ensuremath{h^{\text{iSEQ}}}\xspace}
+\newcommand{\hseqsafe}{\ensuremath{h^{\text{SEQ}}_\text{safe}}\xspace}
+\newcommand{\hm}{\ensuremath{h^m}\xspace}
+
+\newcommand{\pit}[1]{\text{pit@$#1$}}
+\newcommand{\breeze}[1]{\text{breeze@$#1$}}
+\newcommand{\map}[1]{\text{cell@$#1$}}
+\newcommand{\sensor}[1]{\text{sensed@$#1$}}
+
+\mode<beamer>{
+  \title{\bf Algoritmos para Juegos con Informaci\'on Incompleta y No Determinismo}
+  \author{Rubmary Rojas}
+  \institute{Universidad Sim\'on Bol\'{\i}var, Caracas, Venezuela}
+  % \date{\textbf{IJCAI. New York, USA. July 2016.}}
+}
+
+% Only if sectionpage is undefined
+%\newcommand{\sectionpage}{}
+
+\definecolor{c231f20}{RGB}{35,31,32}
+\newcommand{\logousb}[1][0.0333]{%
+\begin{tikzpicture}[y=0.80pt,x=0.80pt,yscale=-1, inner sep=0pt, outer sep=0pt]
+\begin{scope}[cm={{1.25,0.0,0.0,-1.25,(0.0,142.5)}}]
+  \begin{scope}[scale=#1]
+    \path[fill=c231f20,even odd rule] (852.7580,526.1290) -- (779.6020,496.6410) --
+      (777.0080,504.4880) -- (556.5040,415.5860) .. controls (550.8120,413.5230) and
+      (547.0160,408.1170) .. (547.0160,402.0700) -- (547.0160,53.4688) --
+      (555.6760,48.5000) -- (555.6760,3.0898) -- (497.4920,3.0391) --
+      (497.4920,75.9414) -- (504.9220,73.9492) -- (504.9220,401.8010) .. controls
+      (504.9220,427.0270) and (521.9060,449.1090) .. (546.3120,455.6370) --
+      (763.9840,543.8480) -- (761.1170,552.5000) -- (852.7580,589.4410) --
+      (944.6330,551.4100) -- (941.8320,543.0000) -- (1158.5000,454.2230) .. controls
+      (1181.5200,446.1020) and (1200.6000,432.7580) .. (1200.6000,400.5550) --
+      (1199.3600,68.9453) -- (1206.8300,72.3359) -- (1206.8300,0.6445) --
+      (1148.6400,0.6445) -- (1148.6400,45.2930) -- (1157.3200,49.6680) --
+      (1158.5000,402.0510) .. controls (1158.5000,408.1050) and (1151.7200,413.3090)
+      .. (1146.0300,415.3710) -- (928.5080,504.4690) -- (925.9140,496.6250) --
+      (852.7580,526.1290);
+    \path[fill=c231f20,even odd rule] (852.7580,414.3950) -- (811.9140,397.9800) --
+      (809.1840,407.2420) -- (648.5160,342.4650) -- (648.5160,19.2695) --
+      (657.1760,15.2930) -- (657.1760,2.9414) -- (599.0000,3.1367) --
+      (599.0000,31.5977) -- (606.4260,31.4023) -- (606.4260,370.9570) --
+      (795.9100,447.3590) -- (793.1990,455.5470) -- (852.7580,479.5040) --
+      (912.2070,454.0470) -- (909.7230,446.5980) -- (1097.8500,368.4490) --
+      (1097.8500,29.8320) -- (1104.0000,29.0625) -- (1104.0000,0.6445) --
+      (1045.8500,0.6445) -- (1045.8500,13.9688) -- (1055.7600,18.5898) --
+      (1055.7600,340.6520) -- (896.3550,406.4530) -- (893.5080,397.9060) --
+      (852.7580,414.3950);
+    \path[fill=c231f20,even odd rule] (852.7580,697.0160) -- (729.7110,647.4180) --
+      (732.2030,639.8750) -- (493.0780,543.4410) .. controls (438.4020,517.9960) and
+      (403.4260,463.1990) .. (403.4260,402.9800) -- (403.4260,136.7810) --
+      (395.9880,141.3520) -- (395.9880,9.6445) .. controls (415.2380,6.7813) and
+      (434.8750,5.0391) .. (454.2380,4.5938) -- (454.1800,102.7770) --
+      (444.2770,109.7420) -- (444.2770,406.9840) .. controls (444.2770,407.0390) and
+      (444.2770,407.0940) .. (444.2770,407.1410) .. controls (444.2770,448.5430) and
+      (468.3200,486.2110) .. (505.9100,503.7030) -- (745.0390,601.0980) --
+      (748.0080,592.1290) -- (852.7580,634.3670) -- (957.9880,591.5040) --
+      (961.0900,600.8160) -- (1199.3600,502.6600) .. controls (1235.5100,482.3050)
+      and (1258.9500,449.6520) .. (1261.2400,407.1090) .. controls
+      (1261.2500,407.0590) and (1261.2400,407.0040) .. (1261.2400,406.9530) --
+      (1259.6700,105.1250) -- (1250.1800,97.8828) -- (1249.4200,0.6445) .. controls
+      (1268.7800,1.0937) and (1288.8500,3.0312) .. (1308.1000,5.8945) --
+      (1308.5300,136.1720) -- (1302.1000,133.0310) -- (1303.1000,409.4060) ..
+      controls (1302.1000,464.4800) and (1265.9600,516.8090) .. (1212.7200,541.9730)
+      -- (974.1290,638.5940) -- (976.5200,647.1480) -- (852.7580,697.0160);
+    \path[fill=c231f20,even odd rule] (892.3670,0.6445) -- (892.3670,232.3200) --
+      (852.7580,249.5900) -- (811.9140,233.1250) -- (811.9140,0.6445) --
+      (892.3670,0.6445);
+    \path[fill=c231f20,even odd rule] (852.7580,315.7420) -- (953.0230,273.8870) --
+      (953.0230,0.6445) -- (993.8710,0.6445) -- (993.8710,301.2850) --
+      (878.3870,348.4920) -- (878.5860,358.0000) -- (852.7580,368.4880) --
+      (824.8750,357.2460) -- (826.8710,348.7540) -- (710.4100,301.7930) --
+      (710.4100,0.6445) -- (750.0270,0.6445) -- (750.0270,274.3200) --
+      (852.7580,315.7420);
+    \path[fill=c231f20,even odd rule] (852.7580,742.9650) -- (716.2970,687.9610) --
+      (713.5860,696.1410) -- (468.3240,596.7540) .. controls (392.3790,561.4140) and
+      (343.8050,485.3090) .. (343.8050,401.6680) -- (343.8050,176.9450) --
+      (353.9060,169.5860) -- (353.9180,17.9219) .. controls (333.3830,23.0156) and
+      (312.9570,29.5859) .. (293.2580,37.3828) -- (293.2540,209.1560) --
+      (301.9180,205.1760) -- (301.9180,399.7460) .. controls (301.9180,506.4300) and
+      (366.8360,602.4690) .. (465.9260,642.4530) -- (700.0660,737.0080) --
+      (697.5740,744.5430) -- (852.7580,807.1020) -- (1008.6400,743.5860) --
+      (1006.1200,736.0230) -- (1245.9500,638.0980) .. controls (1345.0400,595.3320)
+      and (1404.8400,506.3980) .. (1404.8400,399.7150) -- (1404.8400,200.3830) --
+      (1413.1600,203.3550) -- (1411.0700,33.7734) .. controls (1391.3600,25.9805)
+      and (1372.2300,19.2070) .. (1351.7000,14.1211) -- (1352.9000,164.8870) --
+      (1361.5200,170.6520) -- (1363.9100,401.6370) .. controls (1359.9200,485.2810)
+      and (1312.1400,563.3750) .. (1235.7900,596.3280) -- (992.5270,695.2110) --
+      (989.9450,687.4530) -- (852.7580,742.9650);
+    \path[fill=c231f20,even odd rule] (852.7580,853.3010) -- (684.0860,785.2930) --
+      (681.3440,793.5820) -- (436.9180,693.0080) .. controls (353.9060,656.7150) and
+      (252.4100,584.7700) .. (242.5000,398.4730) -- (242.5000,243.5820) --
+      (252.4100,236.4960) -- (251.0310,59.4492) .. controls (226.6800,67.7656) and
+      (208.3520,80.8984) .. (191.7540,94.7852) -- (191.7540,275.5120) --
+      (202.0040,271.2540) -- (201.6760,371.8440) .. controls (201.6410,600.1680) and
+      (326.5660,699.0390) .. (444.2770,741.1880) -- (668.4140,832.6640) --
+      (665.8050,840.5510) -- (853.4730,916.4570) -- (1040.6800,839.7970) --
+      (1038.0800,831.9730) -- (1286.2200,730.5270) .. controls (1358.3900,703.7770)
+      and (1492.0000,608.8440) .. (1506.3400,414.5620) -- (1506.4100,266.1170) --
+      (1516.2600,269.3010) -- (1513.8100,89.7227) .. controls (1499.7900,79.7656)
+      and (1478.6100,63.3203) .. (1454.1300,52.5352) -- (1455.6300,232.4450) --
+      (1465.4900,239.8120) -- (1465.4900,412.2230) .. controls (1459.6800,482.1090)
+      and (1432.3800,625.0660) .. (1266.0200,694.7620) -- (1025.1500,793.1410) --
+      (1022.3300,784.6800) -- (852.7580,853.3010);
+    \path[fill=c231f20,even odd rule] (853.9490,961.2930) -- (652.6990,880.1520) --
+      (648.5160,888.3710) -- (396.4960,784.6050) .. controls (287.1450,741.4380) and
+      (154.4220,611.9100) .. (144.4840,416.4140) -- (143.4730,309.9220) --
+      (152.1290,303.2500) -- (149.6800,132.0080) .. controls (120.3090,155.2970) and
+      (104.9180,175.3280) .. (90.2500,195.8200) -- (91.4805,343.6640) --
+      (100.1480,338.1800) -- (101.7500,410.5740) .. controls (108.6680,640.3670) and
+      (253.2770,772.3440) .. (395.9880,830.3910) -- (636.3790,929.4800) --
+      (633.7230,937.5040) -- (852.7580,1025.8200) -- (1072.0700,937.2970) --
+      (1070.1600,928.3050) -- (1302.1000,833.1090) .. controls (1404.8400,797.4490)
+      and (1594.7100,667.6480) .. (1606.6100,427.7540) -- (1606.6100,334.3360) --
+      (1615.8200,339.1480) -- (1615.8000,191.4920) .. controls (1606.6100,177.9060)
+      and (1584.3200,147.6950) .. (1555.6600,123.9610) -- (1557.1100,299.4220) --
+      (1565.7600,305.9410) -- (1564.4600,422.1170) .. controls (1555.5600,568.6880)
+      and (1469.2200,729.0200) .. (1268.7600,802.0980) -- (1057.2600,889.5740) --
+      (1053.9800,879.7110) -- (853.9490,961.2930);
+    \path[fill=c231f20,even odd rule] (41.9688,376.5660) -- (44.2852,453.1520) ..
+      controls (87.2461,748.5270) and (306.2620,865.1170) .. (398.9100,895.0980) --
+      (617.9960,985.0350) -- (620.4920,977.4880) -- (853.5310,1071.2900) --
+      (1086.3000,976.7580) -- (1088.8000,984.2620) -- (1270.5700,910.7770) ..
+      controls (1588.8000,802.2770) and (1658.3700,560.4340) .. (1667.3000,413.5820)
+      -- (1667.2600,373.8160) -- (1658.2300,366.0310) -- (1658.6400,268.1450) ..
+      controls (1701.8300,340.0700) and (1704.3900,443.0510) .. (1704.3900,468.3550)
+      .. controls (1659.5900,794.6640) and (1398.8400,908.6640) ..
+      (1303.9100,941.7890) -- (1101.9800,1023.8400) -- (1104.8100,1032.3300) --
+      (854.5700,1134.5000) -- (602.2230,1032.7000) -- (604.9450,1024.4600) --
+      (397.8010,939.0660) .. controls (182.3950,864.6250) and (29.4805,693.5310) ..
+      (3.6055,464.6600) .. controls (3.6055,399.6560) and (17.4492,335.2930) ..
+      (44.0469,276.0350) .. controls (45.4023,273.3550) and (47.1836,271.5230) ..
+      (49.3633,270.4920) -- (49.3633,370.8010) -- (41.9688,376.5660);
+  \end{scope}
+\end{scope}
+
+\end{tikzpicture}
+}
+
+\begin{document}
+\begin{frame}
+ \begin{textblock}{1}
+   (7, 13)
+    \logousb
+ \end{textblock}
+\maketitle
+\end{frame}
+
+
+\begin{frame}{\Large Frame 1}
+\begin{theorem}
+    There exists an infinite set.
+\end{theorem}
+
+\begin{proof}
+This follows from the axiom of infinity.
+\end{proof}
+
+\begin{example}[Natural Numbers]
+The set of natural numbers is infinite.
+\end{example}
+
+\end{frame}
+
+
+\begin{frame}{\Large Frame 2}
+\begin{columns}
+\column{.45\textwidth}
+\begin{block}{Pregunta}
+x 2 = 1?
+\end{block}
+\column{.45\textwidth}
+\begin{block}{Respuesta}
+x = 1
+\end{block}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{\Large Frame 3}
+\begin{itemize}
+\pause \item Lo
+\pause \item que
+\pause \item empieza
+\pause \item acaba.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\Large Presentaciones din\'amicas}
+\begin{itemize}
+    \item Lo
+    \item<2-> que
+    \item<3-> empieza
+    \item<4-> acaba.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\Large Otras animaciones}
+\only<1>{Estoy en 1}\only<2>{Estoy en 2}\only<3>{Estoy en 3}
+\end{frame}
+\end{document}
