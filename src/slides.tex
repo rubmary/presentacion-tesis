@@ -62,13 +62,11 @@
 \newcommand{\join}{\mathlarger{\Join}}
 \DeclareMathOperator{\bigjoin}{\mathlarger{\mathlarger{\mathlarger{\Join}}}}
 
-\newtheorem{open}{Open Question}
-
 %% Set bold frame titles
 \setbeamerfont{frametitle}{series=\bfseries\centering}
 
 %% This makes invisible the covered items
-\setbeamercovered{invisible}
+\setbeamercovered{transparent}
 
 %% This makes the text in second-/third-level lists same font size as
 %% in first-level lists
@@ -121,14 +119,17 @@
 \newcommand{\Alert}[1]{\textcolor{blue!70!black}{\bf #1}}
 \newcommand{\RedAlert}[1]{\textcolor{red}{\bf #1}}
 
+\definecolor{customblue}{rgb}{0.129216,0.188235,0.709804}
 
 %\setbeamertemplate{blocks}[framed]
 %\setbeamercolor{block title}{fg=darkblue!80!yellow, bg=gray!30}%white!80!yellow!85!orange}
-\setbeamercolor{block title}{fg=black, bg=gray!40}%white!80!yellow!85!orange}
+%\setbeamercolor{block title}{fg=black, bg=gray!40}%white!80!yellow!85!orange}
 %\setbeamercolor{block body}{fg=darkblue!80!yellow, bg=gray!20}%yellow!20!orange}
-\setbeamercolor{block body}{fg=black, bg=gray!20}%yellow!20!orange}
+%\setbeamercolor{block body}{fg=black, bg=gray!20}%yellow!20!orange}
 \setbeamerfont{block title}{series=\bfseries}
 \setbeamerfont{block body}{series=\itshape}
+\setbeamercolor{block title}{fg=white, bg=customblue!100}
+\setbeamercolor{block body}{fg=black, bg=customblue!5}
 
 
 \newcommand{\SAS}{\ensuremath{\text{SAS}^+}\xspace}
@@ -147,6 +148,13 @@
 \newcommand{\breeze}[1]{\text{breeze@$#1$}}
 \newcommand{\map}[1]{\text{cell@$#1$}}
 \newcommand{\sensor}[1]{\text{sensed@$#1$}}
+
+\newcommand{\widthofbold}[1]{%
+  \settowidth{\dimen0}{\textbf{#1}}%
+  \makebox[\dimen0]{#1}}
+\newcommand<>{\bold}[1]{%
+  \alt#2{\textbf{#1}}{\widthofbold{#1}}}
+\makeatother
 
 \mode<beamer>{
   \title{\bf Algoritmos para Juegos con Informaci\'on Incompleta y No Determinismo}
@@ -281,62 +289,34 @@
 \begin{document}
 \begin{frame}
  \begin{textblock}{1}
-   (7, 13)
+   (7, 11)
     \logousb
  \end{textblock}
 \maketitle
 \end{frame}
 
-
-\begin{frame}{\Large Frame 1}
-\begin{theorem}
-    There exists an infinite set.
-\end{theorem}
-
-\begin{proof}
-This follows from the axiom of infinity.
-\end{proof}
-
-\begin{example}[Natural Numbers]
-The set of natural numbers is infinite.
-\end{example}
-
-\end{frame}
-
-
-\begin{frame}{\Large Frame 2}
-\begin{columns}
-\column{.45\textwidth}
-\begin{block}{Pregunta}
-x 2 = 1?
+\begin{frame}{\Large Teor\'ia de Juegos}
+\begin{block}{Definici\'on}
+  \begin{itemize}
+    \item Estudio de \bold<2->{modelos matem\'aticos} de \bold<3->{conflicto} y \bold<3->{cooperaci\'on}.
+    \item Agentes que toman decisiones de forma \bold<4->{racional} e \bold<4->{inteligente}.
+  \end{itemize}
 \end{block}
-\column{.45\textwidth}
-\begin{block}{Respuesta}
-x = 1
-\end{block}
-\end{columns}
+\vspace{.5cm}
+\textcolor{blue!70!black}{\onslide<5->{\bf Aplicaciones}}
+\begin{center}
+\begin{tabular}{@{}ccccccc@{}}
+  {\includegraphics[height=.15\textwidth]{../images/ciencias_sociales.png}} & \quad &
+  {\includegraphics[height=.15\textwidth]{../images/economia.png}} & \quad &
+  {\includegraphics[height=.15\textwidth]{../images/matematica.png}} & \quad &
+  {\includegraphics[height=.15\textwidth]{../images/computacion.png}} \\
+  & & & & & & \\
+  \onslide<6>{Ciencias sociales} & \quad &
+  \onslide<7>{Econom\'ia} & \quad &
+  \onslide<8>{Matem\'atica} & \quad &
+  \onslide<9>{Computaci\'on} \\
+\end{tabular}
+\end{center}
 \end{frame}
 
-
-\begin{frame}{\Large Frame 3}
-\begin{itemize}
-\pause \item Lo
-\pause \item que
-\pause \item empieza
-\pause \item acaba.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{\Large Presentaciones din\'amicas}
-\begin{itemize}
-    \item Lo
-    \item<2-> que
-    \item<3-> empieza
-    \item<4-> acaba.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{\Large Otras animaciones}
-\only<1>{Estoy en 1}\only<2>{Estoy en 2}\only<3>{Estoy en 3}
-\end{frame}
 \end{document}
