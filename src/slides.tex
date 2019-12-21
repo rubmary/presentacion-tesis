@@ -319,4 +319,59 @@
 \end{center}
 \end{frame}
 
+\begin{frame}{\Large Juegos no deterministas \\ con informaci\'on incompleta}
+
+\begin{columns}
+\column{.45\textwidth}
+\begin{block}{No determinismo}
+\onslide<2>{
+Incertidumbre probabil\'istica: \\
+- Lanzar dados \\
+- Repartir cartas
+}
+\end{block}
+\begin{center}
+\begin{tabular}{@{}ccc@{}}
+\visible<2->{
+  {\includegraphics[height=.32\textwidth]{../images/dados.jpg}} & \quad\quad &
+  {\includegraphics[height=.32\textwidth]{../images/cartas.jpg}}
+}
+\end{tabular}
+\end{center}
+
+\column{.45\textwidth}
+\begin{block}{Informaci\'on incompleta}
+\onslide<3>{
+Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamente.
+}
+\end{block}
+\begin{center}
+\begin{tabular}{@{}ccccc@{}}
+  \visible<3->{{\includegraphics[height=.32\textwidth]{../images/dudo.jpg}}}
+\end{tabular}
+\end{center}
+\end{columns}
+
+\vspace{.5cm}
+\visible<4->{\Alert{Interrogantes}}
+\begin{itemize}
+  \item \visible<5->{?`Qu\'e significa que un juego sea resuelto?}
+  \item \visible<6->{?`Cu\'ando un jugador juega de forma \'optima?}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{\Large Objetivos}
+\begin{block}{Objetivo General}
+Comprender los conceptos en el \'area de juegos de dos personas que involucran informaci\'on incompleta y no determinismo, as\'i como implementar los algoritmos para resolverlos, realizando experimentos sobre distintos juegos que son capturados por el modelo.
+\end{block}
+\begin{itemize}
+  \visible<2->{\onslide<2>{\item Comprender los diferentes modelos de juegos.}}
+  \visible<3->{\onslide<3>{\item Comprender diferentes conceptos de soluci\'on.}}
+  \visible<4->{\onslide<4>{\item Comprender los resultados te\'oricos m\'as relevantes.}}
+  \visible<5->{\onslide<5>{\item Implementar los algoritmos de Regret Matching y Counterfactual Regret Minimization.}}
+  \visible<6->{\onslide<6>{\item Implementar clases que permitan representar los juegos.}}
+  \visible<7->{\onslide<7>{\item Realizar experimentos sobre los juegos propuestos.}}
+  \visible<8->{\onslide<8>{\item Evaluar las estrategias obtenidas.}}
+\end{itemize}
+\end{frame}
 \end{document}

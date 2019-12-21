@@ -126,7 +126,7 @@
   %\usecolortheme[rgb={0.0,0.34,0.77}]{structure}
   %\usecolortheme{crane}
   %\usecolortheme{wolverine}
-  %\useinnertheme[shadow=true]{rounded}
+  \useinnertheme[shadow=true]{rounded}
   \useinnertheme{circles}
   %\useoutertheme{shadow}
   \setbeamertemplate{headline}{}
