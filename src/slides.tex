@@ -12,6 +12,7 @@
 \usepackage{nicefrac}
 \usepackage{array}
 \usepackage{xspace}
+\usepackage{multirow}
 %\usepackage{realboxes}
 %\usepackage{algorithmic}
 
@@ -22,6 +23,7 @@
 
 \usepackage{tikz}
 \usetikzlibrary{shapes,positioning,calc,intersections}
+\usetikzlibrary{tikzmark,fit,shapes.geometric}
 \newcommand{\TargetVariable}[1]{\underline{#1}}
 %\usetikzlibrary{arrows,petri,automata,snakes}
 
@@ -29,8 +31,6 @@
 \tikzstyle{every place}=[minimum size=4mm]
 \tikzstyle{pnplace}=[shape=circle,place,thick,inner sep=0.05mm]
 \tikzstyle{pntrans}=[transition,thick,inner sep=0.5mm]
-
-\pgfdeclareimage[width=22pt]{mine}{../images/mine}
 
 \pgfmathsetseed{\pdfuniformdeviate 10000000} % new seed at each compilation
 
@@ -117,9 +117,11 @@
 
 %\newcommand{\Alert}[1]{\alert{\bf #1}}
 \newcommand{\Alert}[1]{\textcolor{blue!70!black}{\bf #1}}
+\newcommand{\AlertSecondary}[1]{\textcolor{blue!70!black}{#1}}
 \newcommand{\RedAlert}[1]{\textcolor{red}{\bf #1}}
 
 \definecolor{customblue}{rgb}{0.129216,0.188235,0.709804}
+
 
 %\setbeamertemplate{blocks}[framed]
 %\setbeamercolor{block title}{fg=darkblue!80!yellow, bg=gray!30}%white!80!yellow!85!orange}
@@ -130,6 +132,7 @@
 \setbeamerfont{block body}{series=\itshape}
 \setbeamercolor{block title}{fg=white, bg=customblue!100}
 \setbeamercolor{block body}{fg=black, bg=customblue!5}
+\setbeamercolor{postit}{bg=yellow!50!white}
 
 
 \newcommand{\SAS}{\ensuremath{\text{SAS}^+}\xspace}
@@ -149,6 +152,18 @@
 \newcommand{\map}[1]{\text{cell@$#1$}}
 \newcommand{\sensor}[1]{\text{sensed@$#1$}}
 
+\newcommand{\ellipse}[4]{
+  \visible<#1>{
+  \begin{tikzpicture}[remember picture,overlay]
+  \coordinate[draw,line width=.75pt,blue!70!black,ellipse,inner xsep=#2, inner ysep=#3,fit={(pic cs:#4)}] {};
+  \end{tikzpicture}
+  }
+}
+
+\newcommand{\mymark}[1]{
+  \raisebox{3pt}{\tikzmark{#1}}
+}
+
 \newcommand{\widthofbold}[1]{%
   \settowidth{\dimen0}{\textbf{#1}}%
   \makebox[\dimen0]{#1}}
@@ -160,7 +175,7 @@
   \title{\bf Algoritmos para Juegos con Informaci\'on Incompleta y No Determinismo}
   \author{Rubmary Rojas}
   \institute{Universidad Sim\'on Bol\'{\i}var, Caracas, Venezuela}
-  % \date{\textbf{IJCAI. New York, USA. July 2016.}}
+  \date{Enero 2020}
 }
 
 % Only if sectionpage is undefined
@@ -289,7 +304,7 @@
 \begin{document}
 \begin{frame}
  \begin{textblock}{1}
-   (7, 11)
+   (7, 12)
     \logousb
  \end{textblock}
 \maketitle
@@ -360,18 +375,165 @@ Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamen
 \end{itemize}
 \end{frame}
 
-\begin{frame}{\Large Objetivos}
-\begin{block}{Objetivo General}
-Comprender los conceptos en el \'area de juegos de dos personas que involucran informaci\'on incompleta y no determinismo, as\'i como implementar los algoritmos para resolverlos, realizando experimentos sobre distintos juegos que son capturados por el modelo.
-\end{block}
-\begin{itemize}
-  \visible<2->{\onslide<2>{\item Comprender los diferentes modelos de juegos.}}
-  \visible<3->{\onslide<3>{\item Comprender diferentes conceptos de soluci\'on.}}
-  \visible<4->{\onslide<4>{\item Comprender los resultados te\'oricos m\'as relevantes.}}
-  \visible<5->{\onslide<5>{\item Implementar los algoritmos de Regret Matching y Counterfactual Regret Minimization.}}
-  \visible<6->{\onslide<6>{\item Implementar clases que permitan representar los juegos.}}
-  \visible<7->{\onslide<7>{\item Realizar experimentos sobre los juegos propuestos.}}
-  \visible<8->{\onslide<8>{\item Evaluar las estrategias obtenidas.}}
-\end{itemize}
+\begin{frame}{\Large Objetivo General}%\Large Objetivos}
+%\begin{block}{Objetivo General}
+\centering{Comprender los conceptos en el \'area de juegos de dos personas que involucran informaci\'on incompleta y no determinismo, as\'i como implementar los algoritmos para resolverlos, realizando experimentos sobre distintos juegos que son capturados por el modelo.}
+%\end{block}
+% \begin{itemize}
+%   \visible<2->{\onslide<2>{\item Comprender los diferentes modelos de juegos.}}
+%   \visible<3->{\onslide<3>{\item Comprender diferentes conceptos de soluci\'on.}}
+%   \visible<4->{\onslide<4>{\item Comprender los resultados te\'oricos m\'as relevantes.}}
+%   \visible<5->{\onslide<5>{\item Implementar los algoritmos de Regret Matching y Counterfactual Regret Minimization.}}
+%   \visible<6->{\onslide<6>{\item Implementar clases que permitan representar los juegos.}}
+%   \visible<7->{\onslide<7>{\item Realizar experimentos sobre los juegos propuestos.}}
+%   \visible<8->{\onslide<8>{\item Evaluar las estrategias obtenidas.}}
+% \end{itemize}
 \end{frame}
+
+\begin{frame}{\Large Juegos en Forma Normal o Estrat\'egica}
+
+\Alert{Piedra, papel o tijera}
+\vspace{.5cm}
+
+\begin{tabular}{l |c | c | c | l }
+\multicolumn{1}{c}{} &  \multicolumn{1}{c}{ $\mathcal{R}$ \raisebox{3pt}{\tikzmark{sp2}}(piedra)} & \multicolumn{1}{c}{$\mathcal{P}$ (papel)} & \multicolumn{1}{c}{$\mathcal{S}$ (ti\raisebox{3pt}{\tikzmark{ep2}}jera)} & \ \
+\visible<3>{\textcolor{blue!70!black}{jugador 2}} \\ \cline{2-4}
+$\mathcal{R}$ (piedra) & $0,0$ & $-1,1$ & $1,-1$ & \\ \cline{2-4}
+$\mathcal{P}$ (p\raisebox{3pt}{\tikzmark{p1}}apel)  & $1,-1$ & $0,0$ & $-1,1$ & \\ \cline{2-4}
+$\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ & \\ \cline{2-4}
+\multicolumn{1}{c}{} &
+  \multicolumn{3}{c}{
+    \only<4>{\small{primer jugador \textbf{gana} 1}}
+    \only<5>{\small{segundo jugador \textbf{pierde} 1}}
+  }
+ & \multicolumn{1}{c}{}\\
+\multicolumn{2}{l}{\visible<2>{\textcolor{blue!70!black}{jugador 1}}} &
+\multicolumn{3}{c}{}
+\end{tabular}
+
+\vspace{.5cm}
+\begin{columns}[t]
+\column{.45\textwidth}
+\visible<6->{
+\Alert{Elementos}
+\begin{enumerate}
+  \onslide<7, 13->{\item Jugadores.}
+  \onslide<8, 13->{\item Acciones o estrategias puras: $\mathcal{R}$, $\mathcal{P}$, $\mathcal{S}$.}
+  \onslide<9, 13->{\item Funci\'on de pago o utilidades.}
+\end{enumerate}
+}
+\column{.52\textwidth}
+\visible<10->{
+\Alert{Estrategias}
+\begin{enumerate}
+  \onslide<11, 13->{\item Estrategias puras: siempre se elige la misma acci\'on.}
+  \onslide<12, 13->{\item Estrategias mixtas: cada acci\'on se elige con cierta probabilidad.}
+\end{enumerate}
+}
+\end{columns}
+
+\visible<2>{
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate[draw,line width=.75pt,blue!70!black,ellipse, inner xsep=22pt, inner ysep=24pt, fit={(pic cs:p1)}] {};
+\end{tikzpicture}
+}
+\visible<3>{
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate[draw,line width=.75pt,blue!70!black,ellipse,inner ysep=7pt,fit={(pic cs:sp2) (pic cs:ep2)}] {};
+\end{tikzpicture}
+}
+\visible<4-5>{
+\begin{tikzpicture}[remember picture,overlay]
+\coordinate[draw,line width=.75pt,blue!70!black,ellipse,inner xsep=15, inner ysep=5pt,fit={(pic cs:u)}] {};
+\end{tikzpicture}
+}
+\end{frame}
+
+\begin{frame}{\Large Juegos en Forma Normal o Estrat\'egica}
+
+\Alert{Batalla de los sexos}
+\vspace{.5cm}
+
+\begin{columns}
+\column{.7\textwidth}
+\begin{tabular}{ c c | c | c |}
+
+& \multicolumn{1}{c}{} & \multicolumn{2}{c}{\AlertSecondary{Jos\'e}} \\
+& \multicolumn{1}{c}{} &
+\multicolumn{1}{c}{\quad\ ballet \quad\quad} &
+\multicolumn{1}{c}{\quad\,b\'eisbol \quad\quad}  \\ \cline{3-4}
+
+\multirow{2}{*}{\AlertSecondary{Mar\'ia}}
+& ballet    &
+  \onslide<2->{\ \ \onslide<2-13, 15->{2}\onslide<2-12, 15->{,}\mymark{ballet}\onslide<2-12, 14->{1} \mymark{elegirBallet}&
+  \onslide<2-12, 15->{0,}\mymark{differentsA}\onslide<2-12, 14->{0} \\ \cline{3-4}}
+& b\'eisbol &
+  \onslide<2->{\onslide<2-13, 15->{0}\onslide<2-12, 15->{,\mymark{differentsB}0} &
+  \onslide<2-12, 15->{1,\mymark{beisbol}2} \\ \cline{3-4}}
+
+\end{tabular}
+\ellipse{3}{12pt}{5pt}{differentsA}
+\ellipse{3}{12pt}{5pt}{differentsB}
+\ellipse{4,10,12-15}{12pt}{5pt}{ballet}
+\ellipse{5,12,15}{12pt}{5pt}{beisbol}
+\ellipse{9}{2.5cm}{7pt}{elegirBallet}
+
+\column{.3\textwidth}
+\only<3-5>{
+\begin{itemize}
+  \item
+    \only<3>{Ninguno obtiene ganancia.}
+    \only<4>{Mar\'ia obtiene una ganancia mayor que Jos\'e.}
+    \only<5>{Jos\'e obtiene una ganancia mayor que Mar\'ia.}
+\end{itemize}
+}
+
+\only<13-14>{
+  \begin{itemize}
+    \item
+      \only<13>{Mar\'ia no tiene motivos para cambiar su estrategia.}
+      \only<14>{Jos\'e no tiene motivos para cambiar su estrategia.}
+  \end{itemize}
+}
+
+\only<9-10>{
+  \begin{itemize}
+  \item
+    \only<9>{Si Mar\'ia siempre elige ballet.}
+    \only<10>{Lo mejor para Jos\'e es siempre elegir ballet.}
+  \end{itemize}
+}
+
+\only<17->{
+  {Lanzar una moneda
+  \begin{enumerate}
+  \item cara $\implies$ ballet
+  \item sello $\implies$ b\'eisbol
+  \end{enumerate}}
+}
+\end{columns}
+
+\vspace{.5cm}
+
+\begin{columns}
+\column{.4\textwidth}
+\visible<6->{
+\Alert{Conceptos}
+\begin{enumerate}
+  \onslide<7>{\item Ganancia Esperada}
+  \onslide<8-10>{\item Mejor Respuesta}
+  \onslide<11-15>{\item Equilibrio de Nash}
+  \onslide<16->{\item Equilibrio Correlacionado}
+\end{enumerate}
+
+\column{.5\textwidth}
+
+\only<7>{Valor promedio que un determinado jugador obtendr\'ia si jugara infinitas veces y cada jugador utiliza una estrategia dada.}
+\only<8-10>{La mejor forma en que puede jugar un jugador dadas las estrategias seleccionadas de sus oponentes.}
+\only<11-15>{Cada jugador utiliza una mejor respuesta frente a las estrategias de sus oponentes.}
+\only<16->{Puede haber cooperaci\'on entre los jugadores.}
+}
+\end{columns}
+\end{frame}
+
 \end{document}
