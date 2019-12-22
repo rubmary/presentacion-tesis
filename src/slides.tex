@@ -160,9 +160,7 @@
   }
 }
 
-\newcommand{\mymark}[1]{
-  \raisebox{3pt}{\tikzmark{#1}}
-}
+\newcommand{\mymark}[1]{\raisebox{3pt}{\tikzmark{#1}}}
 
 \newcommand{\widthofbold}[1]{%
   \settowidth{\dimen0}{\textbf{#1}}%
@@ -465,11 +463,11 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 
 \multirow{2}{*}{\AlertSecondary{Mar\'ia}}
 & ballet    &
-  \onslide<2->{\ \ \onslide<2-13, 15->{2}\onslide<2-12, 15->{,}\mymark{ballet}\onslide<2-12, 14->{1} \mymark{elegirBallet}&
-  \onslide<2-12, 15->{0,}\mymark{differentsA}\onslide<2-12, 14->{0} \\ \cline{3-4}}
+  \onslide<2->{\ \ \onslide<2-13, 15->{$2$}\onslide<2-12, 15->{$,\,$}\mymark{ballet}\onslide<2-12, 14->{$1$} \mymark{elegirBallet}&
+  \onslide<2-12, 15->{$0,\,$}\mymark{differentsA}\onslide<2-12, 14->{$0$} \\ \cline{3-4}}
 & b\'eisbol &
-  \onslide<2->{\onslide<2-13, 15->{0}\onslide<2-12, 15->{,\mymark{differentsB}0} &
-  \onslide<2-12, 15->{1,\mymark{beisbol}2} \\ \cline{3-4}}
+  \onslide<2->{\onslide<2-13, 15->{$0$}\onslide<2-12, 15->{$,\,$\mymark{differentsB}$0$} &
+  \onslide<2-12, 15->{$1$\mymark{beisbol}$,2$} \\ \cline{3-4}}
 
 \end{tabular}
 \ellipse{3}{12pt}{5pt}{differentsA}
@@ -536,4 +534,42 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 \end{columns}
 \end{frame}
 
+\begin{frame}{\Large Equilibrio de Nash}
+
+\Alert{Piedra, papel o tijera}
+\vspace{.5cm}
+
+\begin{tabular}{l |c | c | c | }
+\multicolumn{1}{c}{} &  \multicolumn{1}{c}{ $\mathcal{R}$ (piedra)} & \multicolumn{1}{c}{$\mathcal{P}$ (papel)} & \multicolumn{1}{c}{$\mathcal{S}$ (tijera)} \\ \cline{2-4}
+$\mathcal{R}$ (piedra) &
+  \onslide<1-2,5,8->{\ 0}\onslide<1-2,8->{,\ 0} &
+  \onslide<1-3,8->{-1}\mymark{rp}\onslide<1-2,8->{,\ 1} &
+  \onslide<1-2,7->{\ 1}\onslide<1-2,8->{,-1} \\ \cline{2-4}
+$\mathcal{P}$ (papel)  &
+  \onslide<1-2,5,8->{\ 1}\onslide<1-2,8->{,}\mymark{pr}\onslide<1-2,6,8->{-1} &
+  \onslide<1-3,8->{\ 0}\onslide<1-2,8->{,}\onslide<1-2,6,8->{\ 0} &
+  \onslide<1-2,7->{-1}\mymark{ps}\onslide<1-2,8->{,}\onslide<1-2,6,8->{\ 1} \\ \cline{2-4}
+$\mathcal{S}$ (tijera) &
+  \onslide<1-2,5,8->{-1}\mymark{sr}\onslide<1-2,8->{,}\onslide<1-2,4,8->{\ 1} &
+  \onslide<1-3,8->{\ 1}\onslide<1-2,8->{,}\onslide<1-2,4,8->{\mymark{sp}-1} &
+  \onslide<1-2,7->{\ 0}\onslide<1-2,8>{,}\onslide<1-2,4,8->{\ 0} \\ \cline{2-4}
+\end{tabular}
+
+\ellipse{3}{15pt}{5pt}{rp}
+\ellipse{4}{15pt}{5pt}{sp}
+\ellipse{5}{15pt}{5pt}{sr}
+\ellipse{6}{15pt}{5pt}{pr}
+\ellipse{7}{15pt}{5pt}{ps}
+
+\vspace{.75cm}
+\visible<8->{\RedAlert{No todos los juegos tienen un equilibrio de Nash en estrategias puras.}}
+
+\visible<9->{
+  \vspace{.5cm}
+  \begin{block}{Teorema de Nash}
+  Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
+  \end{block}
+}
+
+\end{frame}
 \end{document}
