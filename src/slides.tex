@@ -163,14 +163,14 @@
 \newcommand{\mymark}[1]{\raisebox{3pt}{\tikzmark{#1}}}
 
 \newcommand{\widthofbold}[1]{%
-  \settowidth{\dimen0}{\textbf{#1}}%
-  \makebox[\dimen0]{#1}}
+\settowidth{\dimen0}{\textbf{#1}}%
+\makebox[\dimen0]{#1}}
 \newcommand<>{\bold}[1]{%
-  \alt#2{\textbf{#1}}{\widthofbold{#1}}}
+\alt#2{\textbf{#1}}{\widthofbold{#1}}}
 \makeatother
 
 \mode<beamer>{
-  \title{\bf Algoritmos para Juegos con Informaci\'on Incompleta y No Determinismo}
+  \title{\bf Algoritmos para Juegos con Informaci\'on\\Incompleta y No Determinismo}
   \author{Rubmary Rojas}
   \institute{Universidad Sim\'on Bol\'{\i}var, Caracas, Venezuela}
   \date{Enero 2020}
@@ -555,7 +555,7 @@ $\mathcal{S}$ (tijera) &
   \onslide<1-2,7->{\ 0}\onslide<1-2,8>{,}\onslide<1-2,4,8->{\ 0} \\ \cline{2-4}
 \end{tabular}
 
-\ellipse{3}{15pt}{5pt}{rp}
+\ellipse{2-3}{15pt}{5pt}{rp}
 \ellipse{4}{15pt}{5pt}{sp}
 \ellipse{5}{15pt}{5pt}{sr}
 \ellipse{6}{15pt}{5pt}{pr}
@@ -570,6 +570,95 @@ $\mathcal{S}$ (tijera) &
   Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
   \end{block}
 }
+\end{frame}
+
+\begin{frame}{\Large Regret Matching}
+
+\Alert{Algoritmos para calcular un Equilibrio de Nash}
+\begin{itemize}
+  \item Juegos de dos jugadores de suma cero.
+\end{itemize}
+\begin{enumerate}
+  \onslide<2->{\item Se juega de forma repetida a trav\'es del tiempo $t = 1, 2, 3, ...$.}
+  \onslide<3->{\item A tiempo $t+1$ cada jugador elige una acci\'on siguiente una estrategia mixta determinada.}
+  \onslide<4->{\item La \textbf{estrategia emp\'irica} converge a un equilibrio de Nash.}
+\end{enumerate}
+\vspace{.25cm}
+\visible<5->{
+\Alert{?`C\'omo calcular la distribuci\'on de probabilidad?}
+\begin{itemize}
+  \item Diferentes formas de calcular la distribuci\'on de probabilidad conducen a diferentes algoritmos.
+\end{itemize}
+}
+\vspace{.25cm}
+\visible<6->{
+\begin{block}{Regret}
+M\'etrica de \bold<7->{arrepentimiento} de no haber elegido una acci\'on en particular.
+\end{block}
+}
+\end{frame}
+
+\begin{frame}{\Large Regret Matching}
+\begin{block}{Regret}
+M\'etrica de \textbf{arrepentimiento} de no haber elegido una acci\'on en particular.
+\end{block}
+\vspace{.6cm}
+\begin{columns}
+\column{.45\textwidth}
+\Alert{Tres procedimientos}
+\begin{enumerate}
+  \onslide<3-5,10->{\item Regret condicional.}
+  \onslide<6,10->{\item Vector invariante de probabilidad de la matriz\\de regret condicional.}
+  \onslide<7->{\item Regret incondicional.}
+\end{enumerate}
+
+\column{.5\textwidth}
+\visible<2->{%
+\begin{tabular}{|p{9mm}p{9mm}p{9mm}|p{5mm}|}
+\hline
+$\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal{S}$ & $\bar{u}$\\ \hline
+1 & -1 & 0 & 0\\ \hline
+\end{tabular}
+}
+
+\vspace{.3cm}
+\visible<4-5,8->{%
+\begin{tabular}{|p{9mm}p{9mm}p{9mm}|p{5mm}|}
+\hline
+  $\AlertSecondary{\mathcal{\only<4,8>S\only<5,9->P}}, \mathcal{S}$ &
+  $\AlertSecondary{\mathcal{\only<4,8>S\only<5,9->P}}, \mathcal{P}$ &
+  $\only<4-5>{\mathcal{S}}\AlertSecondary{\only<8>{\mathcal{S}}\only<9->{\mathcal{P}}}, \mathcal{S}$ &
+  $\bar{u}$\\ \hline
+  \only<4,8>0\only<5,9->{-1}&\only<4,8>1\only<5,9->0&\only<4-5,8>0\only<9->{-1}&\only<5,9->-$\frac{\only<4-5,8>1\only<9->2}{3}$\\ \hline
+\end{tabular}
+}
+\vspace{.3cm}
+\visible<4-5, 8->{
+\begin{tabular}{p{50mm}}
+ \only<4>{$R_1(\mathcal{R}, \mathcal{S}\,) = \frac{1}{3} - 0 = \frac{1}{3}$}
+ \only<5>{$R_1(\mathcal{R}, \mathcal{P}) = -\frac{1}{3} - 0 = -\frac{1}{3}$}
+ \only<8>{$R_1(\mathcal{S}) =  \frac{1}{3} - 0 =  \frac{1}{3}$}
+ \only<9->{$R_1(\mathcal{P}) = -\frac{2}{3} - 0 = -\frac{2}{3}$}
+\end{tabular}
+}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\Large Regret Matching}
+\Alert{Observaciones}
+\begin{enumerate}
+  \visible<2->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}
+  \visible<3->{\item El regret va a cero cuando el n\'umero de juegos va a infinito.}
+  \visible<4->{\item Supongamos que el regret condicional es igual $\varepsilon > 0$.}
+  \begin{itemize}
+    \visible<5->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $\varepsilon$.}
+    \visible<6->{\item $\varepsilon$-equilibrio de Nash.}
+  \end{itemize}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{\Large Resultados Experimentales}
 
 \end{frame}
+
 \end{document}
