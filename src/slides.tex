@@ -572,6 +572,25 @@ $\mathcal{S}$ (tijera) &
 }
 \end{frame}
 
+\begin{frame}{Juegos de Dos Jugadores de Suma Cero}
+
+\visible<2->{\Alert{Observaciones previas}}
+\begin{itemize}
+  \visible<3->{\item En el juego \textbf{batalla de los sexos} los equilibrios de Nash no son soluciones satisfactorias.}
+  \visible<4->{\item Diferentes equilibrios de Nash llevan a diferentes ganancias esperadas.}
+\end{itemize}
+
+\vspace{.5cm}
+\visible<5->{\Alert{Equilibrio de Nash en Juegos de Dos Jugadores de Suma Cero}}
+\begin{enumerate}
+  \visible<6->{\item Soluci\'on satisfactoria.}
+  \visible<7->{\item Valor del juego $u$: ganancia esperada del primer jugador cuando ambos jugadores utilizan \textbf{cualquier} equilibrio de Nash.}
+  \visible<8->{\item El primer jugador puede garantizar una ganancia esperada de \textbf{al menos} $u$ independientemente de la estrategia de su oponente.}
+  \visible<9->{\item El segundo jugador puded garantizar una ganancia esperada de \textbf{al menos} $-u$ independientemente de la estrategia de su oponente.}
+\end{enumerate}
+
+\end{frame}
+
 \begin{frame}{\Large Regret Matching}
 
 \Alert{Algoritmos para calcular un Equilibrio de Nash}
@@ -649,7 +668,7 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 \begin{enumerate}
   \visible<2->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}
   \visible<3->{\item El regret va a cero cuando el n\'umero de juegos va a infinito.}
-  \visible<4->{\item Supongamos que el regret condicional es igual $\varepsilon > 0$.}
+  \visible<4->{\item Supongamos que el regret incondicional de cualquier acci\'on es menor que $\varepsilon > 0$.}
   \begin{itemize}
     \visible<5->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $\varepsilon$.}
     \visible<6->{\item $\varepsilon$-equilibrio de Nash.}
@@ -658,7 +677,57 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 \end{frame}
 
 \begin{frame}{\Large Resultados Experimentales}
-
+\vspace{.5cm}
+\begin{columns}[t]
+\column{.45\textwidth}
+\Alert{Evaluaci\'on y Correctitud}
+\begin{enumerate}
+  \onslide<2,15->{\visible<2->{\item Gr\'aficas del regret incondicional con respecto al n\'umero de iteraciones.}}
+  \onslide<3,15->{\visible<3->{\item Problema equivalente de programaci\'on lineal.}}
+  \visible<4->{\item Explotabilidad\only<14->{: $\varepsilon = \varepsilon_1 + \varepsilon_2$}.}
+\end{enumerate}
+\column{.5\textwidth}
+\visible<5->{%
+\Alert{\only<5-8>{Equilibrio de Nash $\sigma^* = (\sigma^*_1, \sigma^*_2)$}\only<9->{Aproximaci\'on $\sigma' = (\sigma'_1, \sigma'_2)$}}
+\visible<6-8, 10->{%
+\begin{itemize}
+  \onslide<6,10-11,15->{\visible<6-8, 10->{\item Primer jugador garantiza una ganancia esperada de al menos \only<6-8>{$u$}\only<10->{$u-\varepsilon_1$}.}}
+  \onslide<7-8, 12-13,15->{\visible<7-8, 12->{\item Segundo jugador garantiza una ganancia esperada de \only<7>{al menos $-u$.}\only<8, 12->{a lo sumo} \only<8>{$u$}\only<12->{$u+\varepsilon_2$} \only<8, 12->{para el primer jugador.}}}
+\end{itemize}}
+}
+\end{columns}
+\begin{center}
+  \begin{tikzpicture}
+  \visible<5->{\draw[<->, very thick] (-5.25, 0) -- (5.25, 0);}
+  \visible<5->{\draw[dashed] (0, 1.5) -- (0, -1.5);}
+  \visible<5->{\node[align=center] at (0.15, 0.2) {\small{$u$}};}
+  \visible<5->{\draw[fill=black] (0, 0) circle (0.05cm);}
+  \visible<6>{\draw[->, rounded corners, blue, very thick](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
+  \visible<6->{\draw[->, rounded corners, blue, very thin](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
+  \visible<6->{\node[text width=3.5cm] at (3.5,-1) {$u_1(\sigma_1^*, \sigma_2) \geq u $};}
+  \only<7>{\node[text width=3.5cm] at (-3,-1) {$u_2(\sigma_1, \sigma^*_2) \geq -u $};}
+  \visible<7->{\draw[->, rounded corners, red, very thin](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
+  \visible<7-8>{\draw[->, rounded corners, red,  very thick](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
+  \visible<8->{\node[text width=3.5cm] at (-3,-1) {$u_1(\sigma_1, \sigma^*_2) \leq u $};}
+  \visible<10->{\draw[<->](-0.01, 1) -- (-1.5, 1);}
+  \visible<10->{\draw[dashed] (-1.5, 2) -- (-1.5, -0.45);}
+  \visible<10->{\node[text width=1cm] at (-0.4, 1.25) {$\varepsilon_1$};}
+  \visible<10->{\node[align=left] at (-0.9, 0.2) {\small{$u-\varepsilon_1$}};}
+  \visible<10->{\draw[fill=black] (-1.5, 0) circle (0.05cm);}
+  \visible<11->{\draw[->, rounded corners, blue, very thin](-1.5, 0) -- (-1.5, 0.6) -- (5.25, 0.6);}
+  \visible<11>{\draw[->, rounded corners, blue, very thick](-1.5, 0) -- (-1.5, 0.6) -- ( 5.25, 0.6);}
+  \visible<11->{\node[text width=3.5cm] at (3.5, 1) {$u_1(\sigma'_1, \sigma_2) \geq u - \varepsilon_1$};}
+  \visible<12->{\draw[<->](0.01, 1) -- (0.8, 1);}
+  \visible<12->{\draw[dashed] (0.8, 2) -- (0.8, -0.45);}
+  \visible<12->{\node[text width=1cm] at (0.7, 1.25) {$\varepsilon_2$};}
+  \visible<12->{\node[align=left] at (1.35, 0.2) {\small{$u+\varepsilon_2$}};}
+  \visible<12->{\draw[fill=black] (0.8, 0) circle (0.05cm);}
+  \visible<13->{\draw[->, rounded corners, red, very thin](0.8, 0) -- (0.8, 0.5) -- (-5.25, 0.5);}
+  \visible<13>{\draw[->, rounded corners, red,  very thick]( 0.8, 0) -- ( 0.8, 0.5) -- (-5.25, 0.5);}
+  \visible<13->{\node[text width=3.5cm] at (-3.25, 1) {$u_1(\sigma_1, \sigma'_2) \leq u + \varepsilon_2$};}
+  \visible<14->{\draw[<->](-1.5, 1.7) -- (0.8, 1.7);}
+  \visible<14->{\node[text width=1cm] at (0.1, 2) {$\varepsilon$};}
+  \end{tikzpicture}
+\end{center}
 \end{frame}
-
 \end{document}
