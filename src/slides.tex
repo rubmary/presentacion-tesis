@@ -670,8 +670,8 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
   \visible<3->{\item El regret va a cero cuando el n\'umero de juegos va a infinito.}
   \visible<4->{\item Supongamos que el regret incondicional de cualquier acci\'on es menor que $\varepsilon > 0$.}
   \begin{itemize}
-    \visible<5->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $\varepsilon$.}
-    \visible<6->{\item $\varepsilon$-equilibrio de Nash.}
+    \visible<5->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $2\varepsilon$.}
+    \visible<6->{\item $2\varepsilon$-equilibrio de Nash.}
   \end{itemize}
 \end{enumerate}
 \end{frame}
@@ -729,5 +729,101 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
   \visible<14->{\node[text width=1cm] at (0.1, 2) {$\varepsilon$};}
   \end{tikzpicture}
 \end{center}
+\end{frame}
+
+\newcommand{\graphicsRM}[1]{
+\begin{figure}
+    \resizebox{\textwidth}{!}{
+    \includegraphics{../graphics/regret-matching/#1/procedimiento-A.png}
+    \includegraphics{../graphics/regret-matching/#1/procedimiento-B.png}
+    \includegraphics{../graphics/regret-matching/#1/procedimiento-C.png}
+    }
+\end{figure}
+}
+
+\begin{frame}{\Large Resultados Experimentales}
+\Alert{Matching Pennies}
+\vspace{.3cm}
+\visible<2->{%
+\begin{center} \resizebox{.9\textwidth}{!}{
+\begin{tabular}{l r r r}
+    \toprule
+    & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
+    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $0,000$ & $0,000$ & $0,000$} \\
+    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ & $0,006$ & $0,006$ & $0,008$} \\
+    \onslide<2,5,8->{Tiempo $T$ & $10,276$ & $0,777$ & $0,042$} \\
+    \onslide<2,6,8->{Iteraciones $I$ & $3.892.550,4$ & $25.616,6$ & $16.260,5$}   \\
+    \onslide<2,7,8->{$T/I$ & $2,64{\times}10^{-6}$ & $3,03{\times}10^{-5}$ & $2,58{\times}10^{-6}$} \\
+    \bottomrule
+\end{tabular}
+} \end{center}
+}
+\visible<8->{\graphicsRM{matching-pennies}}
+\end{frame}
+
+\begin{frame}{\Large Resultados Experimentales}
+\Alert{Piedra, Papel o Tijera}
+\vspace{.3cm}
+\visible<2->{%
+\begin{center} \resizebox{.9\textwidth}{!}{
+\begin{tabular}{l r r r}
+    \toprule
+    & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
+    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $-0,000012$ & $0,000004$ & $0,000022$} \\
+    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ &  $0,006$ & $0,010$ & $0,009$} \\
+    \onslide<2,5,8->{Tiempo $T$ & $12,198$ & $0,345$ & $0,049$} \\
+    \onslide<2,6,8->{Iteraciones $I$ & $4.519.054,1$ & $6.601,3$ &  $19.321,1$} \\
+    \onslide<2,7,8->{$T/I$ & $2,70{\times}10^{-6}$ & $5,23{\times}10^{-5}$ & $2,54{\times}10^{-6}$} \\
+    \bottomrule
+\end{tabular}
+} \end{center}
+}
+\visible<8->{\graphicsRM{RPS}}
+\end{frame}
+
+\begin{frame}{\Large Resultados Experimentales}
+\Alert{Ficha vs. Domin\'o}
+\vspace{.3cm}
+
+\end{frame}
+
+\begin{frame}{\Large Resultados Experimentales}
+\Alert{Ficha vs. Domin\'o}
+\vspace{.3cm}
+\visible<2->{%
+\begin{center} \resizebox{.9\textwidth}{!}{
+\begin{tabular}{l r r r}
+    \toprule
+    & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
+    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $0,333$ & $0,334$ & $0,334$}  \\
+    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ & $0,010$ & $0,007$ & $0,004$} \\
+    \onslide<2,5,8->{Tiempo $T$ & $319,179$ & $11,275$ & $0,237$}  \\
+    \onslide<2,6,8->{Iteraciones $I$ & $108.319.272,4$ & $75.250,2$ & $84.318,5$} \\
+    \onslide<2,7,8->{$T/I$ & $2,95 {\times} 10^{-6}$ & $1,50 {\times} 10^{-4}$ & $2,81 {\times} 10^{-6}$} \\
+    \bottomrule
+\end{tabular}
+} \end{center}
+}
+\visible<8->{\graphicsRM{domino}}
+\end{frame}
+
+\begin{frame}{\Large Resultados Experimentales}
+\Alert{Coronel Blotto}
+\vspace{.3cm}
+\visible<2->{%
+\begin{center} \resizebox{.9\textwidth}{!}{
+\begin{tabular}{l r r r}
+    \toprule
+    & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
+    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $0,000219$ & $0,000150$ & $0,000024$} \\
+    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ & $0,010$ & $0,010$ & $0,009$}  \\
+    \onslide<2,5,8->{Tiempo $T$ &  $875,533$ &  $70,453$ & $0,166$} \\
+    \onslide<2,6,8->{Iteraciones $I$ &  $190.222.305,3$ & $58.794,4$  & $48.613,5$} \\
+    \onslide<2,7,8->{$T/I$ & $4,60{\times}10^{-6}$ & $1,20{\times}10^{-3}$ & $3,41{\times}10^{-6}$} \\
+    \bottomrule
+\end{tabular}
+} \end{center}
+}
+\visible<8->{\graphicsRM{blotto-game}}
 \end{frame}
 \end{document}
