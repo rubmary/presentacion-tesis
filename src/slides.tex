@@ -325,10 +325,10 @@
   {\includegraphics[height=.15\textwidth]{../images/matematica.png}} & \quad &
   {\includegraphics[height=.15\textwidth]{../images/computacion.png}} \\
   & & & & & & \\
-  \onslide<6>{Ciencias sociales} & \quad &
-  \onslide<7>{Econom\'ia} & \quad &
-  \onslide<8>{Matem\'atica} & \quad &
-  \onslide<9>{Computaci\'on} \\
+  \onslide<6,10->{Ciencias sociales} & \quad &
+  \onslide<7,10->{Econom\'ia} & \quad &
+  \onslide<8,10->{Matem\'atica} & \quad &
+  \onslide<9,10->{Computaci\'on} \\
 \end{tabular}
 \end{center}
 \end{frame}
@@ -338,7 +338,7 @@
 \begin{columns}
 \column{.45\textwidth}
 \begin{block}{No determinismo}
-\onslide<2>{
+\visible<2->{
 Incertidumbre probabil\'istica: \\
 - Lanzar dados \\
 - Repartir cartas
@@ -355,7 +355,7 @@ Incertidumbre probabil\'istica: \\
 
 \column{.45\textwidth}
 \begin{block}{Informaci\'on incompleta}
-\onslide<3>{
+\visible<3->{
 Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamente.
 }
 \end{block}
@@ -368,10 +368,10 @@ Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamen
 
 \vspace{.5cm}
 \visible<4->{\Alert{Interrogantes}}
-\begin{itemize}
+\begin{enumerate}[--]
   \item \visible<5->{?`Qu\'e significa que un juego sea resuelto?}
   \item \visible<6->{?`Cu\'ando un jugador juega de forma \'optima?}
-\end{itemize}
+\end{enumerate}
 \end{frame}
 
 \begin{frame}{\Large Objetivo General}%\Large Objetivos}
@@ -416,17 +416,17 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 \visible<6->{
 \Alert{Elementos}
 \begin{enumerate}
-  \onslide<7, 14->{\item Jugadores.}
-  \onslide<8, 14->{\item Acciones o estrategias puras: $\mathcal{R}$, $\mathcal{P}$, $\mathcal{S}$.}
-  \onslide<9, 14->{\item Funci\'on de pago o utilidades.}
+  \visible<7->{\onslide<7, 14->{\item Jugadores.}}
+  \visible<8->{\onslide<8, 14->{\item Acciones o estrategias puras: $\mathcal{R}$, $\mathcal{P}$, $\mathcal{S}$.}}
+  \visible<9->{\onslide<9, 14->{\item Funci\'on de pago o utilidades.}}
 \end{enumerate}
 }
 \column{.52\textwidth}
 \visible<11->{
 \Alert{Estrategias}
 \begin{enumerate}
-  \onslide<12, 14->{\item Estrategias puras: siempre se elige la misma acci\'on.}
-  \onslide<13, 14->{\item Estrategias mixtas: cada acci\'on se elige con cierta probabilidad.}
+  \visible<12->{\onslide<12, 14->{\item Estrategias puras: siempre se elige la misma acci\'on.}}
+  \visible<13->{\onslide<13, 14->{\item Estrategias mixtas: cada acci\'on se elige con cierta probabilidad.}}
 \end{enumerate}
 }
 \end{columns}
@@ -519,10 +519,10 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 \visible<6->{
 \Alert{Conceptos}
 \begin{enumerate}
-  \onslide<7>{\item Ganancia Esperada}
-  \onslide<8-10>{\item Mejor Respuesta}
-  \onslide<11-15>{\item Equilibrio de Nash}
-  \onslide<16->{\item Equilibrio Correlacionado}
+  \visible<7->{\onslide<7,18->{\item Ganancia Esperada}}
+  \visible<8->{\onslide<8-10,18->{\item Mejor Respuesta}}
+  \visible<11->{\onslide<11-15,18->{\item Equilibrio de Nash}}
+  \visible<16->{\onslide<16->{\item Equilibrio Correlacionado}}
 \end{enumerate}
 
 \column{.5\textwidth}
@@ -576,20 +576,19 @@ $\mathcal{S}$ (tijera) &
 \begin{frame}{Juegos de Dos Jugadores de Suma Cero}
 
 \visible<2->{\Alert{Observaciones previas}}
-\begin{itemize}
-  \visible<3->{\item En el juego \textbf{batalla de los sexos} los equilibrios de Nash no son soluciones satisfactorias.}
-  \visible<4->{\item Diferentes equilibrios de Nash llevan a diferentes ganancias esperadas.}
-\end{itemize}
+\begin{enumerate}[--]
+  \visible<3->{\onslide<3,10->{\item En el juego \textbf{batalla de los sexos} los equilibrios de Nash no son soluciones satisfactorias.}}
+  \visible<4->{\onslide<4,10->{\item Diferentes equilibrios de Nash llevan a diferentes ganancias esperadas.}}
+\end{enumerate}
 
 \vspace{.5cm}
 \visible<5->{\Alert{Equilibrio de Nash en Juegos de Dos Jugadores de Suma Cero}}
 \begin{enumerate}
-  \visible<6->{\item Soluci\'on satisfactoria.}
-  \visible<7->{\item Valor del juego $u$: ganancia esperada del primer jugador cuando ambos jugadores utilizan \textbf{cualquier} equilibrio de Nash.}
-  \visible<8->{\item El primer jugador puede garantizar una ganancia esperada de \textbf{al menos} $u$ independientemente de la estrategia de su oponente.}
-  \visible<9->{\item El segundo jugador puded garantizar una ganancia esperada de \textbf{al menos} $-u$ independientemente de la estrategia de su oponente.}
+  \visible<6->{\onslide<6,10->{\item Soluci\'on satisfactoria.}}
+  \visible<7->{\onslide<7,10->{\item Valor del juego $u$: ganancia esperada del primer jugador cuando ambos jugadores utilizan \textbf{cualquier} equilibrio de Nash.}}
+  \visible<8->{\onslide<8,10->{\item El primer jugador puede garantizar una ganancia esperada de \textbf{al menos} $u$ independientemente de la estrategia de su oponente.}}
+  \visible<9->{\onslide<9,10->{\item El segundo jugador puded garantizar una ganancia esperada de \textbf{al menos} $-u$ independientemente de la estrategia de su oponente.}}
 \end{enumerate}
-
 \end{frame}
 
 \begin{frame}{\Large Regret Matching}
@@ -599,9 +598,9 @@ $\mathcal{S}$ (tijera) &
   \item Juegos de dos jugadores de suma cero.
 \end{itemize}
 \begin{enumerate}
-  \onslide<2->{\item Se juega de forma repetida a trav\'es del tiempo $t = 1, 2, 3, ...$.}
-  \onslide<3->{\item A tiempo $t+1$ cada jugador elige una acci\'on siguiente una estrategia mixta determinada.}
-  \onslide<4->{\item La \textbf{estrategia emp\'irica} converge a un equilibrio de Nash.}
+  \visible<2->{\onslide<2,8->{\item Se juega de forma repetida a trav\'es del tiempo $t = 1, 2, 3, ...$.}}
+  \visible<3->{\onslide<3,8->{\item A tiempo $t+1$ cada jugador elige una acci\'on siguiente una estrategia mixta determinada.}}
+  \visible<4->{\onslide<4,8->{\item La \textbf{estrategia emp\'irica} converge a un equilibrio de Nash.}}
 \end{enumerate}
 \vspace{.25cm}
 \visible<5->{
@@ -625,11 +624,11 @@ M\'etrica de \textbf{arrepentimiento} de no haber elegido una acci\'on en partic
 \vspace{.6cm}
 \begin{columns}
 \column{.45\textwidth}
-\Alert{Tres procedimientos}
+\visible<2->{\Alert{Tres procedimientos}}
 \begin{enumerate}
-  \onslide<3-5,10->{\item Regret condicional.}
-  \onslide<6,10->{\item Vector invariante de probabilidad de la matriz\\de regret condicional.}
-  \onslide<7->{\item Regret incondicional.}
+  \visible<3->{\onslide<3-5,10->{\item Regret condicional.}}
+  \visible<6->{\onslide<6,10->{\item Vector invariante de probabilidad de la matriz\\de regret condicional.}}
+  \visible<7->{\onslide<7->{\item Regret incondicional.}}
 \end{enumerate}
 
 \column{.5\textwidth}
@@ -667,12 +666,12 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 \begin{frame}{\Large Regret Matching}
 \Alert{Observaciones}
 \begin{enumerate}
-  \visible<2->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}
-  \visible<3->{\item El regret va a cero cuando el n\'umero de juegos va a infinito.}
-  \visible<4->{\item Supongamos que el regret incondicional de cualquier acci\'on es menor que $\varepsilon > 0$.}
+  \visible<2->{\onslide<2,9->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}}
+  \visible<3->{\onslide<3,9->{\item El regret va a cero cuando el n\'umero de juegos va a infinito.}}
+  \visible<4->{\onslide<4,9->{\item Supongamos que el regret incondicional de cualquier acci\'on es menor que $\varepsilon > 0$.}}
   \begin{itemize}
-    \visible<5->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $2\varepsilon$.}
-    \visible<6->{\item $2\varepsilon$-equilibrio de Nash.}
+    \visible<5->{\onslide<5,9->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $2\varepsilon$.}}
+    \visible<6->{\onslide<6,9->{\item $2\varepsilon$-equilibrio de Nash.}}
   \end{itemize}
 \end{enumerate}
 \vspace{.3cm}
@@ -697,10 +696,10 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \visible<5->{%
 \Alert{\only<5-8>{Equilibrio de Nash $\sigma^* = (\sigma^*_1, \sigma^*_2)$}\only<9->{Aproximaci\'on $\sigma' = (\sigma'_1, \sigma'_2)$}}
 \visible<6-8, 10->{%
-\begin{itemize}
+\begin{enumerate}
   \onslide<6,10-11,15->{\visible<6-8, 10->{\item Primer jugador garantiza una ganancia esperada de al menos \only<6-8>{$u$}\only<10->{$u-\varepsilon_1$}.}}
   \onslide<7-8, 12-13,15->{\visible<7-8, 12->{\item Segundo jugador garantiza una ganancia esperada de \only<7>{al menos $-u$.}\only<8, 12->{a lo sumo} \only<8>{$u$}\only<12->{$u+\varepsilon_2$} \only<8, 12->{para el primer jugador.}}}
-\end{itemize}}
+\end{enumerate}}
 }
 \end{columns}
 \begin{center}
@@ -1015,7 +1014,10 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \begin{frame}{\Large Forma Extensiva}
 \begin{columns}
 \column{.5\textwidth}
-\only<3->{%
+\visible<2->{\Alert{Juegos secuenciales}}
+\vspace{.5cm}
+
+\visible<3->{%
 \resizebox{\textwidth}{!}{
 \begin{tikzpicture}[
 player1/.style={circle, fill=blue, thick, minimum size = 4mm},
@@ -1074,15 +1076,12 @@ level 4/.style={level distance=30mm}
 \visible<18>{\draw[dashed] ($(t3)!0.5!(t4)!0.25!(C)$) ellipse (1.5cm and 1.5cm);}
 \end{tikzpicture}
 }}
-
+\vspace{.35cm}
 \column{.45\textwidth}
 \visible<8->{\Alert{Elementos}}
+
 \begin{enumerate}
-  \visible<9->{\onslide<9,18->{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBr, R$.
-      \begin{itemize}
-      \item Acciones
-    \end{itemize}
-  }}
+  \visible<9->{\onslide<9,18->{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBr, R$.}}
   \visible<10->{\onslide<10-11,18->{\item Funci\'on que asigna a cada historia (nodo) un jugador.}}
   \visible<11->{
     \begin{itemize}
@@ -1400,11 +1399,11 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \end{tikzpicture}
 }}
 \visible<3->{\Alert{Interrogantes}}
-\begin{itemize}
+\begin{enumerate}[--]
   \visible<4->{\item ?`Qu\'e es una estrategia?}
   \visible<5->{\item ?`Por qu\'e es mejor utilizar una estrategia no determinista?}
   \visible<6->{\item ?`Es posible ``enga\~nar'' al oponente?}
-\end{itemize}
+\end{enumerate}
 \end{frame}
 
 \begin{frame}{Counterfactual Regret Minimization (CFR)}
@@ -1418,7 +1417,7 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \visible<6->{\Alert{?`C\'omo se mejora la estrategia en cada iteraci\'on?}}
 \begin{enumerate}[--]
 \visible<7->{\onslide<7,10->{\item Sumar el regret (arrepentimiento) que se tiene en cada conjunto de informaci\'on por cada acci\'on.}}
-\visible<8->{\onslide<8,10->{\item \textbf{Regret} Cu\'anto mejor lo habr\'ia hecho en todos los juegos hasta ahora si siempre hubiera jugado esta acci\'on en este conjunto de informaci\'on, en lugar de elegir cualquier combinaci\'on de acciones que mi estrategia dijo que deb\'i usar}}
+\visible<8->{\onslide<8,10->{\item \textbf{Regret}: cu\'anto mejor lo habr\'ia hecho en todos los juegos hasta ahora si siempre hubiera jugado esta acci\'on en este conjunto de informaci\'on.}}
 \visible<9->{\onslide<9,10->{\item \textbf{Regret Matching}: en la nueva estrategia las acciones son elegidas con probabilidades proporcionales a los regrets positivos.}}
 \end{enumerate}
 \end{frame}
