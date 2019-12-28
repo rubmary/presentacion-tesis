@@ -1250,7 +1250,7 @@ level 3/.style={sibling distance=20mm, level distance=20mm},
 \end{frame}
 
 \begin{frame}{\Large Kuhn Poker}
-\only<1->{\resizebox{\textwidth}{!}{
+\visible<2->{\resizebox{\textwidth}{!}{
 \begin{tikzpicture}[
 chance/.style={circle, draw=black, fill=gray, thick, minimum size = 6mm},
 player1/.style={circle, draw=black, solid, thick, minimum size = 4mm},
@@ -1399,5 +1399,11 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \draw[dotted] (P5.east) -- (P6.west);
 \end{tikzpicture}
 }}
+\visible<3->{\Alert{Interrogantes}}
+\begin{itemize}
+  \visible<4->{\item ?`Qu\'e es una estrategia?}
+  \visible<5->{\item ?`Por qu\'e es mejor utilizar una estrategia no determinista?}
+  \visible<6->{\item ?`Es posible ``enga\~nar'' al oponente?}
+\end{itemize}
 \end{frame}
 \end{document}
