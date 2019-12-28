@@ -1406,4 +1406,20 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
   \visible<6->{\item ?`Es posible ``enga\~nar'' al oponente?}
 \end{itemize}
 \end{frame}
+
+\begin{frame}{Counterfactual Regret Minimization (CFR)}
+\begin{enumerate}
+  \visible<2->{\onslide<2,10->{\item El \'arbol del juego se recorre repetidamente. La m\'aquina juega contra s\'i misma de forma repetida.}}
+  \visible<3->{\onslide<3,10->{\item Se inicia con distribuci\'on uniforme en cada conjunto de informaci\'on.}}
+  \visible<4->{\onslide<4,10->{\item En cada iteraci\'on se elige una mejor estrategia revisando las decisiones pasadas, utilizando las m\'etricas de regret.}}
+  \visible<5->{\onslide<5,10->{\item La estrategia promedio converge a un equilibrio de Nash.}}
+\end{enumerate}
+
+\visible<6->{\Alert{?`C\'omo se mejora la estrategia en cada iteraci\'on?}}
+\begin{enumerate}[--]
+\visible<7->{\onslide<7,10->{\item Sumar el regret (arrepentimiento) que se tiene en cada conjunto de informaci\'on por cada acci\'on.}}
+\visible<8->{\onslide<8,10->{\item \textbf{Regret} Cu\'anto mejor lo habr\'ia hecho en todos los juegos hasta ahora si siempre hubiera jugado esta acci\'on en este conjunto de informaci\'on, en lugar de elegir cualquier combinaci\'on de acciones que mi estrategia dijo que deb\'i usar}}
+\visible<9->{\onslide<9,10->{\item \textbf{Regret Matching}: en la nueva estrategia las acciones son elegidas con probabilidades proporcionales a los regrets positivos.}}
+\end{enumerate}
+\end{frame}
 \end{document}
