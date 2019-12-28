@@ -397,7 +397,7 @@ Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamen
 \begin{tabular}{l |c | c | c | l }
 \multicolumn{1}{c}{} &  \multicolumn{1}{c}{ $\mathcal{R}$ \raisebox{3pt}{\tikzmark{sp2}}(piedra)} & \multicolumn{1}{c}{$\mathcal{P}$ (papel)} & \multicolumn{1}{c}{$\mathcal{S}$ (ti\raisebox{3pt}{\tikzmark{ep2}}jera)} & \ \
 \visible<3>{\textcolor{blue!70!black}{jugador 2}} \\ \cline{2-4}
-$\mathcal{R}$ (piedra) & $0,0$ & $-1,1$ & $1,-1$ & \\ \cline{2-4}
+$\mathcal{R}$ (piedra) & $0,0$ & $-1,1$ & $1,-1$ & \visible<10->{\multirow{3}{*}{\shortstack{Juego de \\ dos jugadores\\de suma cero}}} \\ \cline{2-4}
 $\mathcal{P}$ (p\raisebox{3pt}{\tikzmark{p1}}apel)  & $1,-1$ & $0,0$ & $-1,1$ & \\ \cline{2-4}
 $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ & \\ \cline{2-4}
 \multicolumn{1}{c}{} &
@@ -416,17 +416,17 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 \visible<6->{
 \Alert{Elementos}
 \begin{enumerate}
-  \onslide<7, 13->{\item Jugadores.}
-  \onslide<8, 13->{\item Acciones o estrategias puras: $\mathcal{R}$, $\mathcal{P}$, $\mathcal{S}$.}
-  \onslide<9, 13->{\item Funci\'on de pago o utilidades.}
+  \onslide<7, 14->{\item Jugadores.}
+  \onslide<8, 14->{\item Acciones o estrategias puras: $\mathcal{R}$, $\mathcal{P}$, $\mathcal{S}$.}
+  \onslide<9, 14->{\item Funci\'on de pago o utilidades.}
 \end{enumerate}
 }
 \column{.52\textwidth}
-\visible<10->{
+\visible<11->{
 \Alert{Estrategias}
 \begin{enumerate}
-  \onslide<11, 13->{\item Estrategias puras: siempre se elige la misma acci\'on.}
-  \onslide<12, 13->{\item Estrategias mixtas: cada acci\'on se elige con cierta probabilidad.}
+  \onslide<12, 14->{\item Estrategias puras: siempre se elige la misma acci\'on.}
+  \onslide<13, 14->{\item Estrategias mixtas: cada acci\'on se elige con cierta probabilidad.}
 \end{enumerate}
 }
 \end{columns}
@@ -675,6 +675,11 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
     \visible<6->{\item $2\varepsilon$-equilibrio de Nash.}
   \end{itemize}
 \end{enumerate}
+\vspace{.3cm}
+
+\visible<7->{\Alert{Estrategia Emp\'irica}}\\
+\visible<8->{La probabilidad de que un determinado jugador elija una acci\'on $a$ es igual a:
+$$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'umero total de juegos}}$$}
 \end{frame}
 
 \begin{frame}{\Large Resultados Experimentales}
@@ -1161,6 +1166,67 @@ level 4/.style={level distance=30mm}
 \vspace{.3cm}
 \visible<12->{\Alert{Equilibrio de Nash}\\
 Cada jugador utiliza una mejor respuesta frente a su oponente.}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\Large Forma Extensiva}
+\begin{columns}
+\column{.4\textwidth}
+\visible<2->{\Alert{Perfect Recall}}
+\vspace{.3cm}
+\begin{enumerate}
+  \visible<3->{\item El jugador recuerda lo que sab\'ia.}
+  \visible<4->{\item El jugador recuerda lo que eligi\'o.}
+\end{enumerate}
+\vspace{.5cm}
+\visible<11->{En un juego con perfect recall las estrategias mixtas y de comportamiento tienen el mismo poder expresivo.}
+\visible<5->{%
+\column{.575\textwidth}
+\resizebox{\textwidth}{!}{\begin{tikzpicture}[
+chance/.style={circle, fill=gray, thick, minimum size = 4mm},
+player1/.style={circle, fill=blue, thick, minimum size = 4mm},
+player2/.style={circle, fill=red, thick, minimum size=4mm},
+terminal/.style={rectangle, draw=black, fill=black, thick, minimum size=2mm},
+level 1/.style={sibling distance=50mm, level distance=25mm},
+level 2/.style={sibling distance=25mm, level distance=25mm},
+level 3/.style={sibling distance=20mm, level distance=20mm},
+]
+
+\node[chance] [label = {Nodo de azar}] {}
+  child { [onslide=<5>{color=white}] node[player1, onslide=<5>{color=white}] [label=above:{A}] {}
+    child { [onslide=<5-6>{color=white}] node[terminal, onslide=<5-6>{color=white}] [label=below:{$1$}] {}
+      edge from parent node[left] {P}
+    }
+    child { [onslide=<5-6>{color=white}] node (A) [player1, onslide=<5-6>{color=white}] [label=above:{B}] {}
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$2$}] {}
+        edge from parent node[left] {M}
+      }
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
+        edge from parent node[right] {I}
+      }
+      edge from parent node[right] {C}
+    }
+    edge from parent node[left] [label=above:{$2, 1\ \ $}] {}
+  }
+  child { [onslide=<5>{color=white}] node[player2, onslide=<5>{color=white}] [label=above:{Z}] {}
+    child { [onslide=<5-7>{color=white}] node (C) [terminal, onslide=<5-7>{color=white}] [label=below:{$-1$}] {}
+      edge from parent node[left] {P}
+    }
+    child { [onslide=<5-7>{color=white}] node (B) [player1, onslide=<5-7>{color=white}] [label=above:{B}] {}
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$-2$}] {}
+        edge from parent node[left] {M}
+      }
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
+        edge from parent node[right] {I}
+      }
+      edge from parent node[right] {C}
+    }
+    edge from parent node[right] [label=above:{$\ \ 1, 2$}] {}
+  }
+;
+
+\visible<9->{\draw[dashed] (A.east) .. controls ++(135:-18mm) and ++(45:-18mm) .. (B.west);}
+\end{tikzpicture}}}
 \end{columns}
 \end{frame}
 
