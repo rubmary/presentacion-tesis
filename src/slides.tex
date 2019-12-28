@@ -682,6 +682,7 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'umero total de juegos}}$$}
 \end{frame}
 
+
 \begin{frame}{\Large Resultados Experimentales}
 \vspace{.5cm}
 \begin{columns}[t]
@@ -735,6 +736,24 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
   \visible<14->{\node[text width=1cm] at (0.1, 2) {$\varepsilon$};}
   \end{tikzpicture}
 \end{center}
+\end{frame}
+
+\begin{frame}{\Large Resultados Experimentales}
+\Alert{Experimentos}
+
+\begin{enumerate}
+  \visible<2->{ \onslide<2, 11->{\item $4$ juegos para dos jugadores de suma cero.}}
+  \visible<3->{ \onslide<3, 11->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}}
+  \visible<4->{ \onslide<4, 11->{\item Criterio de parada: regret incondicional menor que $0.005$.}}
+  \visible<5->{ \onslide<5-10, 11->{\item Tabla de resultados}}
+  \begin{itemize}
+    \visible<6->{ \onslide<6-10, 11->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
+    \visible<7->{ \onslide<7-10, 11->{\item Explotabilidad de la \'ultima estrategia obtenida.}}
+    \visible<8->{ \onslide<8-10, 11->{\item Tiempo promedio.}}
+    \visible<9->{ \onslide<9-10, 11->{\item N\'umero de iteraciones promedio.}}
+    \visible<10->{ \onslide<10, 11->{\item Promedio del tiempo por iteraci\'on.}}
+  \end{itemize}
+\end{enumerate}
 \end{frame}
 
 \newcommand{\graphicsRM}[1]{
