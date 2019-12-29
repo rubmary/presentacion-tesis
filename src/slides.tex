@@ -318,18 +318,18 @@
   \end{itemize}
 \end{block}
 \vspace{.5cm}
-\textcolor{blue!70!black}{\onslide<5->{\bf Aplicaciones}}
+\onslide<5->{\Alert{Aplicaciones}}
 \begin{center}
-\begin{tabular}{@{}ccccccc@{}}
-  {\includegraphics[height=.15\textwidth]{../images/ciencias_sociales.png}} & \quad &
-  {\includegraphics[height=.15\textwidth]{../images/economia.png}} & \quad &
-  {\includegraphics[height=.15\textwidth]{../images/matematica.png}} & \quad &
+\begin{tabular}{@{}cccc@{}}
+  {\includegraphics[height=.15\textwidth]{../images/ciencias_sociales.png}} &
+  {\includegraphics[height=.15\textwidth]{../images/economia.png}} &
+  {\includegraphics[height=.15\textwidth]{../images/matematica.png}} &
   {\includegraphics[height=.15\textwidth]{../images/computacion.png}} \\
-  & & & & & & \\
-  \onslide<6,10->{Ciencias sociales} & \quad &
-  \onslide<7,10->{Econom\'ia} & \quad &
-  \onslide<8,10->{Matem\'atica} & \quad &
-  \onslide<9,10->{Computaci\'on} \\
+  & & & \\
+  \onslide<6,10->{\textbf{Ciencias sociales}} &
+  \onslide<7,10->{\textbf{Econom\'ia}} &
+  \onslide<8,10->{\textbf{Matem\'atica}} &
+  \onslide<9,10->{\textbf{Computaci\'on}} \\
 \end{tabular}
 \end{center}
 \end{frame}
@@ -528,7 +528,7 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 
 \column{.5\textwidth}
 
-\only<7>{Valor promedio que un determinado jugador obtendr\'ia si jugara infinitas veces y cada jugador utiliza una estrategia dada.}
+\only<7>{Valor promedio que un determinado jugador obtendr\'ia si jugara infinitas veces cuando cada jugador utiliza una estrategia dada.}
 \only<8-10>{La mejor forma en que puede jugar un jugador dadas las estrategias seleccionadas de sus oponentes.}
 \only<11-15>{Cada jugador utiliza una mejor respuesta frente a las estrategias de sus oponentes.}
 \only<16->{Puede haber cooperaci\'on entre los jugadores.}
@@ -588,7 +588,7 @@ $\mathcal{S}$ (tijera) &
   \visible<6->{\onslide<6,10->{\item Soluci\'on satisfactoria.}}
   \visible<7->{\onslide<7,10->{\item Valor del juego $u$: ganancia esperada del primer jugador cuando ambos jugadores utilizan \textbf{cualquier} equilibrio de Nash.}}
   \visible<8->{\onslide<8,10->{\item El primer jugador puede garantizar una ganancia esperada de \textbf{al menos} $u$ independientemente de la estrategia de su oponente.}}
-  \visible<9->{\onslide<9,10->{\item El segundo jugador puded garantizar una ganancia esperada de \textbf{al menos} $-u$ independientemente de la estrategia de su oponente.}}
+  \visible<9->{\onslide<9,10->{\item El segundo jugador puede garantizar una ganancia esperada de \textbf{al menos} $-u$ independientemente de la estrategia de su oponente.}}
 \end{enumerate}
 \end{frame}
 
@@ -600,7 +600,7 @@ $\mathcal{S}$ (tijera) &
 \end{itemize}
 \begin{enumerate}
   \visible<2->{\onslide<2,8->{\item Se juega de forma repetida a trav\'es del tiempo $t = 1, 2, 3, ...$.}}
-  \visible<3->{\onslide<3,8->{\item A tiempo $t+1$ cada jugador elige una acci\'on siguiente una estrategia mixta determinada.}}
+  \visible<3->{\onslide<3,8->{\item A tiempo $t+1$ cada jugador elige una acci\'on siguiendo una estrategia mixta determinada.}}
   \visible<4->{\onslide<4,8->{\item La \textbf{estrategia emp\'irica} converge a un equilibrio de Nash.}}
 \end{enumerate}
 \vspace{.25cm}
@@ -669,10 +669,10 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 \begin{enumerate}
   \visible<2->{\onslide<2,9->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}}
   \visible<3->{\onslide<3,9->{\item El regret va a cero cuando el n\'umero de juegos va a infinito.}}
-  \visible<4->{\onslide<4,9->{\item Supongamos que el regret incondicional de cualquier acci\'on es menor que $\varepsilon > 0$.}}
+  \visible<4->{\onslide<4,9->{\item Supongamos que el regret incondicional de cualquier acci\'on es menor que $\frac{\varepsilon}{2} > 0$.}}
   \begin{itemize}
-    \visible<5->{\onslide<5,9->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $2\varepsilon$.}}
-    \visible<6->{\onslide<6,9->{\item $2\varepsilon$-equilibrio de Nash.}}
+    \visible<5->{\onslide<5,9->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $\varepsilon$.}}
+    \visible<6->{\onslide<6,9->{\item $\varepsilon$-equilibrio de Nash.}}
   \end{itemize}
 \end{enumerate}
 \vspace{.3cm}
@@ -766,49 +766,49 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \end{figure}
 }
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Matching Pennies}
+\begin{frame}{\Large Matching Pennies}
+\visible<2->{\Alert{Valor del juego ($u$):} $0$.}
 \vspace{.3cm}
-\visible<2->{%
+\visible<3->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
 \begin{tabular}{l r r r}
     \toprule
     & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
-    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $0,000$ & $0,000$ & $0,000$} \\
-    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ & $0,006$ & $0,006$ & $0,008$} \\
-    \onslide<2,5,8->{Tiempo $T$ & $10,276$ & $0,777$ & $0,042$} \\
-    \onslide<2,6,8->{Iteraciones $I$ & $3.892.550,4$ & $25.616,6$ & $16.260,5$}   \\
-    \onslide<2,7,8->{$T/I$ & $2,64{\times}10^{-6}$ & $3,03{\times}10^{-5}$ & $2,58{\times}10^{-6}$} \\
+    \onslide<3,4,9->{Ganancia esperada $u(\sigma)$ & $0,000$ & $0,000$ & $0,000$} \\
+    \onslide<3,5,9->{Explotabilidad $\varepsilon_{\sigma}$ & $0,006$ & $0,006$ & $0,008$} \\
+    \onslide<3,6,9->{Tiempo $T$ & $10,276$ & $0,777$ & $0,042$} \\
+    \onslide<3,7,9->{Iteraciones $I$ & $3.892.550,4$ & $25.616,6$ & $16.260,5$}   \\
+    \onslide<3,8,9->{$T/I$ & $2,64{\times}10^{-6}$ & $3,03{\times}10^{-5}$ & $2,58{\times}10^{-6}$} \\
     \bottomrule
 \end{tabular}
 } \end{center}
 }
-\visible<8->{\graphicsRM{matching-pennies}}
+\visible<9->{\graphicsRM{matching-pennies}}
 \end{frame}
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Piedra, Papel o Tijera}
+\begin{frame}{\Large Piedra, Papel o Tijera}
+\visible<2->{\Alert{Valor del juego ($u$):} $0$.}
 \vspace{.3cm}
-\visible<2->{%
+\visible<3->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
 \begin{tabular}{l r r r}
     \toprule
     & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
-    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $-0,000012$ & $0,000004$ & $0,000022$} \\
-    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ &  $0,006$ & $0,010$ & $0,009$} \\
-    \onslide<2,5,8->{Tiempo $T$ & $12,198$ & $0,345$ & $0,049$} \\
-    \onslide<2,6,8->{Iteraciones $I$ & $4.519.054,1$ & $6.601,3$ &  $19.321,1$} \\
-    \onslide<2,7,8->{$T/I$ & $2,70{\times}10^{-6}$ & $5,23{\times}10^{-5}$ & $2,54{\times}10^{-6}$} \\
+    \onslide<3,4,9->{Ganancia esperada $u(\sigma)$ & $-0,000012$ & $0,000004$ & $0,000022$} \\
+    \onslide<3,5,9->{Explotabilidad $\varepsilon_{\sigma}$ &  $0,006$ & $0,010$ & $0,009$} \\
+    \onslide<3,6,9->{Tiempo $T$ & $12,198$ & $0,345$ & $0,049$} \\
+    \onslide<3,7,9->{Iteraciones $I$ & $4.519.054,1$ & $6.601,3$ &  $19.321,1$} \\
+    \onslide<3,8,9->{$T/I$ & $2,70{\times}10^{-6}$ & $5,23{\times}10^{-5}$ & $2,54{\times}10^{-6}$} \\
     \bottomrule
 \end{tabular}
 } \end{center}
 }
-\visible<8->{\graphicsRM{RPS}}
+\visible<9->{\graphicsRM{RPS}}
 \end{frame}
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Ficha vs. Domin\'o}
-\vspace{.3cm}
+\begin{frame}{\Large Ficha vs. Domin\'o}
+
+\vspace{.35cm}
 \begin{columns}
 \column{.45\textwidth}
 \visible<2->{\textbf{Jugador 1}}
@@ -879,8 +879,8 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \vspace{.82cm}
 \end{frame}
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Ficha vs. Domin\'o}
+\begin{frame}{\Large Ficha vs. Domin\'o}
+\Alert{Valor del juego ($u$):} $\frac{1}{3}$
 \vspace{.3cm}
 \visible<2->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
@@ -907,8 +907,7 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \draw[thick,white,-round cap] (body#1.south) --++(90:4mm);
 }
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Coronel Blotto}
+\begin{frame}{\Large Coronel Blotto}
 \begin{columns}
 \column{.45\textwidth}
 \begin{itemize}
@@ -988,8 +987,8 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \end{center}
 \end{frame}
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Coronel Blotto}
+\begin{frame}{\Large Coronel Blotto}
+\Alert{Valor del juego ($u$):} $0$.
 \vspace{.3cm}
 \visible<2->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
@@ -1596,4 +1595,31 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \end{center}
 \end{frame}
 
+\begin{frame}{\Large Conclusiones y Recomendaciones}
+\visible<2->{\Alert{Conclusiones}}
+\begin{enumerate}
+  \visible<3->{\onslide<3,10->{\item Estudio de juegos no determinista con informaci\'on incompleta: forma normal y forma extensiva.}}
+  \visible<4->{\onslide<4,10->{\item Equilibrio de Nash como concepto de soluci\'on principal en los juegos de dos jugadores de suma cero.}}
+  \visible<5->{\onslide<5,10->{\item Algoritmos de Regret Matching y Counterfactual Regret Minimization para encontrar aproximaciones de equilibrios de Nash.}}
+  \visible<6->{\onslide<6,10->{\item Explotabilidad como m\'etrica de error en las estrategias encontradas.}}
+\end{enumerate}
+\vspace{.25cm}
+
+\visible<7->{\Alert{Recomendaciones}}
+\begin{enumerate}
+  \visible<8->{\onslide<8,10->{\item Resolver instancias mayores del juego de domin\'on para $2$ personas considerando abstracciones.}}
+  \visible<9->{\onslide<9,10->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \centering{\resizebox{!}{.65cm}{\Alert{Demo}}}
+\end{frame}
+
+\begin{frame}
+  \centering{\resizebox{!}{.65cm}{\Alert{Gracias por}}}
+  \vspace{.1cm}
+
+  \centering{\resizebox{!}{.65cm}{\Alert{su atenci\'on}}}
+\end{frame}
 \end{document}
