@@ -20,6 +20,7 @@
 \usepackage{booktabs}
 \usepackage{enumerate}
 \usepackage[absolute,overlay]{textpos}
+\usepackage{pifont}
 
 \usepackage{tikz}
 \usetikzlibrary{shapes,positioning,calc,intersections}
@@ -855,8 +856,8 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \begin{columns}
 \column{.5\textwidth}
 \begin{enumerate}
-  \onslide<11,13->{\item La ficha y el domin\'o no se superponen: gana el jugador 1.}
-  \onslide<12,13->{\item La ficha y el domin\'o s\'i se superponen: gana el jugador 2.}
+  \visible<11->{\onslide<11,13->{\item La ficha y el domin\'o no se superponen: gana el jugador 1.}}
+  \visible<12->{\onslide<12,13->{\item La ficha y el domin\'o s\'i se superponen: gana el jugador 2.}}
 \end{enumerate}
 }
 \column{.45\textwidth}
@@ -1143,46 +1144,45 @@ level 4/.style={level distance=30mm}
 }
 
 \vspace{.2cm}
-\visible<2->{\Alert{Forma Normal}}
+\visible<2->{\onslide<7->{\Alert{Forma Normal}}}
 
 \vspace{.3cm}
 \visible<2->{%
 \begin{tabular}{c|c|c|c|}
 \multicolumn{1}{c}{} & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B\raisebox{1pt}{\mymark{pB}}} & \multicolumn{1}{c}{C} \\ \cline{2-4}
 (L, $l$) & $0, 0$ & $2, 4$ & $2, 2$ \\ \cline{2-4}
-(L,\raisebox{-5pt}{\tikzmark{pA}} $r$) & $2, 4$ & $0, 0$ & $2, 2$ \\ \cline{2-4}
+(L,\raisebox{-5pt}{\tikzmark{pA}} $r$) &  $2, 4$ & $0, 0$ & $2, 2$ \\ \cline{2-4}
 (R, $l$) & $1, 1$ & $1, 1$ & $1, 1$ \\ \cline{2-4}
 (R, $r$) & $1, 1$ & $1, 1$ & $1, 1$ \\ \cline{2-4}
-\end{tabular}
-}
+\end{tabular}}
 \ellipse{5}{13pt}{25pt}{pA}
 \ellipse{6}{30pt}{6pt}{pB}
 
 \column{.5\textwidth}
 \visible<3->{\Alert{Estrategias}}
 \begin{enumerate}
-  \visible<4->{\onslide<4-6,13->{\item Estrategias Puras.}}
-  \visible<7->{\onslide<7-9,13->{\item Estrategias Mixtas.}}
-  \visible<8->{\onslide<8-9,13->{\begin{tabular}{@{}cccc@{}}
+  \visible<4->{\onslide<4-6,14->{\item Estrategias Puras.}}
+  \visible<8->{\onslide<8-10,14->{\item Estrategias Mixtas.}}
+  \visible<9->{\onslide<9-10,14->{\begin{tabular}{@{}cccc@{}}
   \cmidrule{1-4}
   (L, $l$) & (L, $r$) & (R, $l$) & (R, $r$) \\
   $0.45$ & $0.30$ & $0.00$ &  $0.25$ \\ \cmidrule{1-4}
   \end{tabular}}}
-  \visible<9->{\onslide<9,13->{\begin{tabular}{@{}ccc@{}}
+  \visible<10->{\onslide<10,14->{\begin{tabular}{@{}ccc@{}}
   \cmidrule{1-3}
   A & B & C \\
   $0.25$ & $0.25$ & $0.50$ \\
   \cmidrule{1-3}
   \end{tabular}}}
-  \visible<10->{\onslide<10-11,13->{\item Estrategias de Comportamiento.}}
-  \visible<11->{\onslide<11,13->{\begin{tabular}{@{}cccc@{}}
+  \visible<11->{\onslide<11-12,14->{\item Estrategias de Comportamiento.}}
+  \visible<12->{\onslide<12,14->{\begin{tabular}{@{}cccc@{}}
   \cmidrule(r){1-2} \cmidrule(l){3-4}
   L  & R & $l$ & $r$ \\
   $0.65$ & $0.35$ & $0.40$ &  $0.60$ \\ \cmidrule(r){1-2} \cmidrule(l){3-4}
   \end{tabular}}}
 \end{enumerate}
 \vspace{.3cm}
-\visible<12->{\Alert{Equilibrio de Nash}\\
+\visible<13->{\Alert{Equilibrio de Nash}\\
 Cada jugador utiliza una mejor respuesta frente a su oponente.}
 \end{columns}
 \end{frame}
@@ -1413,6 +1413,7 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
   \visible<4->{\onslide<4,10->{\item En cada iteraci\'on se elige una mejor estrategia revisando las decisiones pasadas, utilizando las m\'etricas de regret.}}
   \visible<5->{\onslide<5,10->{\item La estrategia promedio converge a un equilibrio de Nash.}}
 \end{enumerate}
+\vspace{.25cm}
 
 \visible<6->{\Alert{?`C\'omo se mejora la estrategia en cada iteraci\'on?}}
 \begin{enumerate}[--]
@@ -1421,4 +1422,178 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \visible<9->{\onslide<9,10->{\item \textbf{Regret Matching}: en la nueva estrategia las acciones son elegidas con probabilidades proporcionales a los regrets positivos.}}
 \end{enumerate}
 \end{frame}
+
+\begin{frame}{\Large Resultados Experimentales}
+\Alert{Experimentos}
+
+\begin{enumerate}[--]
+  \visible<2->{\onslide<2,15->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}}
+  \visible<3->{\onslide<3,15->{\item CFR con muestreo en los nodos de azar.}}
+  \visible<4->{\onslide<4,15->{\item 10 horas de entrenamiento.}}
+  \visible<5->{\onslide<5,15->{\item Un juego se considera resuelto si la explotabilidad es menor que el $1\%$ de la m\'inima ganancia positiva posible.}}
+  \visible<6->{\onslide<6,15->{\item Gr\'afica del regret con respecto al n\'umero de iteraciones.}}
+  \visible<7->{\item Tabla de resultados:}
+    \begin{columns}%
+    \column{.45\textwidth}%
+    \begin{itemize}
+      \setlength{\itemsep}{0pt}
+      \visible<8->{\item Instancia estudiada.}
+      \visible<9->{\item N\'umero de nodos del \'arbol.}
+      \visible<10->{\item N\'umero de conjuntos de informaci\'on.}
+      \visible<11->{\item N\'umero de iteraciones.}
+    \end{itemize}%
+    \column{.45\textwidth}%
+    \begin{itemize}
+      \setlength{\itemsep}{0pt}
+      \visible<12->{\item Ganancia esperada del primer jugador de la estrategia calculada.}
+      \visible<13->{\item Explotabilidad.}
+      \visible<14->{\item Se resolvi\'o o no la instancia.}
+    \end{itemize}
+    \end{columns}
+\end{enumerate}
+\end{frame}
+
+\definecolor{ao}{rgb}{0.0, 0.5, 0.0}
+\newcommand{\cmark}{\textcolor{ao}{\ding{51}}}
+\newcommand{\xmark}{\textcolor{red}{\ding{55}}}
+
+\begin{frame}{\Large One Card Poker (OCP)}
+\begin{enumerate}[--]
+  \visible<2->{\item Generalizaci\'on del Juego Kuhn Poker.}
+  \visible<3->{\item $N$: n\'umero de cartas.}
+  \visible<4->{\item OCP$(N)$.}
+\end{enumerate}
+\vspace{.3cm}
+
+\visible<5->{%
+\Alert{Tabla de Resultados}
+\begin{center}
+\resizebox{.95\textwidth}{!}{\begin{tabular}{lrrrrrc}
+    \toprule
+    Juego & $N$ & $I$ & Iteraciones & $u(\sigma)$ & $\varepsilon_{\sigma}$ (\%) & Resuelto\\ \midrule
+    OCP$(3)$        &          55 &      12 & 1.181.763.638 & -0,056 & 0,0098 & \cmark \\
+    OCP$(12)$       &       1.189 &      48 & 1.147.919.240 & -0,062 & 0,0032 & \cmark \\
+    OCP$(50)$       &      22.051 &     200 & 1.145.291.974 & -0,058 & 0,0099 & \cmark \\
+    OCP$(200)$      &     358.201 &     800 & 1.128.993.847 & -0,056 & 0,0078 & \cmark \\
+    OCP$(1000)$     &   8.991.001 &   4.000 & 1.087.573.694 & -0,056 & 0,0098 & \cmark \\
+    OCP$(5000)$     & 224.955.001 &  20.000 & 1.038.367.354 & -0,056 & 0,0241 & \cmark \\
+    \bottomrule
+\end{tabular}}
+\end{center}}
+\end{frame}
+
+\begin{frame}{\Large One Card Poker (OCP)}
+\begin{center}
+\resizebox{\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/ocp/OCP(3).png}} &
+  {\includegraphics{../graphics/cfr/ocp/OCP(12).png}} &
+  {\includegraphics{../graphics/cfr/ocp/OCP(50).png}}
+\end{tabular}}
+\vspace{.5cm}
+
+\resizebox{\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/ocp/OCP(200).png}} &
+  {\includegraphics{../graphics/cfr/ocp/OCP(1000).png}} &
+  {\includegraphics{../graphics/cfr/ocp/OCP(5000).png}}
+\end{tabular}}
+\end{center}
+\end{frame}
+
+\begin{frame}{\Large Dudo}
+\begin{enumerate}[--]
+  \visible<2->{\item Juego de dados y apuestas.}
+  \visible<3->{\item $K$: n\'umero de caras de los dados.}
+  \visible<4->{\item $D_1, D_2$: n\'umero de dados del primer y segundo jugador, respectivamente.}
+  \visible<5->{\item Dudo$(K, D_1, D_2)$.}
+\end{enumerate}
+
+\visible<6->{%
+\Alert{Tabla de Resultados}
+\begin{center}
+\resizebox{.95\textwidth}{!}{\begin{tabular}{lrrrrrc}
+    \toprule
+    Juego & $N$ & $I$ & Iteraciones & $u(\sigma)$ & $\varepsilon_{\sigma}$ (\%) & Resuelto \\ \midrule
+    \onslide<6,8->{Dudo$(4, 1, 1)$ &         8.177 &         512 & 18.697.532 & -0,125 &  0,0259 & \cmark} \\
+    \onslide<6,8->{Dudo$(4, 1, 2)$ &       327.641 &      14.366 &  1.215.600 & -0,508 &  0,0971 & \cmark} \\
+    \onslide<6,8->{Dudo$(4, 2, 1)$ &       327.641 &      14.366 &  1.213.799 &  0,552 &  0,3701 & \cmark} \\
+    Dudo$(4, 2, 2)$ &    13.107.101 &      327.680 &     63.109 & 0,0069 &  2,1132 & \xmark \\
+    \onslide<6,8->{Dudo$(5, 1, 1)$ &        51.176 &       2.560 &  4.521.208 & -0,120 &  0,1186 & \cmark} \\
+    \onslide<6,8->{Dudo$(5, 1, 2)$ &     4.915.126 &     163.840 &    151.235 & -0,565 &  0,6197 & \cmark} \\
+    \onslide<6,8->{Dudo$(5, 2, 1)$ &     4.915.126 &     163.840 &    143.698 &  0,581 &  0,0122 & \cmark} \\
+    Dudo$(5, 2, 2)$ &   471.858.976 &   7.864.320 &      3.826 &  0,836 & 15,1963 & \xmark \\
+    \onslide<6,8->{Dudo$(6, 1, 1)$ &       294.877 &      12.288 &  1.067.782 & -0,111 &  0,0975 & \cmark} \\
+    Dudo$(6, 1, 2)$ &    66.060.163 &   1.769.472 &     17.702 & -0,593 &  4,5781 & \xmark \\
+    Dudo$(6, 2, 1)$ &    66.060.163 &   1.769.472 &     17.221 &  0,592 &  3,9594 & \xmark \\
+    \bottomrule
+\end{tabular}}
+\end{center}}
+\end{frame}
+
+\begin{frame}{\Large Dudo}
+\begin{center}
+\resizebox{!}{1.05cm}{\begin{tabular}{@{}cccc@{}}
+  {\includegraphics{../graphics/cfr/dudo/Dudo(4,1,1).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(4,1,2).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(4,2,1).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(4,2,2).png}}
+\end{tabular}}
+\vspace{.3cm}
+
+\resizebox{!}{1.05cm}{\begin{tabular}{@{}cccc@{}}
+  {\includegraphics{../graphics/cfr/dudo/Dudo(5,1,1).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(5,1,2).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(5,2,1).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(5,2,2).png}}
+\end{tabular}}
+\vspace{.3cm}
+
+\resizebox{!}{1.05cm}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/dudo/Dudo(6,1,1).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(6,1,2).png}} &
+  {\includegraphics{../graphics/cfr/dudo/Dudo(6,2,1).png}}
+\end{tabular}}
+
+\vspace{.5cm}
+\end{center}
+\end{frame}
+
+\begin{frame}{\Large Domin\'o}
+\begin{enumerate}[--]
+  \visible<2->{\item Versi\'on para dos jugadores.}
+  \visible<3->{\item $M$: m\'aximo n\'umero de puntos en una cara de una pieza.}
+  \visible<4->{\item $N$: n\'umero de piezas de la mano inicial para cada jugador.}
+  \visible<5->{\item Domino$(M, N)$.}
+\end{enumerate}
+\vspace{.3cm}
+
+\visible<6->{%
+\Alert{Tabla de Resultados}
+\begin{center}
+\resizebox{.95\textwidth}{!}{\begin{tabular}{lrrrrrc}
+    \toprule
+    Juego & $N$ & $I$ & Iteraciones & $u(\sigma)$ & $\varepsilon_{\sigma}$ (\%) & Resuelto \\ \midrule
+    \onslide<6,8->{Domino$(2, 2)$ &         7.321 &     102 & 540.186.366 & 2,4000 & 0,0000 & \cmark} \\
+    \onslide<6,8->{Domino$(3, 2)$ &    46.534.657 &  88.947 & 400.047.334 & 2,8767 & 0,0315 & \cmark} \\
+    \onslide<6,8->{Domino$(3, 3)$ &   246.760.993 & 107.854 &  72.492.951 & 2,1539 & 0,3854 & \cmark} \\
+    Domino$(3, 4)$ & 1.547.645.185 & 104.050 &  11.213.463 & 3,2034 & 1,4871 & \xmark \\
+    \bottomrule
+\end{tabular}}
+\end{center}}
+\end{frame}
+
+\begin{frame}{\Large Domin\'o}
+\begin{center}
+\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/domino/Domino(2,2).png}} &
+  {\includegraphics{../graphics/cfr/domino/Domino(3,2).png}}
+\end{tabular}}
+\vspace{.5cm}
+
+\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/domino/Domino(3,3).png}} &
+  {\includegraphics{../graphics/cfr/domino/Domino(3,4).png}}
+\end{tabular}}
+\end{center}
+\end{frame}
+
 \end{document}
