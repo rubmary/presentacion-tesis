@@ -667,91 +667,87 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 \begin{frame}{\Large Regret Matching}
 \Alert{Observaciones}
 \begin{enumerate}
-  \visible<2->{\onslide<2,9->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}}
-  \visible<3->{\onslide<3,9->{\item El regret va a cero cuando el n\'umero de juegos va a infinito.}}
-  \visible<4->{\onslide<4,9->{\item Supongamos que el regret incondicional de cualquier acci\'on es menor que $\frac{\varepsilon}{2} > 0$.}}
-  \begin{itemize}
-    \visible<5->{\onslide<5,9->{\item La estrategia emp\'irica es una aproximaci\'on a un equilibrio de Nash que se encuentra una distancia no mayor que $\varepsilon$.}}
-    \visible<6->{\onslide<6,9->{\item $\varepsilon$-equilibrio de Nash.}}
-  \end{itemize}
+  \visible<2->{\onslide<2,7->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}}
+  \visible<3->{\onslide<3,7->{\item El regret positivo tiende a cero cuando el n\'umero de juegos tiende a infinito.}}
+  \visible<4->{\onslide<4,7->{\item Si el regret positivo es peque\~no, la \textbf{estrategia emp\'irica} es una aproximaci\'on a un equilibrio de Nash.}}
 \end{enumerate}
 \vspace{.3cm}
 
-\visible<7->{\Alert{Estrategia Emp\'irica}}\\
-\visible<8->{La probabilidad de que un determinado jugador elija una acci\'on $a$ es igual a:
+\visible<5->{\Alert{Estrategia Emp\'irica}}\\
+\visible<6->{La probabilidad de que un determinado jugador elija una acci\'on $a$ es igual a:
 $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'umero total de juegos}}$$}
 \end{frame}
 
 
-\begin{frame}{\Large Resultados Experimentales}
-\vspace{.5cm}
-\begin{columns}[t]
-\column{.45\textwidth}
-\Alert{Evaluaci\'on y Correctitud}
-\begin{enumerate}
-  \onslide<2,15->{\visible<2->{\item Gr\'aficas del regret incondicional con respecto al n\'umero de iteraciones.}}
-  \onslide<3,15->{\visible<3->{\item Problema equivalente de programaci\'on lineal.}}
-  \visible<4->{\item Explotabilidad\only<14->{: $\varepsilon = \varepsilon_1 + \varepsilon_2$}.}
-\end{enumerate}
-\column{.5\textwidth}
-\visible<5->{%
-\Alert{\only<5-8>{Equilibrio de Nash $\sigma^* = (\sigma^*_1, \sigma^*_2)$}\only<9->{Aproximaci\'on $\sigma' = (\sigma'_1, \sigma'_2)$}}
-\visible<6-8, 10->{%
-\begin{enumerate}
-  \onslide<6,10-11,15->{\visible<6-8, 10->{\item Primer jugador garantiza una ganancia esperada de al menos \only<6-8>{$u$}\only<10->{$u-\varepsilon_1$}.}}
-  \onslide<7-8, 12-13,15->{\visible<7-8, 12->{\item Segundo jugador garantiza una ganancia esperada de \only<7>{al menos $-u$.}\only<8, 12->{a lo sumo} \only<8>{$u$}\only<12->{$u+\varepsilon_2$} \only<8, 12->{para el primer jugador.}}}
-\end{enumerate}}
-}
-\end{columns}
-\begin{center}
-  \begin{tikzpicture}
-  \visible<5->{\draw[<->, very thick] (-5.25, 0) -- (5.25, 0);}
-  \visible<5->{\draw[dashed] (0, 1.5) -- (0, -1.5);}
-  \visible<5->{\node[align=center] at (0.15, 0.2) {\small{$u$}};}
-  \visible<5->{\draw[fill=black] (0, 0) circle (0.05cm);}
-  \visible<6>{\draw[->, rounded corners, blue, very thick](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
-  \visible<6->{\draw[->, rounded corners, blue, very thin](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
-  \visible<6->{\node[text width=3.5cm] at (3.5,-1) {$u_1(\sigma_1^*, \sigma_2) \geq u $};}
-  \only<7>{\node[text width=3.5cm] at (-3,-1) {$u_2(\sigma_1, \sigma^*_2) \geq -u $};}
-  \visible<7->{\draw[->, rounded corners, red, very thin](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
-  \visible<7-8>{\draw[->, rounded corners, red,  very thick](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
-  \visible<8->{\node[text width=3.5cm] at (-3,-1) {$u_1(\sigma_1, \sigma^*_2) \leq u $};}
-  \visible<10->{\draw[<->](-0.01, 1) -- (-1.5, 1);}
-  \visible<10->{\draw[dashed] (-1.5, 2) -- (-1.5, -0.45);}
-  \visible<10->{\node[text width=1cm] at (-0.4, 1.25) {$\varepsilon_1$};}
-  \visible<10->{\node[align=left] at (-0.9, 0.2) {\small{$u-\varepsilon_1$}};}
-  \visible<10->{\draw[fill=black] (-1.5, 0) circle (0.05cm);}
-  \visible<11->{\draw[->, rounded corners, blue, very thin](-1.5, 0) -- (-1.5, 0.6) -- (5.25, 0.6);}
-  \visible<11>{\draw[->, rounded corners, blue, very thick](-1.5, 0) -- (-1.5, 0.6) -- ( 5.25, 0.6);}
-  \visible<11->{\node[text width=3.5cm] at (3.5, 1) {$u_1(\sigma'_1, \sigma_2) \geq u - \varepsilon_1$};}
-  \visible<12->{\draw[<->](0.01, 1) -- (0.8, 1);}
-  \visible<12->{\draw[dashed] (0.8, 2) -- (0.8, -0.45);}
-  \visible<12->{\node[text width=1cm] at (0.7, 1.25) {$\varepsilon_2$};}
-  \visible<12->{\node[align=left] at (1.35, 0.2) {\small{$u+\varepsilon_2$}};}
-  \visible<12->{\draw[fill=black] (0.8, 0) circle (0.05cm);}
-  \visible<13->{\draw[->, rounded corners, red, very thin](0.8, 0) -- (0.8, 0.5) -- (-5.25, 0.5);}
-  \visible<13>{\draw[->, rounded corners, red,  very thick]( 0.8, 0) -- ( 0.8, 0.5) -- (-5.25, 0.5);}
-  \visible<13->{\node[text width=3.5cm] at (-3.25, 1) {$u_1(\sigma_1, \sigma'_2) \leq u + \varepsilon_2$};}
-  \visible<14->{\draw[<->](-1.5, 1.7) -- (0.8, 1.7);}
-  \visible<14->{\node[text width=1cm] at (0.1, 2) {$\varepsilon$};}
-  \end{tikzpicture}
-\end{center}
-\end{frame}
+% \begin{frame}{\Large Resultados Experimentales}
+% \vspace{.5cm}
+% \begin{columns}[t]
+% \column{.45\textwidth}
+% \Alert{Evaluaci\'on y Correctitud}
+% \begin{enumerate}
+%   \onslide<2,15->{\visible<2->{\item Gr\'aficas del regret incondicional con respecto al n\'umero de iteraciones.}}
+%   \onslide<3,15->{\visible<3->{\item Problema equivalente de programaci\'on lineal.}}
+%   \visible<4->{\item Explotabilidad\only<14->{: $\varepsilon = \varepsilon_1 + \varepsilon_2$}.}
+% \end{enumerate}
+% \column{.5\textwidth}
+% \visible<5->{%
+% \Alert{\only<5-8>{Equilibrio de Nash $\sigma^* = (\sigma^*_1, \sigma^*_2)$}\only<9->{Aproximaci\'on $\sigma' = (\sigma'_1, \sigma'_2)$}}
+% \visible<6-8, 10->{%
+% \begin{enumerate}
+%   \onslide<6,10-11,15->{\visible<6-8, 10->{\item Primer jugador garantiza una ganancia esperada de al menos \only<6-8>{$u$}\only<10->{$u-\varepsilon_1$}.}}
+%   \onslide<7-8, 12-13,15->{\visible<7-8, 12->{\item Segundo jugador garantiza una ganancia esperada de \only<7>{al menos $-u$.}\only<8, 12->{a lo sumo} \only<8>{$u$}\only<12->{$u+\varepsilon_2$} \only<8, 12->{para el primer jugador.}}}
+% \end{enumerate}}
+% }
+% \end{columns}
+% \begin{center}
+%   \begin{tikzpicture}
+%   \visible<5->{\draw[<->, very thick] (-5.25, 0) -- (5.25, 0);}
+%   \visible<5->{\draw[dashed] (0, 1.5) -- (0, -1.5);}
+%   \visible<5->{\node[align=center] at (0.15, 0.2) {\small{$u$}};}
+%   \visible<5->{\draw[fill=black] (0, 0) circle (0.05cm);}
+%   \visible<6>{\draw[->, rounded corners, blue, very thick](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
+%   \visible<6->{\draw[->, rounded corners, blue, very thin](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
+%   \visible<6->{\node[text width=3.5cm] at (3.5,-1) {$u_1(\sigma_1^*, \sigma_2) \geq u $};}
+%   \only<7>{\node[text width=3.5cm] at (-3,-1) {$u_2(\sigma_1, \sigma^*_2) \geq -u $};}
+%   \visible<7->{\draw[->, rounded corners, red, very thin](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
+%   \visible<7-8>{\draw[->, rounded corners, red,  very thick](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
+%   \visible<8->{\node[text width=3.5cm] at (-3,-1) {$u_1(\sigma_1, \sigma^*_2) \leq u $};}
+%   \visible<10->{\draw[<->](-0.01, 1) -- (-1.5, 1);}
+%   \visible<10->{\draw[dashed] (-1.5, 2) -- (-1.5, -0.45);}
+%   \visible<10->{\node[text width=1cm] at (-0.4, 1.25) {$\varepsilon_1$};}
+%   \visible<10->{\node[align=left] at (-0.9, 0.2) {\small{$u-\varepsilon_1$}};}
+%   \visible<10->{\draw[fill=black] (-1.5, 0) circle (0.05cm);}
+%   \visible<11->{\draw[->, rounded corners, blue, very thin](-1.5, 0) -- (-1.5, 0.6) -- (5.25, 0.6);}
+%   \visible<11>{\draw[->, rounded corners, blue, very thick](-1.5, 0) -- (-1.5, 0.6) -- ( 5.25, 0.6);}
+%   \visible<11->{\node[text width=3.5cm] at (3.5, 1) {$u_1(\sigma'_1, \sigma_2) \geq u - \varepsilon_1$};}
+%   \visible<12->{\draw[<->](0.01, 1) -- (0.8, 1);}
+%   \visible<12->{\draw[dashed] (0.8, 2) -- (0.8, -0.45);}
+%   \visible<12->{\node[text width=1cm] at (0.7, 1.25) {$\varepsilon_2$};}
+%   \visible<12->{\node[align=left] at (1.35, 0.2) {\small{$u+\varepsilon_2$}};}
+%   \visible<12->{\draw[fill=black] (0.8, 0) circle (0.05cm);}
+%   \visible<13->{\draw[->, rounded corners, red, very thin](0.8, 0) -- (0.8, 0.5) -- (-5.25, 0.5);}
+%   \visible<13>{\draw[->, rounded corners, red,  very thick]( 0.8, 0) -- ( 0.8, 0.5) -- (-5.25, 0.5);}
+%   \visible<13->{\node[text width=3.5cm] at (-3.25, 1) {$u_1(\sigma_1, \sigma'_2) \leq u + \varepsilon_2$};}
+%   \visible<14->{\draw[<->](-1.5, 1.7) -- (0.8, 1.7);}
+%   \visible<14->{\node[text width=1cm] at (0.1, 2) {$\varepsilon$};}
+%   \end{tikzpicture}
+% \end{center}
+% \end{frame}
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Experimentos}
+\begin{frame}{\Large Experimentos}
 
 \begin{enumerate}
-  \visible<2->{ \onslide<2, 11->{\item $4$ juegos para dos jugadores de suma cero.}}
-  \visible<3->{ \onslide<3, 11->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}}
-  \visible<4->{ \onslide<4, 11->{\item Criterio de parada: regret incondicional menor que $0.005$.}}
-  \visible<5->{ \onslide<5-10, 11->{\item Tabla de resultados}}
-  \begin{itemize}
-    \visible<6->{ \onslide<6-10, 11->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
-    \visible<7->{ \onslide<7-10, 11->{\item Explotabilidad de la \'ultima estrategia obtenida.}}
-    \visible<8->{ \onslide<8-10, 11->{\item Tiempo promedio.}}
-    \visible<9->{ \onslide<9-10, 11->{\item N\'umero de iteraciones promedio.}}
-    \visible<10->{ \onslide<10, 11->{\item Promedio del tiempo por iteraci\'on.}}
+  \visible<2->{ \onslide<2, 12->{\item $4$ juegos para dos jugadores de suma cero.}}
+  \visible<3->{ \onslide<3, 12->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}}
+  \visible<4->{ \onslide<4, 12->{\item Criterio de parada: regret incondicional menor que $0.005$.}}
+  \visible<5->{ \onslide<5, 12->{\item Comprobaci\'on con un problema equivalente de programaci\'on lineal.}}%
+  \visible<6->{ \onslide<6->{\item Tabla de resultados:}}%
+  \begin{itemize}%
+    \visible<7->{ \onslide<7->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
+    \visible<8->{ \onslide<8->{\item Explotabilidad de la \'ultima estrategia obtenida.}}
+    \visible<9->{ \onslide<9->{\item Tiempo promedio.}}
+    \visible<10->{ \onslide<10->{\item N\'umero de iteraciones promedio.}}
+    \visible<11->{ \onslide<11->{\item Promedio del tiempo por iteraci\'on.}}
   \end{itemize}
 \end{enumerate}
 \end{frame}
@@ -880,7 +876,7 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \end{frame}
 
 \begin{frame}{\Large Ficha vs. Domin\'o}
-\Alert{Valor del juego ($u$):} $\frac{1}{3}$
+\Alert{Valor del juego ($u$):} $\frac{1}{3}$.
 \vspace{.3cm}
 \visible<2->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
@@ -1034,16 +1030,16 @@ level 4/.style={level distance=30mm}
   child { [onslide=<3>{color=white}] node (L) [player2, onslide=<3>{color=white}]  {}
       child { [onslide=<3-4>{color=white}] node (A) [player1, onslide=<3-4>{color=white}]  {}
             child {[onslide=<3-5>{color=white}] node [terminal, onslide=<3-5>{color=white}] [label=below:{$(0,0)$}] {}
-                edge from parent node[left] {$l$} }
+                edge from parent node[left] {$a$} }
             child {[onslide=<3-5>{color=white}] node [terminal, onslide=<3-5>{color=white}] [label=below:{$(2,4)$}] {}
-                edge from parent node[right] {$r$}}
+                edge from parent node[right] {$b$}}
             edge from parent node[left] {A\, \, }
       }
       child { [onslide=<3-4>{color=white}] node (B) [player1, onslide=<3-4>{color=white}] {}
           child {[onslide=<3-5>{color=white}] node (t1) [terminal, onslide=<3-5>{color=white}] [label=below:{$(2,4)$}] {}
-              edge from parent node[left] {$l$} }
+              edge from parent node[left] {$a$} }
           child {[onslide=<3-5>{color=white}] node (t2) [terminal, onslide=<3-5>{color=white}] [label=below:{$(0,0)$}] {}
-              edge from parent node[right] {$r$} }
+              edge from parent node[right] {$b$} }
           edge from parent node[right] {B}
       }
       child { [onslide=<3-4>{color=white}] node (C) [chance, onslide=<3-4>{color=white}] {}
@@ -1081,15 +1077,15 @@ level 4/.style={level distance=30mm}
 \visible<8->{\Alert{Elementos}}
 
 \begin{enumerate}
-  \visible<9->{\onslide<9,18->{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBr, R$.}}
-  \visible<10->{\onslide<10-11,18->{\item Funci\'on que asigna a cada historia (nodo) un jugador.}}
+  \visible<9->{\onslide<9,19->{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBb, R$.}}
+  \visible<10->{\onslide<10-11,19->{\item Funci\'on que asigna a cada historia (nodo) no terminal un jugador.}}
   \visible<11->{
     \begin{itemize}
-      \onslide<11,18->{\item Nodos de Azar}
+      \onslide<11,19->{\item Nodos de Azar}
     \end{itemize}
   }
-  \visible<12->{\onslide<12-14,18->{\item Conjuntos de informaci\'on.}}
-  \visible<15->{\onslide<15-16,18->{\item Funci\'on que asigna por cada historia (nodo) terminal y cada jugador una utilidad.}}
+  \visible<12->{\onslide<12-14,19->{\item Conjuntos de informaci\'on.}}
+  \visible<15->{\onslide<15-16,19->{\item Funci\'on que asigna por cada historia (nodo) terminal y cada jugador una utilidad.}}
   \visible<17->{\onslide<17->{\item Distribuci\'on de probabilidad sobre el conjunto de acciones en cada nodo de azar.}}
 \end{enumerate}
 \end{columns}
@@ -1113,16 +1109,16 @@ level 4/.style={level distance=30mm}
   child {node (L) [player2]  {}
       child {node (A) [player1]  {}
             child {node [terminal] [label=below:{$(0,0)$}] {}
-                edge from parent node[left] {$l$} }
+                edge from parent node[left] {$a$} }
             child {node [terminal] [label=below:{$(2,4)$}] {}
-                edge from parent node[right] {$r$}}
+                edge from parent node[right] {$b$}}
             edge from parent node[left] {A\, \, }
       }
       child {node (B) [player1] {}
           child {node (t1) [terminal] [label=below:{$(2,4)$}] {}
-              edge from parent node[left] {$l$} }
+              edge from parent node[left] {$a$} }
           child {node (t2) [terminal] [label=below:{$(0,0)$}] {}
-              edge from parent node[right] {$r$} }
+              edge from parent node[right] {$b$} }
           edge from parent node[right] {B}
       }
       child {node (C) [chance] {}
@@ -1149,10 +1145,10 @@ level 4/.style={level distance=30mm}
 \visible<2->{%
 \begin{tabular}{c|c|c|c|}
 \multicolumn{1}{c}{} & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B\raisebox{1pt}{\mymark{pB}}} & \multicolumn{1}{c}{C} \\ \cline{2-4}
-(L, $l$) & $0, 0$ & $2, 4$ & $2, 2$ \\ \cline{2-4}
-(L,\raisebox{-5pt}{\tikzmark{pA}} $r$) &  $2, 4$ & $0, 0$ & $2, 2$ \\ \cline{2-4}
-(R, $l$) & $1, 1$ & $1, 1$ & $1, 1$ \\ \cline{2-4}
-(R, $r$) & $1, 1$ & $1, 1$ & $1, 1$ \\ \cline{2-4}
+(L, $a$) & $0, 0$ & $2, 4$ & $2, 2$ \\ \cline{2-4}
+(L,\raisebox{-5pt}{\tikzmark{pA}} $b$) &  $2, 4$ & $0, 0$ & $2, 2$ \\ \cline{2-4}
+(R, $a$) & $1, 1$ & $1, 1$ & $1, 1$ \\ \cline{2-4}
+(R, $b$) & $1, 1$ & $1, 1$ & $1, 1$ \\ \cline{2-4}
 \end{tabular}}
 \ellipse{5}{13pt}{25pt}{pA}
 \ellipse{6}{30pt}{6pt}{pB}
@@ -1164,7 +1160,7 @@ level 4/.style={level distance=30mm}
   \visible<8->{\onslide<8-10,14->{\item Estrategias Mixtas.}}
   \visible<9->{\onslide<9-10,14->{\begin{tabular}{@{}cccc@{}}
   \cmidrule{1-4}
-  (L, $l$) & (L, $r$) & (R, $l$) & (R, $r$) \\
+  (L, $a$) & (L, $b$) & (R, $a$) & (R, $b$) \\
   $0.45$ & $0.30$ & $0.00$ &  $0.25$ \\ \cmidrule{1-4}
   \end{tabular}}}
   \visible<10->{\onslide<10,14->{\begin{tabular}{@{}ccc@{}}
@@ -1176,76 +1172,78 @@ level 4/.style={level distance=30mm}
   \visible<11->{\onslide<11-12,14->{\item Estrategias de Comportamiento.}}
   \visible<12->{\onslide<12,14->{\begin{tabular}{@{}cccc@{}}
   \cmidrule(r){1-2} \cmidrule(l){3-4}
-  L  & R & $l$ & $r$ \\
+  L  & R & $a$ & $b$ \\
   $0.65$ & $0.35$ & $0.40$ &  $0.60$ \\ \cmidrule(r){1-2} \cmidrule(l){3-4}
   \end{tabular}}}
 \end{enumerate}
 \vspace{.3cm}
-\visible<13->{\Alert{Equilibrio de Nash}\\
-Cada jugador utiliza una mejor respuesta frente a su oponente.}
+\visible<13->{\Alert{Equilibrio de Nash}}\\
+\vspace{.25cm}
+%Cada jugador utiliza una mejor respuesta frente a su oponente.}
+\visible<14->{\Alert{Perfect Recall}}
 \end{columns}
 \end{frame}
 
-\begin{frame}{\Large Forma Extensiva}
-\begin{columns}
-\column{.4\textwidth}
-\visible<2->{\Alert{Perfect Recall}}
-\vspace{.3cm}
-\begin{enumerate}
-  \visible<3->{\item El jugador recuerda lo que sab\'ia.}
-  \visible<4->{\item El jugador recuerda lo que eligi\'o.}
-\end{enumerate}
-\vspace{.5cm}
-\visible<11->{En un juego con perfect recall las estrategias mixtas y de comportamiento tienen el mismo poder expresivo.}
-\visible<5->{%
-\column{.575\textwidth}
-\resizebox{\textwidth}{!}{\begin{tikzpicture}[
-chance/.style={circle, fill=gray, thick, minimum size = 4mm},
-player1/.style={circle, fill=blue, thick, minimum size = 4mm},
-player2/.style={circle, fill=red, thick, minimum size=4mm},
-terminal/.style={rectangle, draw=black, fill=black, thick, minimum size=2mm},
-level 1/.style={sibling distance=50mm, level distance=25mm},
-level 2/.style={sibling distance=25mm, level distance=25mm},
-level 3/.style={sibling distance=20mm, level distance=20mm},
-]
+% \begin{frame}{\Large Forma Extensiva}
+% \begin{columns}
+% \column{.4\textwidth}
+% \visible<2->{\Alert{Perfect Recall}}
+% \vspace{.3cm}
+% \begin{enumerate}
+%   \visible<3->{\item El jugador recuerda lo que sab\'ia.}
+%   \visible<4->{\item El jugador recuerda lo que eligi\'o.}
+% \end{enumerate}
+% \vspace{.5cm}
+% \visible<11->{En un juego con perfect recall las estrategias mixtas y de comportamiento tienen el mismo poder expresivo.}
+% \visible<5->{%
+% \column{.575\textwidth}
+% \resizebox{\textwidth}{!}{\begin{tikzpicture}[
+% chance/.style={circle, fill=gray, thick, minimum size = 4mm},
+% player1/.style={circle, fill=blue, thick, minimum size = 4mm},
+% player2/.style={circle, fill=red, thick, minimum size=4mm},
+% terminal/.style={rectangle, draw=black, fill=black, thick, minimum size=2mm},
+% level 1/.style={sibling distance=50mm, level distance=25mm},
+% level 2/.style={sibling distance=25mm, level distance=25mm},
+% level 3/.style={sibling distance=20mm, level distance=20mm},
+% ]
 
-\node[chance] [label = {Nodo de azar}] {}
-  child { [onslide=<5>{color=white}] node[player1, onslide=<5>{color=white}] [label=above:{A}] {}
-    child { [onslide=<5-6>{color=white}] node[terminal, onslide=<5-6>{color=white}] [label=below:{$1$}] {}
-      edge from parent node[left] {P}
-    }
-    child { [onslide=<5-6>{color=white}] node (A) [player1, onslide=<5-6>{color=white}] [label=above:{B}] {}
-      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$2$}] {}
-        edge from parent node[left] {M}
-      }
-      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
-        edge from parent node[right] {I}
-      }
-      edge from parent node[right] {C}
-    }
-    edge from parent node[left] [label=above:{$2, 1\ \ $}] {}
-  }
-  child { [onslide=<5>{color=white}] node[player2, onslide=<5>{color=white}] [label=above:{Z}] {}
-    child { [onslide=<5-7>{color=white}] node (C) [terminal, onslide=<5-7>{color=white}] [label=below:{$-1$}] {}
-      edge from parent node[left] {P}
-    }
-    child { [onslide=<5-7>{color=white}] node (B) [player1, onslide=<5-7>{color=white}] [label=above:{B}] {}
-      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$-2$}] {}
-        edge from parent node[left] {M}
-      }
-      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
-        edge from parent node[right] {I}
-      }
-      edge from parent node[right] {C}
-    }
-    edge from parent node[right] [label=above:{$\ \ 1, 2$}] {}
-  }
-;
+% \node[chance] [label = {Nodo de azar}] {}
+%   child { [onslide=<5>{color=white}] node[player1, onslide=<5>{color=white}] [label=above:{A}] {}
+%     child { [onslide=<5-6>{color=white}] node[terminal, onslide=<5-6>{color=white}] [label=below:{$1$}] {}
+%       edge from parent node[left] {P}
+%     }
+%     child { [onslide=<5-6>{color=white}] node (A) [player1, onslide=<5-6>{color=white}] [label=above:{B}] {}
+%       child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$2$}] {}
+%         edge from parent node[left] {M}
+%       }
+%       child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
+%         edge from parent node[right] {I}
+%       }
+%       edge from parent node[right] {C}
+%     }
+%     edge from parent node[left] [label=above:{$2, 1\ \ $}] {}
+%   }
+%   child { [onslide=<5>{color=white}] node[player2, onslide=<5>{color=white}] [label=above:{Z}] {}
+%     child { [onslide=<5-7>{color=white}] node (C) [terminal, onslide=<5-7>{color=white}] [label=below:{$-1$}] {}
+%       edge from parent node[left] {P}
+%     }
+%     child { [onslide=<5-7>{color=white}] node (B) [player1, onslide=<5-7>{color=white}] [label=above:{B}] {}
+%       child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$-2$}] {}
+%         edge from parent node[left] {M}
+%       }
+%       child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
+%         edge from parent node[right] {I}
+%       }
+%       edge from parent node[right] {C}
+%     }
+%     edge from parent node[right] [label=above:{$\ \ 1, 2$}] {}
+%   }
+% ;
 
-\visible<9->{\draw[dashed] (A.east) .. controls ++(135:-18mm) and ++(45:-18mm) .. (B.west);}
-\end{tikzpicture}}}
-\end{columns}
-\end{frame}
+% \visible<9->{\draw[dashed] (A.east) .. controls ++(135:-18mm) and ++(45:-18mm) .. (B.west);}
+% \end{tikzpicture}}}
+% \end{columns}
+% \end{frame}
 
 \begin{frame}{\Large Kuhn Poker}
 \visible<2->{\resizebox{\textwidth}{!}{
@@ -1397,17 +1395,16 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \draw[dotted] (P5.east) -- (P6.west);
 \end{tikzpicture}
 }}
-\visible<3->{\Alert{Interrogantes}}
-\begin{enumerate}[--]
-  \visible<4->{\item ?`Qu\'e es una estrategia?}
-  \visible<5->{\item ?`Por qu\'e es mejor utilizar una estrategia no determinista?}
-  \visible<6->{\item ?`Es posible ``enga\~nar'' al oponente?}
-\end{enumerate}
+% \visible<3->{\Alert{Interrogantes}}
+% \begin{enumerate}[--]
+%   \visible<4->{\item ?`Qu\'e es una estrategia?}
+%   \visible<5->{\item ?`Es posible ``enga\~nar'' al oponente?}
+% \end{enumerate}
 \end{frame}
 
 \begin{frame}{Counterfactual Regret Minimization (CFR)}
 \begin{enumerate}
-  \visible<2->{\onslide<2,10->{\item El \'arbol del juego se recorre repetidamente. La m\'aquina juega contra s\'i misma de forma repetida.}}
+  \visible<2->{\onslide<2,10->{\item El \'arbol del juego se recorre repetidamente. La m\'aquina juega contra s\'i misma a lo largo del tiempo.}}
   \visible<3->{\onslide<3,10->{\item Se inicia con distribuci\'on uniforme en cada conjunto de informaci\'on.}}
   \visible<4->{\onslide<4,10->{\item En cada iteraci\'on se elige una mejor estrategia revisando las decisiones pasadas, utilizando las m\'etricas de regret.}}
   \visible<5->{\onslide<5,10->{\item La estrategia promedio converge a un equilibrio de Nash.}}
@@ -1417,13 +1414,12 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \visible<6->{\Alert{?`C\'omo se mejora la estrategia en cada iteraci\'on?}}
 \begin{enumerate}[--]
 \visible<7->{\onslide<7,10->{\item Sumar el regret (arrepentimiento) que se tiene en cada conjunto de informaci\'on por cada acci\'on.}}
-\visible<8->{\onslide<8,10->{\item \textbf{Regret}: cu\'anto mejor lo habr\'ia hecho en todos los juegos hasta ahora si siempre hubiera jugado esta acci\'on en este conjunto de informaci\'on.}}
+\visible<8->{\onslide<8,10->{\item \textbf{Regret} (de una acci\'on en un conjunto de informaci\'on): cu\'anto mejor lo habr\'ia hecho en todos los juegos hasta ahora si siempre hubiera jugado esta acci\'on en este conjunto de informaci\'on.}}
 \visible<9->{\onslide<9,10->{\item \textbf{Regret Matching}: en la nueva estrategia las acciones son elegidas con probabilidades proporcionales a los regrets positivos.}}
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{\Large Resultados Experimentales}
-\Alert{Experimentos}
+\begin{frame}{\Large Experimentos}
 
 \begin{enumerate}[--]
   \visible<2->{\onslide<2,15->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}}
