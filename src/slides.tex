@@ -318,18 +318,18 @@
   \end{itemize}
 \end{block}
 \vspace{.5cm}
-\onslide<5->{\Alert{Aplicaciones}}
+\visible<5->{\Alert{Aplicaciones}}
 \begin{center}
 \begin{tabular}{@{}cccc@{}}
-  {\includegraphics[height=.15\textwidth]{../images/ciencias_sociales.png}} &
-  {\includegraphics[height=.15\textwidth]{../images/economia.png}} &
-  {\includegraphics[height=.15\textwidth]{../images/matematica.png}} &
-  {\includegraphics[height=.15\textwidth]{../images/computacion.png}} \\
+  \visible<6->{\includegraphics[height=.15\textwidth]{../images/ciencias_sociales.png}} &
+  \visible<7->{\includegraphics[height=.15\textwidth]{../images/economia.png}} &
+  \visible<8->{\includegraphics[height=.15\textwidth]{../images/matematica.png}} &
+  \visible<9->{\includegraphics[height=.15\textwidth]{../images/computacion.png}} \\
   & & & \\
-  \onslide<6,10->{\textbf{Ciencias sociales}} &
-  \onslide<7,10->{\textbf{Econom\'ia}} &
-  \onslide<8,10->{\textbf{Matem\'atica}} &
-  \onslide<9,10->{\textbf{Computaci\'on}} \\
+  \visible<6->{\textbf{Ciencias sociales}} &
+  \visible<7->{\textbf{Econom\'ia}} &
+  \visible<8->{\textbf{Matem\'atica}} &
+  \visible<9->{\textbf{Computaci\'on}} \\
 \end{tabular}
 \end{center}
 \end{frame}
@@ -539,7 +539,7 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 \begin{frame}{\Large Equilibrio de Nash}
 
 \Alert{Piedra, papel o tijera}
-\vspace{.5cm}
+\vspace{.25cm}
 
 \begin{tabular}{l |c | c | c | }
 \multicolumn{1}{c}{} &  \multicolumn{1}{c}{ $\mathcal{R}$ (piedra)} & \multicolumn{1}{c}{$\mathcal{P}$ (papel)} & \multicolumn{1}{c}{$\mathcal{S}$ (tijera)} \\ \cline{2-4}
@@ -563,34 +563,43 @@ $\mathcal{S}$ (tijera) &
 \ellipse{6}{15pt}{5pt}{pr}
 \ellipse{7}{15pt}{5pt}{ps}
 
-\vspace{.75cm}
+\vspace{.25cm}
 \visible<8->{\RedAlert{No todos los juegos tienen un equilibrio de Nash en estrategias puras.}}
 
 \visible<9->{
-  \vspace{.5cm}
-  \begin{block}{Teorema de Nash}
-  Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
-  \end{block}
+\vspace{.25cm}
+\begin{block}{Teorema de Nash}
+Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
+\end{block}
+}
+
+\visible<10->{
+\vspace{.25cm}
+\Alert{Juegos de Dos Jugadores de Suma Cero}
+\begin{enumerate}[--]
+  \visible<11->{\item Equilibrio de Nash como principal concepto de soluci\'on.}
+  \visible<12->{\item Valor del juego ($u$).}
+\end{enumerate}
 }
 \end{frame}
 
-\begin{frame}{Juegos de Dos Jugadores de Suma Cero}
+% \begin{frame}{Juegos de Dos Jugadores de Suma Cero}
 
-\visible<2->{\Alert{Observaciones previas}}
-\begin{enumerate}[--]
-  \visible<3->{\onslide<3,10->{\item En el juego \textbf{batalla de los sexos} los equilibrios de Nash no son soluciones satisfactorias.}}
-  \visible<4->{\onslide<4,10->{\item Diferentes equilibrios de Nash llevan a diferentes ganancias esperadas.}}
-\end{enumerate}
+% \visible<2->{\Alert{Observaciones previas}}
+% \begin{enumerate}[--]
+%   \visible<3->{\onslide<3,10->{\item En el juego \textbf{batalla de los sexos} los equilibrios de Nash no son soluciones satisfactorias.}}
+%   \visible<4->{\onslide<4,10->{\item Diferentes equilibrios de Nash llevan a diferentes ganancias esperadas.}}
+% \end{enumerate}
 
-\vspace{.5cm}
-\visible<5->{\Alert{Equilibrio de Nash en Juegos de Dos Jugadores de Suma Cero}}
-\begin{enumerate}
-  \visible<6->{\onslide<6,10->{\item Soluci\'on satisfactoria.}}
-  \visible<7->{\onslide<7,10->{\item Valor del juego $u$: ganancia esperada del primer jugador cuando ambos jugadores utilizan \textbf{cualquier} equilibrio de Nash.}}
-  \visible<8->{\onslide<8,10->{\item El primer jugador puede garantizar una ganancia esperada de \textbf{al menos} $u$ independientemente de la estrategia de su oponente.}}
-  \visible<9->{\onslide<9,10->{\item El segundo jugador puede garantizar una ganancia esperada de \textbf{al menos} $-u$ independientemente de la estrategia de su oponente.}}
-\end{enumerate}
-\end{frame}
+% \vspace{.5cm}
+% \visible<5->{\Alert{Equilibrio de Nash en Juegos de Dos Jugadores de Suma Cero}}
+% \begin{enumerate}
+%   \visible<6->{\onslide<6,10->{\item Soluci\'on satisfactoria.}}
+%   \visible<7->{\onslide<7,10->{\item Valor del juego $u$: ganancia esperada del primer jugador cuando ambos jugadores utilizan \textbf{cualquier} equilibrio de Nash.}}
+%   \visible<8->{\onslide<8,10->{\item El primer jugador puede garantizar una ganancia esperada de \textbf{al menos} $u$ independientemente de la estrategia de su oponente.}}
+%   \visible<9->{\onslide<9,10->{\item El segundo jugador puede garantizar una ganancia esperada de \textbf{al menos} $-u$ independientemente de la estrategia de su oponente.}}
+% \end{enumerate}
+% \end{frame}
 
 \begin{frame}{\Large Regret Matching}
 
@@ -674,6 +683,7 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 \vspace{.3cm}
 
 \visible<5->{\Alert{Estrategia Emp\'irica}}\\
+\vspace{.2cm}
 \visible<6->{La probabilidad de que un determinado jugador elija una acci\'on $a$ es igual a:
 $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'umero total de juegos}}$$}
 \end{frame}
@@ -737,17 +747,18 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \begin{frame}{\Large Experimentos}
 
 \begin{enumerate}
-  \visible<2->{ \onslide<2, 12->{\item $4$ juegos para dos jugadores de suma cero.}}
-  \visible<3->{ \onslide<3, 12->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}}
-  \visible<4->{ \onslide<4, 12->{\item Criterio de parada: regret incondicional menor que $0.005$.}}
-  \visible<5->{ \onslide<5, 12->{\item Comprobaci\'on con un problema equivalente de programaci\'on lineal.}}%
-  \visible<6->{ \onslide<6->{\item Tabla de resultados:}}%
+  \visible<2->{ \onslide<2, 13->{\item $4$ juegos para dos jugadores de suma cero.}}
+  \visible<3->{ \onslide<3, 13->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}}
+  \visible<4->{ \onslide<4, 13->{\item Criterio de parada: regret incondicional menor que $0.005$.}}
+  \visible<5->{ \onslide<5, 13->{\item Comprobaci\'on con un problema equivalente de programaci\'on lineal.}}%
+  \visible<6->{ \onslide<6, 13->{\item Gr\'aficas del regret con respecto al n\'umero de iteraciones.}}
+  \visible<7->{ \onslide<7->{\item Tabla de resultados:}}%
   \begin{itemize}%
-    \visible<7->{ \onslide<7->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
-    \visible<8->{ \onslide<8->{\item Explotabilidad de la \'ultima estrategia obtenida.}}
-    \visible<9->{ \onslide<9->{\item Tiempo promedio.}}
-    \visible<10->{ \onslide<10->{\item N\'umero de iteraciones promedio.}}
-    \visible<11->{ \onslide<11->{\item Promedio del tiempo por iteraci\'on.}}
+    \visible<8->{ \onslide<8->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
+    \visible<9->{ \onslide<9->{\item Explotabilidad de la \'ultima estrategia obtenida.}}
+    \visible<10->{ \onslide<10->{\item Tiempo promedio.}}
+    \visible<11->{ \onslide<11->{\item N\'umero de iteraciones promedio.}}
+    \visible<12->{ \onslide<12->{\item Promedio del tiempo por iteraci\'on.}}
   \end{itemize}
 \end{enumerate}
 \end{frame}
@@ -1156,21 +1167,21 @@ level 4/.style={level distance=30mm}
 \column{.5\textwidth}
 \visible<3->{\Alert{Estrategias}}
 \begin{enumerate}
-  \visible<4->{\onslide<4-6,14->{\item Estrategias Puras.}}
-  \visible<8->{\onslide<8-10,14->{\item Estrategias Mixtas.}}
-  \visible<9->{\onslide<9-10,14->{\begin{tabular}{@{}cccc@{}}
+  \visible<4->{\onslide<4-6,15->{\item Estrategias Puras.}}
+  \visible<8->{\onslide<8-10,15->{\item Estrategias Mixtas.}}
+  \visible<9->{\onslide<9-10,15->{\begin{tabular}{@{}cccc@{}}
   \cmidrule{1-4}
   (L, $a$) & (L, $b$) & (R, $a$) & (R, $b$) \\
   $0.45$ & $0.30$ & $0.00$ &  $0.25$ \\ \cmidrule{1-4}
   \end{tabular}}}
-  \visible<10->{\onslide<10,14->{\begin{tabular}{@{}ccc@{}}
+  \visible<10->{\onslide<10,15->{\begin{tabular}{@{}ccc@{}}
   \cmidrule{1-3}
   A & B & C \\
   $0.25$ & $0.25$ & $0.50$ \\
   \cmidrule{1-3}
   \end{tabular}}}
-  \visible<11->{\onslide<11-12,14->{\item Estrategias de Comportamiento.}}
-  \visible<12->{\onslide<12,14->{\begin{tabular}{@{}cccc@{}}
+  \visible<11->{\onslide<11-12,15->{\item Estrategias de Comportamiento.}}
+  \visible<12->{\onslide<12,15->{\begin{tabular}{@{}cccc@{}}
   \cmidrule(r){1-2} \cmidrule(l){3-4}
   L  & R & $a$ & $b$ \\
   $0.65$ & $0.35$ & $0.40$ &  $0.60$ \\ \cmidrule(r){1-2} \cmidrule(l){3-4}
@@ -1179,7 +1190,6 @@ level 4/.style={level distance=30mm}
 \vspace{.3cm}
 \visible<13->{\Alert{Equilibrio de Nash}}\\
 \vspace{.25cm}
-%Cada jugador utiliza una mejor respuesta frente a su oponente.}
 \visible<14->{\Alert{Perfect Recall}}
 \end{columns}
 \end{frame}
@@ -1421,7 +1431,7 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}{\Large Experimentos}
 
-\begin{enumerate}[--]
+\begin{enumerate}
   \visible<2->{\onslide<2,15->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}}
   \visible<3->{\onslide<3,15->{\item CFR con muestreo en los nodos de azar.}}
   \visible<4->{\onslide<4,15->{\item 10 horas de entrenamiento.}}
