@@ -333,11 +333,21 @@
 \end{tabular}
 \end{center}
 \end{frame}
+\newsavebox{\picbox}
+\newcommand{\cutpic}[3]{
+\savebox{\picbox}{\includegraphics[height=#2]{#3}}
+\tikz\node [draw, rounded corners=#1, line width=4pt,
+color=white, minimum width=1.1\wd\picbox,
+minimum height=1.1\ht\picbox, path picture={
+  \node at (path picture bounding box.center) {
+    \usebox{\picbox}};
+}] {};}
 
 \begin{frame}{\Large Juegos no deterministas \\ con informaci\'on incompleta}
 
 \begin{columns}
 \column{.45\textwidth}
+\begin{center}
 \begin{block}{No determinismo}
 \visible<2->{
 Incertidumbre probabil\'istica: \\
@@ -345,25 +355,15 @@ Incertidumbre probabil\'istica: \\
 - Repartir cartas
 }
 \end{block}
-\begin{center}
-\begin{tabular}{@{}ccc@{}}
-\visible<2->{
-  {\includegraphics[height=.32\textwidth]{../images/dados.jpg}} & \quad\quad &
-  {\includegraphics[height=.32\textwidth]{../images/cartas.jpg}}
-}
-\end{tabular}
+\visible<2->{{\cutpic{5mm}{.32\textwidth}{../images/dados.jpg}}}
 \end{center}
 
 \column{.45\textwidth}
-\begin{block}{Informaci\'on incompleta}
-\visible<3->{
-Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamente.
-}
-\end{block}
 \begin{center}
-\begin{tabular}{@{}ccccc@{}}
-  \visible<3->{{\includegraphics[height=.32\textwidth]{../images/dudo.jpg}}}
-\end{tabular}
+\begin{block}{Informaci\'on incompleta}
+\visible<3->{Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamente.}%
+\end{block}
+\visible<3->{{\cutpic{5mm}{.32\textwidth}{../images/poker.jpg}}}
 \end{center}
 \end{columns}
 
@@ -1601,25 +1601,25 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \end{center}
 \end{frame}
 
+\begin{frame}
+  \centering{\resizebox{!}{.65cm}{\Alert{Demo}}}
+\end{frame}
+
 \begin{frame}{\Large Conclusiones y Recomendaciones}
 \visible<2->{\Alert{Conclusiones}}
 \begin{enumerate}
-  \visible<3->{\onslide<3,10->{\item Estudio de juegos no determinista con informaci\'on incompleta: forma normal y forma extensiva.}}
-  \visible<4->{\onslide<4,10->{\item Equilibrio de Nash como concepto de soluci\'on principal en los juegos de dos jugadores de suma cero.}}
-  \visible<5->{\onslide<5,10->{\item Algoritmos de Regret Matching y Counterfactual Regret Minimization para encontrar aproximaciones de equilibrios de Nash.}}
-  \visible<6->{\onslide<6,10->{\item Explotabilidad como m\'etrica de error en las estrategias encontradas.}}
+  \visible<3->{\onslide<3,11->{\item Estudio de juegos no determinista con informaci\'on incompleta: forma normal y forma extensiva.}}
+  \visible<4->{\onslide<4,11->{\item Equilibrio de Nash como concepto principal de soluci\'on en los juegos de dos jugadores de suma cero.}}
+  \visible<5->{\onslide<5,11->{\item Algoritmos de Regret Matching y Counterfactual Regret Minimization para encontrar aproximaciones de equilibrios de Nash.}}
+  \visible<6->{\onslide<6,11->{\item Explotabilidad como m\'etrica de error en las estrategias encontradas.}}
+  \visible<7->{\onslide<7,11->{\item Resoluci\'on de diversos juegos con no determinismo e informaci\'on incompleta, incluyendo una versi\'on del domin\'o.}}
 \end{enumerate}
-\vspace{.25cm}
 
-\visible<7->{\Alert{Recomendaciones}}
+\visible<8->{\Alert{Recomendaciones}}
 \begin{enumerate}
-  \visible<8->{\onslide<8,10->{\item Resolver instancias mayores del juego de domin\'on para $2$ personas considerando abstracciones.}}
-  \visible<9->{\onslide<9,10->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}}
+  \visible<9->{\onslide<9,11->{\item Resolver instancias mayores del juego de domin\'o para $2$ personas considerando abstracciones.}}
+  \visible<10->{\onslide<10,11->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}}
 \end{enumerate}
-\end{frame}
-
-\begin{frame}
-  \centering{\resizebox{!}{.65cm}{\Alert{Demo}}}
 \end{frame}
 
 \begin{frame}
