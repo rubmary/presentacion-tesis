@@ -313,26 +313,27 @@
 \begin{frame}{\Large Teor\'ia de Juegos}
 \begin{block}{Definici\'on}
   \begin{itemize}
-    \item Estudio de \bold<2->{modelos matem\'aticos} de \bold<3->{conflicto} y \bold<3->{cooperaci\'on}.
-    \item Agentes que toman decisiones de forma \bold<4->{racional} e \bold<4->{inteligente}.
+    \item Estudio de \textbf{modelos matem\'aticos} de \textbf{conflicto} y \textbf{cooperaci\'on}.
+    \item Agentes que toman decisiones de forma \textbf{racional} e \textbf{inteligente}.
   \end{itemize}
 \end{block}
 \vspace{.5cm}
-\visible<5->{\Alert{Aplicaciones}}
+\Alert{Aplicaciones}
 \begin{center}
 \begin{tabular}{@{}cccc@{}}
-  \visible<6->{\includegraphics[height=.15\textwidth]{../images/ciencias_sociales.png}} &
-  \visible<7->{\includegraphics[height=.15\textwidth]{../images/economia.png}} &
-  \visible<8->{\includegraphics[height=.15\textwidth]{../images/matematica.png}} &
-  \visible<9->{\includegraphics[height=.15\textwidth]{../images/computacion.png}} \\
+  \includegraphics[height=.15\textwidth]{../images/ciencias_sociales.png} &
+  \includegraphics[height=.15\textwidth]{../images/economia.png} &
+  \includegraphics[height=.15\textwidth]{../images/matematica.png} &
+  \includegraphics[height=.15\textwidth]{../images/computacion.png} \\
   & & & \\
-  \visible<6->{\textbf{Ciencias sociales}} &
-  \visible<7->{\textbf{Econom\'ia}} &
-  \visible<8->{\textbf{Matem\'atica}} &
-  \visible<9->{\textbf{Computaci\'on}} \\
+  \textbf{Ciencias sociales} &
+  \textbf{Econom\'ia} &
+  \textbf{Matem\'atica} &
+  \textbf{Computaci\'on} \\
 \end{tabular}
 \end{center}
 \end{frame}
+
 \newsavebox{\picbox}
 \newcommand{\cutpic}[3]{
 \savebox{\picbox}{\includegraphics[height=#2]{#3}}
@@ -349,29 +350,27 @@ minimum height=1.1\ht\picbox, path picture={
 \column{.45\textwidth}
 \begin{center}
 \begin{block}{No determinismo}
-\visible<2->{
 Incertidumbre probabil\'istica: \\
 - Lanzar dados \\
 - Repartir cartas
-}
 \end{block}
-\visible<2->{{\cutpic{5mm}{.32\textwidth}{../images/dados.jpg}}}
+{\cutpic{5mm}{.32\textwidth}{../images/dados.jpg}}
 \end{center}
 
 \column{.45\textwidth}
 \begin{center}
 \begin{block}{Informaci\'on incompleta}
-\visible<3->{Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamente.}%
+Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamente.%
 \end{block}
-\visible<3->{{\cutpic{5mm}{.32\textwidth}{../images/poker.jpg}}}
+{\cutpic{5mm}{.32\textwidth}{../images/poker.jpg}}
 \end{center}
 \end{columns}
 
 \vspace{.5cm}
-\visible<4->{\Alert{Interrogantes}}
+\Alert{Interrogantes}
 \begin{enumerate}[--]
-  \item \visible<5->{?`Qu\'e significa que un juego sea resuelto?}
-  \item \visible<6->{?`Cu\'ando un jugador juega de forma \'optima?}
+  \item ?`Qu\'e significa que un juego sea resuelto?
+  \item ?`Cu\'ando un jugador juega de forma \'optima?
 \end{enumerate}
 \end{frame}
 
@@ -398,7 +397,7 @@ Incertidumbre probabil\'istica: \\
 \begin{tabular}{l |c | c | c | l }
 \multicolumn{1}{c}{} &  \multicolumn{1}{c}{ $\mathcal{R}$ \raisebox{3pt}{\tikzmark{sp2}}(piedra)} & \multicolumn{1}{c}{$\mathcal{P}$ (papel)} & \multicolumn{1}{c}{$\mathcal{S}$ (ti\raisebox{3pt}{\tikzmark{ep2}}jera)} & \ \
 \visible<3>{\textcolor{blue!70!black}{jugador 2}} \\ \cline{2-4}
-$\mathcal{R}$ (piedra) & $0,0$ & $-1,1$ & $1,-1$ & \visible<10->{\multirow{3}{*}{\shortstack{Juego de \\ dos jugadores\\de suma cero}}} \\ \cline{2-4}
+$\mathcal{R}$ (piedra) & $0,0$ & $-1,1$ & $1,-1$ & \visible<7->{\multirow{3}{*}{\shortstack{Juego de \\ dos jugadores\\de suma cero}}} \\ \cline{2-4}
 $\mathcal{P}$ (p\raisebox{3pt}{\tikzmark{p1}}apel)  & $1,-1$ & $0,0$ & $-1,1$ & \\ \cline{2-4}
 $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ & \\ \cline{2-4}
 \multicolumn{1}{c}{} &
@@ -417,17 +416,17 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 \visible<6->{
 \Alert{Elementos}
 \begin{enumerate}
-  \visible<7->{\onslide<7, 14->{\item Jugadores.}}
-  \visible<8->{\onslide<8, 14->{\item Acciones o estrategias puras: $\mathcal{R}$, $\mathcal{P}$, $\mathcal{S}$.}}
-  \visible<9->{\onslide<9, 14->{\item Funci\'on de pago o utilidades.}}
+  \item Jugadores.
+  \item Acciones o estrategias puras: $\mathcal{R}$, $\mathcal{P}$, $\mathcal{S}$.
+  \item Funci\'on de pago o utilidades.
 \end{enumerate}
 }
 \column{.52\textwidth}
-\visible<11->{
+\visible<8->{
 \Alert{Estrategias}
 \begin{enumerate}
-  \visible<12->{\onslide<12, 14->{\item Estrategias puras: siempre se elige la misma acci\'on.}}
-  \visible<13->{\onslide<13, 14->{\item Estrategias mixtas: cada acci\'on se elige con cierta probabilidad.}}
+  \item Estrategias puras: siempre se elige la misma acci\'on.
+  \item Estrategias mixtas: cada acci\'on se elige con cierta probabilidad.
 \end{enumerate}
 }
 \end{columns}
@@ -465,73 +464,54 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
 
 \multirow{2}{*}{\AlertSecondary{Mar\'ia}}
 & ballet    &
-  \onslide<2->{\ \ \onslide<2-13, 15->{$2$}\onslide<2-12, 15->{$,\,$}\mymark{ballet}\onslide<2-12, 14->{$1$} \mymark{elegirBallet}&
-  \onslide<2-12, 15->{$0,\,$}\mymark{differentsA}\onslide<2-12, 14->{$0$} \\ \cline{3-4}}
+  \ \ \onslide<1-11, 13->{$2$}\onslide<1-10, 13->{$,\,$}\mymark{ballet}\onslide<1-10, 12->{$1$} \mymark{elegirBallet}&
+  \onslide<1-10, 13->{$0,\,$}\mymark{differentsA}\onslide<1-10, 12->{$0$} \\ \cline{3-4}
 & b\'eisbol &
-  \onslide<2->{\onslide<2-13, 15->{$0$}\onslide<2-12, 15->{$,\,$\mymark{differentsB}$0$} &
-  \onslide<2-12, 15->{$1$\mymark{beisbol}$,2$} \\ \cline{3-4}}
+  \onslide<1-11, 13->{$0$}\onslide<1-10, 13->{$,\,$\mymark{differentsB}$0$} &
+  \onslide<1-10, 13->{$1$\mymark{beisbol}$,2$} \\ \cline{3-4}
 
 \end{tabular}
-\ellipse{3}{12pt}{5pt}{differentsA}
-\ellipse{3}{12pt}{5pt}{differentsB}
-\ellipse{4,10,12-15}{12pt}{5pt}{ballet}
-\ellipse{5,12,15}{12pt}{5pt}{beisbol}
-\ellipse{9}{2.5cm}{7pt}{elegirBallet}
+\ellipse{2}{12pt}{5pt}{differentsA}
+\ellipse{2}{12pt}{5pt}{differentsB}
+\ellipse{3,8,10-13}{12pt}{5pt}{ballet}
+\ellipse{4,10,13}{12pt}{5pt}{beisbol}
+\ellipse{7}{2.5cm}{7pt}{elegirBallet}
 
-\column{.3\textwidth}
-\only<3-5>{
-\begin{itemize}
-  \item
-    \only<3>{Ninguno obtiene ganancia.}
-    \only<4>{Mar\'ia obtiene una ganancia mayor que Jos\'e.}
-    \only<5>{Jos\'e obtiene una ganancia mayor que Mar\'ia.}
-\end{itemize}
-}
-
-\only<13-14>{
-  \begin{itemize}
-    \item
-      \only<13>{Mar\'ia no tiene motivos para cambiar su estrategia.}
-      \only<14>{Jos\'e no tiene motivos para cambiar su estrategia.}
-  \end{itemize}
-}
-
-\only<9-10>{
-  \begin{itemize}
-  \item
-    \only<9>{Si Mar\'ia siempre elige ballet.}
-    \only<10>{Lo mejor para Jos\'e es siempre elegir ballet.}
-  \end{itemize}
-}
-
-\only<17->{
+\column{.3\textwidth}%
+\only<2>{Ninguno obtiene ganancia.}%
+\only<3>{Mar\'ia obtiene una ganancia mayor que Jos\'e.}%
+\only<4>{Jos\'e obtiene una ganancia mayor que Mar\'ia.}%
+\only<7>{Si Mar\'ia siempre elige ballet.}%
+\only<8>{Lo mejor para Jos\'e es siempre elegir ballet.}%
+\only<11>{Mar\'ia no tiene motivos para cambiar su estrategia.}%
+\only<12>{Jos\'e no tiene motivos para cambiar su estrategia.}%
+\only<15->{%
   {Lanzar una moneda
   \begin{enumerate}
   \item cara $\implies$ ballet
   \item sello $\implies$ b\'eisbol
-  \end{enumerate}}
-}
+  \end{enumerate}}}
 \end{columns}
 
 \vspace{.5cm}
 
 \begin{columns}
 \column{.4\textwidth}
-\visible<6->{
+\visible<5->{
 \Alert{Conceptos}
 \begin{enumerate}
-  \visible<7->{\onslide<7,18->{\item Ganancia Esperada}}
-  \visible<8->{\onslide<8-10,18->{\item Mejor Respuesta}}
-  \visible<11->{\onslide<11-15,18->{\item Equilibrio de Nash}}
-  \visible<16->{\onslide<16->{\item Equilibrio Correlacionado}}
+  \visible<5->{\onslide<5,16->{\item Ganancia Esperada}}
+  \visible<6->{\onslide<6-8,16->{\item Mejor Respuesta}}
+  \visible<9->{\onslide<9-13,16->{\item Equilibrio de Nash}}
+  \visible<14->{\onslide<14->{\item Equilibrio Correlacionado}}
 \end{enumerate}
 
 \column{.5\textwidth}
 
-\only<7>{Valor promedio que un determinado jugador obtendr\'ia si jugara infinitas veces cuando cada jugador utiliza una estrategia dada.}
-\only<8-10>{La mejor forma en que puede jugar un jugador dadas las estrategias seleccionadas de sus oponentes.}
-\only<11-15>{Cada jugador utiliza una mejor respuesta frente a las estrategias de sus oponentes.}
-\only<16->{Puede haber cooperaci\'on entre los jugadores.}
+\only<5>{Valor promedio que un determinado jugador obtendr\'ia si jugara infinitas veces cuando cada jugador utiliza una estrategia dada.}
+\only<6-8>{La mejor forma en que puede jugar un jugador dadas las estrategias seleccionadas de sus oponentes.}
+\only<9-13>{Cada jugador utiliza una mejor respuesta frente a las estrategias de sus oponentes.}
+\only<14->{Puede haber cooperaci\'on entre los jugadores.}
 }
 \end{columns}
 \end{frame}
@@ -573,14 +553,25 @@ Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
 \end{block}
 }
 
-\visible<10->{
-\vspace{.25cm}
-\Alert{Juegos de Dos Jugadores de Suma Cero}
+% \visible<10->{
+% \vspace{.25cm}
+% \Alert{Juegos de Dos Jugadores de Suma Cero}
+% \begin{enumerate}[--]
+%   \visible<11->{\item Equilibrio de Nash como principal concepto de soluci\'on.}
+%   \visible<12->{\item Valor del juego ($u$).}
+% \end{enumerate}
+% }
+\end{frame}
+
+\begin{frame}{\Large Juegos de Dos Jugadores de Suma Cero}
 \begin{enumerate}[--]
-  \visible<11->{\item Equilibrio de Nash como principal concepto de soluci\'on.}
-  \visible<12->{\item Valor del juego ($u$).}
+  \visible<2->{\item Equilibrio de Nash como principal concepto de soluci\'on.}
+  \visible<3->{\item Valor del juego ($u$).}
+  \begin{itemize}
+  \visible<4->{\item El primer jugador garantiza al menos $u$, independientemente de la estrategia de su oponente.}
+  \visible<5->{\item El segundo jugador garantiza al menos $-u$, independientemente de la estrategia de su oponente.}
+  \end{itemize}
 \end{enumerate}
-}
 \end{frame}
 
 % \begin{frame}{Juegos de Dos Jugadores de Suma Cero}
@@ -601,33 +592,41 @@ Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
 % \end{enumerate}
 % \end{frame}
 
-\begin{frame}{\Large Regret Matching}
+\begin{frame}{\Large Regret Matching: C\'alculo del Equilibrio de Nash}
 
-\Alert{Algoritmos para calcular un Equilibrio de Nash}
-\begin{itemize}
-  \item Juegos de dos jugadores de suma cero.
-\end{itemize}
+% \Alert{Algoritmos para calcular un Equilibrio de Nash}
+% \begin{itemize}
+%   \item Juegos de dos jugadores de suma cero.
+% \end{itemize}
+\Alert{Esquema General:}
 \begin{enumerate}
-  \visible<2->{\onslide<2,8->{\item Se juega de forma repetida a trav\'es del tiempo $t = 1, 2, 3, ...$.}}
-  \visible<3->{\onslide<3,8->{\item A tiempo $t+1$ cada jugador elige una acci\'on siguiendo una estrategia mixta determinada.}}
-  \visible<4->{\onslide<4,8->{\item La \textbf{estrategia emp\'irica} converge a un equilibrio de Nash.}}
+  \visible<2->{\item Se juega de forma repetida a trav\'es del tiempo $t = 1, 2, 3, ...$.}
+  \visible<3->{\item A tiempo $t+1$ cada jugador elige una acci\'on siguiendo una estrategia mixta \textbf{determinada}.}
+  \visible<4->{\item La \textbf{estrategia emp\'irica} converge a un equilibrio de Nash; en la pr\'actica el algoritmo es detenido despu\'es de cierto n\'umero de iteraciones.}
 \end{enumerate}
 \vspace{.25cm}
-\visible<5->{
-\Alert{?`C\'omo calcular la distribuci\'on de probabilidad?}
-\begin{itemize}
-  \item Diferentes formas de calcular la distribuci\'on de probabilidad conducen a diferentes algoritmos.
-\end{itemize}
-}
-\vspace{.25cm}
-\visible<6->{
-\begin{block}{Regret}
-M\'etrica de \bold<7->{arrepentimiento} de no haber elegido una acci\'on en particular.
-\end{block}
-}
+\visible<5->{%
+%\Alert{?`C\'omo calcular la distribuci\'on de probabilidad?}
+% \begin{itemize}
+%   \item Diferentes formas de calcular la distribuci\'on de probabilidad conducen a diferentes algoritmos.
+% \end{itemize}
+Diferentes formas de calcular la estrategia mixta conducen a diferentes algoritmos:
+\begin{enumerate}
+  \item Regret condicional.
+  \item Regret incondicional.
+  \item Vector invariante de probabilidad.
+\end{enumerate}}
+
+
+% \vspace{.25cm}
+% \visible<6->{
+% \begin{block}{Regret}
+% M\'etrica de \bold<7->{arrepentimiento} de no haber elegido una acci\'on en particular.
+% \end{block}
+% }
 \end{frame}
 
-\begin{frame}{\Large Regret Matching}
+\begin{frame}{\Large Regret Matching: Procedimientos}
 \begin{block}{Regret}
 M\'etrica de \textbf{arrepentimiento} de no haber elegido una acci\'on en particular.
 \end{block}
@@ -637,11 +636,13 @@ M\'etrica de \textbf{arrepentimiento} de no haber elegido una acci\'on en partic
 \visible<2->{\Alert{Tres procedimientos}}
 \begin{enumerate}
   \visible<3->{\onslide<3-5,10->{\item Regret condicional.}}
-  \visible<6->{\onslide<6,10->{\item Vector invariante de probabilidad de la matriz\\de regret condicional.}}
-  \visible<7->{\onslide<7->{\item Regret incondicional.}}
+  \visible<6->{\onslide<6-8,10->{\item Regret incondicional.}}
+  \visible<9->{\onslide<9->{\item Vector invariante de probabilidad.}}
 \end{enumerate}
 
 \column{.5\textwidth}
+
+\vspace{.3cm}
 \visible<2->{%
 \begin{tabular}{|p{9mm}p{9mm}p{9mm}|p{5mm}|}
 \hline
@@ -651,40 +652,40 @@ $\mathcal{R}, \mathcal{S}$ & $\mathcal{R}, \mathcal{P}$ & $\mathcal{S}, \mathcal
 }
 
 \vspace{.3cm}
-\visible<4-5,8->{%
+\visible<4-5,7-8>{%
 \begin{tabular}{|p{9mm}p{9mm}p{9mm}|p{5mm}|}
 \hline
-  $\AlertSecondary{\mathcal{\only<4,8>S\only<5,9->P}}, \mathcal{S}$ &
-  $\AlertSecondary{\mathcal{\only<4,8>S\only<5,9->P}}, \mathcal{P}$ &
-  $\only<4-5>{\mathcal{S}}\AlertSecondary{\only<8>{\mathcal{S}}\only<9->{\mathcal{P}}}, \mathcal{S}$ &
+  $\RedAlert{\mathcal{\only<4,7>S\only<5,8->P}}, \mathcal{S}$ &
+  $\RedAlert{\mathcal{\only<4,7>S\only<5,8->P}}, \mathcal{P}$ &
+  $\only<4-5>{\mathcal{S}}\RedAlert{\only<7>{\mathcal{S}}\only<8->{\mathcal{P}}}, \mathcal{S}$ &
   $\bar{u}$\\ \hline
-  \only<4,8>0\only<5,9->{-1}&\only<4,8>1\only<5,9->0&\only<4-5,8>0\only<9->{-1}&\only<5,9->-$\frac{\only<4-5,8>1\only<9->2}{3}$\\ \hline
+  \only<4,7>0\only<5,8->{-1}&\only<4,7>1\only<5,8->0&\only<4-5,7>0\only<8->{-1}&\only<5,8->-$\frac{\only<4-5,7>1\only<8->2}{3}$\\ \hline
 \end{tabular}
 }
 \vspace{.3cm}
-\visible<4-5, 8->{
+\visible<4-5, 7-8>{
 \begin{tabular}{p{50mm}}
  \only<4>{$R_1(\mathcal{R}, \mathcal{S}\,) = \frac{1}{3} - 0 = \frac{1}{3}$}
  \only<5>{$R_1(\mathcal{R}, \mathcal{P}) = -\frac{1}{3} - 0 = -\frac{1}{3}$}
- \only<8>{$R_1(\mathcal{S}) =  \frac{1}{3} - 0 =  \frac{1}{3}$}
- \only<9->{$R_1(\mathcal{P}) = -\frac{2}{3} - 0 = -\frac{2}{3}$}
+ \only<7>{$R_1(\mathcal{S}) =  \frac{1}{3} - 0 =  \frac{1}{3}$}
+ \only<8->{$R_1(\mathcal{P}) = -\frac{2}{3} - 0 = -\frac{2}{3}$}
 \end{tabular}
 }
 \end{columns}
 \end{frame}
 
-\begin{frame}{\Large Regret Matching}
-\Alert{Observaciones}
+\begin{frame}{\Large Regret Matching: Observaciones}
+% \Alert{Observaciones}
 \begin{enumerate}
-  \visible<2->{\onslide<2,7->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}}
-  \visible<3->{\onslide<3,7->{\item El regret positivo tiende a cero cuando el n\'umero de juegos tiende a infinito.}}
-  \visible<4->{\onslide<4,7->{\item Si el regret positivo es peque\~no, la \textbf{estrategia emp\'irica} es una aproximaci\'on a un equilibrio de Nash.}}
+  \visible<2->{\item Las probabilidades son elegidas proporcional a los regrets positivos.}
+  \visible<3->{\item El regret positivo tiende a cero cuando el n\'umero de juegos tiende a infinito.}
+  \visible<4->{\item Si el regret positivo es peque\~no, la \textbf{estrategia emp\'irica} es una aproximaci\'on a un equilibrio de Nash.}
 \end{enumerate}
 \vspace{.3cm}
 
 \visible<5->{\Alert{Estrategia Emp\'irica}}\\
 \vspace{.2cm}
-\visible<6->{La probabilidad de que un determinado jugador elija una acci\'on $a$ es igual a:
+\visible<5->{La probabilidad de que un determinado jugador elija una acci\'on $a$ es igual a:
 $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'umero total de juegos}}$$}
 \end{frame}
 
@@ -744,22 +745,22 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 % \end{center}
 % \end{frame}
 
-\begin{frame}{\Large Experimentos}
+\begin{frame}{\Large Regret Matching: Experimentos}
 
 \begin{enumerate}
-  \visible<2->{ \onslide<2, 13->{\item $4$ juegos para dos jugadores de suma cero.}}
-  \visible<3->{ \onslide<3, 13->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}}
-  \visible<4->{ \onslide<4, 13->{\item Criterio de parada: regret incondicional menor que $0.005$.}}
-  \visible<5->{ \onslide<5, 13->{\item Comprobaci\'on con un problema equivalente de programaci\'on lineal.}}%
-  \visible<6->{ \onslide<6, 13->{\item Gr\'aficas del regret con respecto al n\'umero de iteraciones.}}
-  \visible<7->{ \onslide<7->{\item Tabla de resultados:}}%
-  \begin{itemize}%
-    \visible<8->{ \onslide<8->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
-    \visible<9->{ \onslide<9->{\item Explotabilidad de la \'ultima estrategia obtenida.}}
-    \visible<10->{ \onslide<10->{\item Tiempo promedio.}}
-    \visible<11->{ \onslide<11->{\item N\'umero de iteraciones promedio.}}
-    \visible<12->{ \onslide<12->{\item Promedio del tiempo por iteraci\'on.}}
-  \end{itemize}
+  \visible<2->{\item $4$ juegos para dos jugadores de suma cero.}
+  \visible<3->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}
+  \visible<4->{\item Criterio de parada: regret incondicional menor que $0.005$.}
+  \visible<5->{\item Gr\'aficas del regret con respecto al n\'umero de iteraciones.}
+  \visible<6->{\item Verificaci\'on realizada con programaci\'on lineal.}%
+  % \visible<7->{ \onslide<7->{\item Tabla de resultados:}}%
+  % \begin{itemize}%
+  %   \visible<8->{ \onslide<8->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
+  %   \visible<9->{ \onslide<9->{\item Explotabilidad de la \'ultima estrategia obtenida.}}
+  %   \visible<10->{ \onslide<10->{\item Tiempo promedio.}}
+  %   \visible<11->{ \onslide<11->{\item N\'umero de iteraciones promedio.}}
+  %   \visible<12->{ \onslide<12->{\item Promedio del tiempo por iteraci\'on.}}
+  % \end{itemize}
 \end{enumerate}
 \end{frame}
 
@@ -774,43 +775,39 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 }
 
 \begin{frame}{\Large Matching Pennies}
-\visible<2->{\Alert{Valor del juego ($u$):} $0$.}
+\Alert{Valor del juego ($u$):} $0$.
 \vspace{.3cm}
-\visible<3->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
 \begin{tabular}{l r r r}
     \toprule
     & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
-    \onslide<3,4,9->{Ganancia esperada $u(\sigma)$ & $0,000$ & $0,000$ & $0,000$} \\
-    \onslide<3,5,9->{Explotabilidad $\varepsilon_{\sigma}$ & $0,006$ & $0,006$ & $0,008$} \\
-    \onslide<3,6,9->{Tiempo $T$ & $10,276$ & $0,777$ & $0,042$} \\
-    \onslide<3,7,9->{Iteraciones $I$ & $3.892.550,4$ & $25.616,6$ & $16.260,5$}   \\
-    \onslide<3,8,9->{$T/I$ & $2,64{\times}10^{-6}$ & $3,03{\times}10^{-5}$ & $2,58{\times}10^{-6}$} \\
+    Ganancia esperada $u(\sigma)$ & $0,000$ & $0,000$ & $0,000$ \\
+    Explotabilidad $\varepsilon_{\sigma}$ & $0,006$ & $0,006$ & $0,008$ \\
+    Tiempo $T$ & $10,276$ & $0,777$ & $0,042$ \\
+    Iteraciones $I$ & $3.892.550,4$ & $25.616,6$ & $16.260,5$   \\
+    $T/I$ & $2,64{\times}10^{-6}$ & $3,03{\times}10^{-5}$ & $2,58{\times}10^{-6}$ \\
     \bottomrule
 \end{tabular}
 } \end{center}
-}
-\visible<9->{\graphicsRM{matching-pennies}}
+\graphicsRM{matching-pennies}
 \end{frame}
 
 \begin{frame}{\Large Piedra, Papel o Tijera}
-\visible<2->{\Alert{Valor del juego ($u$):} $0$.}
+\Alert{Valor del juego ($u$):} $0$.
 \vspace{.3cm}
-\visible<3->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
 \begin{tabular}{l r r r}
     \toprule
     & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
-    \onslide<3,4,9->{Ganancia esperada $u(\sigma)$ & $-0,000012$ & $0,000004$ & $0,000022$} \\
-    \onslide<3,5,9->{Explotabilidad $\varepsilon_{\sigma}$ &  $0,006$ & $0,010$ & $0,009$} \\
-    \onslide<3,6,9->{Tiempo $T$ & $12,198$ & $0,345$ & $0,049$} \\
-    \onslide<3,7,9->{Iteraciones $I$ & $4.519.054,1$ & $6.601,3$ &  $19.321,1$} \\
-    \onslide<3,8,9->{$T/I$ & $2,70{\times}10^{-6}$ & $5,23{\times}10^{-5}$ & $2,54{\times}10^{-6}$} \\
+    Ganancia esperada $u(\sigma)$ & $-0,000012$ & $0,000004$ & $0,000022$ \\
+    Explotabilidad $\varepsilon_{\sigma}$ &  $0,006$ & $0,010$ & $0,009$ \\
+    Tiempo $T$ & $12,198$ & $0,345$ & $0,049$ \\
+    Iteraciones $I$ & $4.519.054,1$ & $6.601,3$ &  $19.321,1$ \\
+    $T/I$ & $2,70{\times}10^{-6}$ & $5,23{\times}10^{-5}$ & $2,54{\times}10^{-6}$ \\
     \bottomrule
 \end{tabular}
 } \end{center}
-}
-\visible<9->{\graphicsRM{RPS}}
+\graphicsRM{RPS}
 \end{frame}
 
 \begin{frame}{\Large Ficha vs. Domin\'o}
@@ -889,21 +886,19 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \begin{frame}{\Large Ficha vs. Domin\'o}
 \Alert{Valor del juego ($u$):} $\frac{1}{3}$.
 \vspace{.3cm}
-\visible<2->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
 \begin{tabular}{l r r r}
     \toprule
     & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
-    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $0,333$ & $0,334$ & $0,334$}  \\
-    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ & $0,010$ & $0,007$ & $0,004$} \\
-    \onslide<2,5,8->{Tiempo $T$ & $319,179$ & $11,275$ & $0,237$}  \\
-    \onslide<2,6,8->{Iteraciones $I$ & $108.319.272,4$ & $75.250,2$ & $84.318,5$} \\
-    \onslide<2,7,8->{$T/I$ & $2,95 {\times} 10^{-6}$ & $1,50 {\times} 10^{-4}$ & $2,81 {\times} 10^{-6}$} \\
+    Ganancia esperada $u(\sigma)$ & $0,333$ & $0,334$ & $0,334$  \\
+    Explotabilidad $\varepsilon_{\sigma}$ & $0,010$ & $0,007$ & $0,004$ \\
+    Tiempo $T$ & $319,179$ & $11,275$ & $0,237$  \\
+    Iteraciones $I$ & $108.319.272,4$ & $75.250,2$ & $84.318,5$ \\
+    $T/I$ & $2,95 {\times} 10^{-6}$ & $1,50 {\times} 10^{-4}$ & $2,81 {\times} 10^{-6}$ \\
     \bottomrule
 \end{tabular}
 } \end{center}
-}
-\visible<8->{\graphicsRM{domino}}
+\graphicsRM{domino}
 \end{frame}
 
 \newcommand{\soldier}[3]{
@@ -924,7 +919,7 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \column{.45\textwidth}
 \begin{itemize}
   \visible<9->{\item $u_1 = 1-2 = -1$}
-  \visible<10->{\item $u_2 = 2-1 = 1$.}
+  \visible<9->{\item $u_2 = 2-1 = 1$.}
 \end{itemize}
 \end{columns}
 \begin{center}
@@ -997,31 +992,33 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \begin{frame}{\Large Coronel Blotto}
 \Alert{Valor del juego ($u$):} $0$.
 \vspace{.3cm}
-\visible<2->{%
 \begin{center} \resizebox{.9\textwidth}{!}{
 \begin{tabular}{l r r r}
     \toprule
     & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
-    \onslide<2,3,8->{Ganancia esperada $u(\sigma)$ & $0,000219$ & $0,000150$ & $0,000024$} \\
-    \onslide<2,4,8->{Explotabilidad $\varepsilon_{\sigma}$ & $0,010$ & $0,010$ & $0,009$}  \\
-    \onslide<2,5,8->{Tiempo $T$ &  $875,533$ &  $70,453$ & $0,166$} \\
-    \onslide<2,6,8->{Iteraciones $I$ &  $190.222.305,3$ & $58.794,4$  & $48.613,5$} \\
-    \onslide<2,7,8->{$T/I$ & $4,60{\times}10^{-6}$ & $1,20{\times}10^{-3}$ & $3,41{\times}10^{-6}$} \\
+    Ganancia esperada $u(\sigma)$ & $0,000219$ & $0,000150$ & $0,000024$ \\
+    Explotabilidad $\varepsilon_{\sigma}$ & $0,010$ & $0,010$ & $0,009$  \\
+    Tiempo $T$ &  $875,533$ &  $70,453$ & $0,166$ \\
+    Iteraciones $I$ &  $190.222.305,3$ & $58.794,4$  & $48.613,5$ \\
+    $T/I$ & $4,60{\times}10^{-6}$ & $1,20{\times}10^{-3}$ & $3,41{\times}10^{-6}$ \\
     \bottomrule
 \end{tabular}
 } \end{center}
-}
-\visible<8->{\graphicsRM{blotto-game}}
+\graphicsRM{blotto-game}
 \end{frame}
 
 \tikzset{onslide/.code args={<#1>#2}{%
   \only<#1>{\pgfkeysalso{#2}}
 }}
 
-\begin{frame}{\Large Forma Extensiva}
+\begin{frame}
+  \centering{\resizebox{!}{.5cm}{\Alert{Forma Extensiva}}}
+\end{frame}
+
+\begin{frame}{\Large Forma Extensiva: Modelo}
 \begin{columns}
 \column{.5\textwidth}
-\visible<2->{\Alert{Juegos secuenciales}}
+\Alert{Juegos secuenciales}
 \vspace{.5cm}
 
 \visible<3->{%
@@ -1083,7 +1080,11 @@ level 4/.style={level distance=30mm}
 \visible<18>{\draw[dashed] ($(t3)!0.5!(t4)!0.25!(C)$) ellipse (1.5cm and 1.5cm);}
 \end{tikzpicture}
 }}
-\vspace{.35cm}
+
+\vspace{.45cm}
+\visible<19->{\Alert{Perfect Recall}}
+\vspace{.45cm}
+
 \column{.45\textwidth}
 \visible<8->{\Alert{Elementos}}
 
@@ -1166,31 +1167,32 @@ level 4/.style={level distance=30mm}
 
 \column{.5\textwidth}
 \visible<3->{\Alert{Estrategias}}
+\vspace{.3cm}
 \begin{enumerate}
-  \visible<4->{\onslide<4-6,15->{\item Estrategias Puras.}}
-  \visible<8->{\onslide<8-10,15->{\item Estrategias Mixtas.}}
-  \visible<9->{\onslide<9-10,15->{\begin{tabular}{@{}cccc@{}}
+  \visible<4->{\item Estrategias Puras.}
+  \visible<8->{\item Estrategias Mixtas.}
+  \visible<9->{\begin{tabular}{@{}cccc@{}}
   \cmidrule{1-4}
   (L, $a$) & (L, $b$) & (R, $a$) & (R, $b$) \\
   $0.45$ & $0.30$ & $0.00$ &  $0.25$ \\ \cmidrule{1-4}
-  \end{tabular}}}
-  \visible<10->{\onslide<10,15->{\begin{tabular}{@{}ccc@{}}
+  \end{tabular}}
+  \visible<9->{\begin{tabular}{@{}ccc@{}}
   \cmidrule{1-3}
   A & B & C \\
   $0.25$ & $0.25$ & $0.50$ \\
   \cmidrule{1-3}
-  \end{tabular}}}
-  \visible<11->{\onslide<11-12,15->{\item Estrategias de Comportamiento.}}
-  \visible<12->{\onslide<12,15->{\begin{tabular}{@{}cccc@{}}
+  \end{tabular}}
+  \visible<10->{\item Estrategias de Comportamiento.}
+  \visible<11->{\begin{tabular}{@{}cccc@{}}
   \cmidrule(r){1-2} \cmidrule(l){3-4}
   L  & R & $a$ & $b$ \\
   $0.65$ & $0.35$ & $0.40$ &  $0.60$ \\ \cmidrule(r){1-2} \cmidrule(l){3-4}
-  \end{tabular}}}
+  \end{tabular}}
 \end{enumerate}
 \vspace{.3cm}
-\visible<13->{\Alert{Equilibrio de Nash}}\\
-\vspace{.25cm}
-\visible<14->{\Alert{Perfect Recall}}
+% \visible<13->{\Alert{Equilibrio de Nash}}\\
+% \vspace{.25cm}
+%\visible<14->{\Alert{Perfect Recall}}
 \end{columns}
 \end{frame}
 
@@ -1256,7 +1258,7 @@ level 4/.style={level distance=30mm}
 % \end{frame}
 
 \begin{frame}{\Large Kuhn Poker}
-\visible<2->{\resizebox{\textwidth}{!}{
+\resizebox{\textwidth}{!}{
 \begin{tikzpicture}[
 chance/.style={circle, draw=black, fill=gray, thick, minimum size = 6mm},
 player1/.style={circle, draw=black, solid, thick, minimum size = 4mm},
@@ -1403,8 +1405,7 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \draw[dotted] (P1.east) -- (P2.west);
 \draw[dotted] (P3.east) -- (P4.west);
 \draw[dotted] (P5.east) -- (P6.west);
-\end{tikzpicture}
-}}
+\end{tikzpicture}}
 % \visible<3->{\Alert{Interrogantes}}
 % \begin{enumerate}[--]
 %   \visible<4->{\item ?`Qu\'e es una estrategia?}
@@ -1414,47 +1415,45 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}{Counterfactual Regret Minimization (CFR)}
 \begin{enumerate}
-  \visible<2->{\onslide<2,10->{\item El \'arbol del juego se recorre repetidamente. La m\'aquina juega contra s\'i misma a lo largo del tiempo.}}
-  \visible<3->{\onslide<3,10->{\item Se inicia con distribuci\'on uniforme en cada conjunto de informaci\'on.}}
+  \visible<2->{\onslide<2,10->{\item El \'arbol del juego se recorre repetidamente.}} %La m\'aquina juega contra s\'i misma a lo largo del tiempo.}}
+  \visible<3->{\onslide<3,10->{\item Inicia con una estrategia uniforme en cada conjunto de informaci\'on.}}
   \visible<4->{\onslide<4,10->{\item En cada iteraci\'on se elige una mejor estrategia revisando las decisiones pasadas, utilizando las m\'etricas de regret.}}
-  \visible<5->{\onslide<5,10->{\item La estrategia promedio converge a un equilibrio de Nash.}}
+  \visible<5->{\onslide<5,10->{\item La estrategia promedio converge a un equilibrio de Nash; en la pr\'actica el algoritmo es detenido despu\'es de cierto n\'umero de iteraciones}}
 \end{enumerate}
-\vspace{.25cm}
-
 \visible<6->{\Alert{?`C\'omo se mejora la estrategia en cada iteraci\'on?}}
 \begin{enumerate}[--]
-\visible<7->{\onslide<7,10->{\item Sumar el regret (arrepentimiento) que se tiene en cada conjunto de informaci\'on por cada acci\'on.}}
-\visible<8->{\onslide<8,10->{\item \textbf{Regret} (de una acci\'on en un conjunto de informaci\'on): cu\'anto mejor lo habr\'ia hecho en todos los juegos hasta ahora si siempre hubiera jugado esta acci\'on en este conjunto de informaci\'on.}}
+\visible<7->{\onslide<7,10->{\item Sumar el regret contrafactual que se tiene en cada conjunto de informaci\'on por cada acci\'on.}}
+\visible<8->{\onslide<8,10->{\item \textbf{Regret contrafactual}: cu\'anto mejor lo habr\'ia hecho en todos los juegos hasta ahora si siempre hubiera jugado esta acci\'on en este conjunto de informaci\'on.}}
 \visible<9->{\onslide<9,10->{\item \textbf{Regret Matching}: en la nueva estrategia las acciones son elegidas con probabilidades proporcionales a los regrets positivos.}}
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{\Large Experimentos}
+\begin{frame}{\Large CFR: Experimentos}
 
 \begin{enumerate}
-  \visible<2->{\onslide<2,15->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}}
-  \visible<3->{\onslide<3,15->{\item CFR con muestreo en los nodos de azar.}}
-  \visible<4->{\onslide<4,15->{\item 10 horas de entrenamiento.}}
-  \visible<5->{\onslide<5,15->{\item Un juego se considera resuelto si la explotabilidad es menor que el $1\%$ de la m\'inima ganancia positiva posible.}}
-  \visible<6->{\onslide<6,15->{\item Gr\'afica del regret con respecto al n\'umero de iteraciones.}}
-  \visible<7->{\item Tabla de resultados:}
-    \begin{columns}%
-    \column{.45\textwidth}%
-    \begin{itemize}
-      \setlength{\itemsep}{0pt}
-      \visible<8->{\item Instancia estudiada.}
-      \visible<9->{\item N\'umero de nodos del \'arbol.}
-      \visible<10->{\item N\'umero de conjuntos de informaci\'on.}
-      \visible<11->{\item N\'umero de iteraciones.}
-    \end{itemize}%
-    \column{.45\textwidth}%
-    \begin{itemize}
-      \setlength{\itemsep}{0pt}
-      \visible<12->{\item Ganancia esperada del primer jugador de la estrategia calculada.}
-      \visible<13->{\item Explotabilidad.}
-      \visible<14->{\item Se resolvi\'o o no la instancia.}
-    \end{itemize}
-    \end{columns}
+  \visible<2->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}
+  \visible<3->{\item CFR con muestreo en los nodos de azar (referencia).}
+  \visible<4->{\item 10 horas de entrenamiento.}
+  \visible<5->{\item Gr\'afica del regret con respecto al n\'umero de iteraciones.}
+  \visible<6->{\item Verificaci\'on: la explotabilidad mide la distancia entre la estrategia actual y un equilibrio de Nash.}
+  \visible<7->{\item Un juego se considera resuelto si la explotabilidad es menor que el $1\%$ de la m\'inima ganancia positiva posible.}
+    % \begin{columns}%
+    % \column{.45\textwidth}%
+    % \begin{itemize}
+    %   \setlength{\itemsep}{0pt}
+    %   \visible<8->{\item Instancia estudiada.}
+    %   \visible<9->{\item N\'umero de nodos del \'arbol.}
+    %   \visible<10->{\item N\'umero de conjuntos de informaci\'on.}
+    %   \visible<11->{\item N\'umero de iteraciones.}
+    % \end{itemize}%
+    % \column{.45\textwidth}%
+    % \begin{itemize}
+    %   \setlength{\itemsep}{0pt}
+    %   \visible<12->{\item Ganancia esperada del primer jugador de la estrategia calculada.}
+    %   \visible<13->{\item Explotabilidad.}
+    %   \visible<14->{\item Se resolvi\'o o no la instancia.}
+    % \end{itemize}
+    % \end{columns}
 \end{enumerate}
 \end{frame}
 
@@ -1489,15 +1488,13 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}{\Large One Card Poker (OCP)}
 \begin{center}
-\resizebox{\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
-  {\includegraphics{../graphics/cfr/ocp/OCP(3).png}} &
-  {\includegraphics{../graphics/cfr/ocp/OCP(12).png}} &
-  {\includegraphics{../graphics/cfr/ocp/OCP(50).png}}
+\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/ocp/OCP(50).png}} &
+  {\includegraphics{../graphics/cfr/ocp/OCP(200).png}}
 \end{tabular}}
 \vspace{.5cm}
 
-\resizebox{\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
-  {\includegraphics{../graphics/cfr/ocp/OCP(200).png}} &
+\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/ocp/OCP(1000).png}} &
   {\includegraphics{../graphics/cfr/ocp/OCP(5000).png}}
 \end{tabular}}
@@ -1536,29 +1533,16 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}{\Large Dudo}
 \begin{center}
-\resizebox{!}{1.05cm}{\begin{tabular}{@{}cccc@{}}
-  {\includegraphics{../graphics/cfr/dudo/Dudo(4,1,1).png}} &
-  {\includegraphics{../graphics/cfr/dudo/Dudo(4,1,2).png}} &
-  {\includegraphics{../graphics/cfr/dudo/Dudo(4,2,1).png}} &
-  {\includegraphics{../graphics/cfr/dudo/Dudo(4,2,2).png}}
-\end{tabular}}
-\vspace{.3cm}
-
-\resizebox{!}{1.05cm}{\begin{tabular}{@{}cccc@{}}
-  {\includegraphics{../graphics/cfr/dudo/Dudo(5,1,1).png}} &
-  {\includegraphics{../graphics/cfr/dudo/Dudo(5,1,2).png}} &
-  {\includegraphics{../graphics/cfr/dudo/Dudo(5,2,1).png}} &
+\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/dudo/Dudo(4,2,2).png}} &
   {\includegraphics{../graphics/cfr/dudo/Dudo(5,2,2).png}}
 \end{tabular}}
-\vspace{.3cm}
+\vspace{.5cm}
 
-\resizebox{!}{1.05cm}{\begin{tabular}{@{}ccc@{}}
-  {\includegraphics{../graphics/cfr/dudo/Dudo(6,1,1).png}} &
+\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/dudo/Dudo(6,1,2).png}} &
   {\includegraphics{../graphics/cfr/dudo/Dudo(6,2,1).png}}
 \end{tabular}}
-
-\vspace{.5cm}
 \end{center}
 \end{frame}
 
@@ -1601,8 +1585,8 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \end{center}
 \end{frame}
 
-\begin{frame}
-  \centering{\resizebox{!}{.65cm}{\Alert{Demo}}}
+\begin{frame}{\Large Experimentos Nuevos}
+Agregar los experimentos con 200 horas.
 \end{frame}
 
 \begin{frame}{\Large Conclusiones y Recomendaciones}
@@ -1620,6 +1604,10 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
   \visible<9->{\onslide<9,11->{\item Resolver instancias mayores del juego de domin\'o para $2$ personas considerando abstracciones.}}
   \visible<10->{\onslide<10,11->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}}
 \end{enumerate}
+\end{frame}
+
+\begin{frame}
+  \centering{\resizebox{!}{.65cm}{\Alert{Demo}}}
 \end{frame}
 
 \begin{frame}
