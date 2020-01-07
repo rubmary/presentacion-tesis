@@ -389,6 +389,10 @@ Informaci\'on parcial sobre algunas de las acciones que fueron tomadas previamen
 % \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \centering{\resizebox{!}{.5cm}{\Alert{Forma Normal o Estrat\'egica}}}
+\end{frame}
+
 \begin{frame}{\Large Juegos en Forma Normal o Estrat\'egica}
 
 \Alert{Piedra, papel o tijera}
@@ -493,7 +497,7 @@ $\mathcal{S}$ (tijera) & $-1,1$ & $1,$\raisebox{3pt}{\tikzmark{u}}$-1$ & $0,0$ &
   \end{enumerate}}}
 \end{columns}
 
-\vspace{.5cm}
+\vspace{.8cm}
 
 \begin{columns}
 \column{.4\textwidth}
@@ -860,8 +864,8 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \begin{columns}
 \column{.5\textwidth}
 \begin{enumerate}
-  \visible<11->{\onslide<11,13->{\item La ficha y el domin\'o no se superponen: gana el jugador 1.}}
-  \visible<12->{\onslide<12,13->{\item La ficha y el domin\'o s\'i se superponen: gana el jugador 2.}}
+  \visible<10->{\onslide<10,12->{\item La ficha y el domin\'o no se superponen: gana el jugador 1.}}
+  \visible<11->{\onslide<11,12->{\item La ficha y el domin\'o s\'i se superponen: gana el jugador 2.}}
 \end{enumerate}
 }
 \column{.45\textwidth}
@@ -874,10 +878,10 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
   \draw (1, 0) -- (1, 2);
   \draw (2, 0) -- (2, 2);
   \draw (3, 0) -- (3, 2);
-  \visible<11>{\fill (2.5, 0.5) circle (0.25);}
-  \visible<11>{\fill[gray!80] (1.25, 0.25) rectangle (1.75, 1.75);}
-  \visible<12->{\fill[gray!80] (0.25, 1.25) rectangle (1.75, 1.75);}
-  \visible<12->{\fill (0.5, 1.5) circle (0.25);}
+  \visible<10>{\fill (2.5, 0.5) circle (0.25);}
+  \visible<10>{\fill[gray!80] (1.25, 0.25) rectangle (1.75, 1.75);}
+  \visible<11->{\fill[gray!80] (0.25, 1.25) rectangle (1.75, 1.75);}
+  \visible<11->{\fill (0.5, 1.5) circle (0.25);}
 \end{tikzpicture}}
 \end{columns}
 \vspace{.82cm}
@@ -1021,7 +1025,7 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \Alert{Juegos secuenciales}
 \vspace{.5cm}
 
-\visible<3->{%
+\visible<2->{%
 \resizebox{\textwidth}{!}{
 \begin{tikzpicture}[
 player1/.style={circle, fill=blue, thick, minimum size = 4mm},
@@ -1033,77 +1037,77 @@ level 2/.style={sibling distance=25mm, level distance=20mm},
 level 3/.style={sibling distance=12.5mm, level distance=15mm},
 level 4/.style={level distance=30mm}
 ]
-\visible<3->{
+\visible<2->{
 \node[player1] (root) {}
-  child { [onslide=<3>{color=white}] node (L) [player2, onslide=<3>{color=white}]  {}
-      child { [onslide=<3-4>{color=white}] node (A) [player1, onslide=<3-4>{color=white}]  {}
-            child {[onslide=<3-5>{color=white}] node [terminal, onslide=<3-5>{color=white}] [label=below:{$(0,0)$}] {}
+  child { [onslide=<2>{color=white}] node (L) [player2, onslide=<2>{color=white}]  {}
+      child { [onslide=<2-3>{color=white}] node (A) [player1, onslide=<2-3>{color=white}]  {}
+            child {[onslide=<2-4>{color=white}] node [terminal, onslide=<2-4>{color=white}] [label=below:{$(0,0)$}] {}
                 edge from parent node[left] {$a$} }
-            child {[onslide=<3-5>{color=white}] node [terminal, onslide=<3-5>{color=white}] [label=below:{$(2,4)$}] {}
+            child {[onslide=<2-4>{color=white}] node [terminal, onslide=<2-4>{color=white}] [label=below:{$(2,4)$}] {}
                 edge from parent node[right] {$b$}}
             edge from parent node[left] {A\, \, }
       }
-      child { [onslide=<3-4>{color=white}] node (B) [player1, onslide=<3-4>{color=white}] {}
-          child {[onslide=<3-5>{color=white}] node (t1) [terminal, onslide=<3-5>{color=white}] [label=below:{$(2,4)$}] {}
+      child { [onslide=<2-3>{color=white}] node (B) [player1, onslide=<2-3>{color=white}] {}
+          child {[onslide=<2-4>{color=white}] node (t1) [terminal, onslide=<2-4>{color=white}] [label=below:{$(2,4)$}] {}
               edge from parent node[left] {$a$} }
-          child {[onslide=<3-5>{color=white}] node (t2) [terminal, onslide=<3-5>{color=white}] [label=below:{$(0,0)$}] {}
+          child {[onslide=<2-4>{color=white}] node (t2) [terminal, onslide=<2-4>{color=white}] [label=below:{$(0,0)$}] {}
               edge from parent node[right] {$b$} }
           edge from parent node[right] {B}
       }
-      child { [onslide=<3-4>{color=white}] node (C) [chance, onslide=<3-4>{color=white}] {}
-          child {[onslide=<3-6>{color=white}] node (t3) [terminal, onslide=<3-6>{color=white}] [label=below:{$(4,4)$}] {}
-              edge from parent node[left] {$\visible<18->{\frac{1}{2}}\ c$} }
-          child {[onslide=<3-6>{color=white}] node (t4) [terminal, onslide=<3-6>{color=white}] [label=below:{$(0,0)$}] {}
-              edge from parent node[right] {$s\ \visible<18>{\frac{1}{2}}$} }
+      child { [onslide=<2-3>{color=white}] node (C) [chance, onslide=<2-3>{color=white}] {}
+          child {[onslide=<2-5>{color=white}] node (t3) [terminal, onslide=<2-5>{color=white}] [label=below:{$(4,4)$}] {}
+              edge from parent node[left] {$\visible<16>{\frac{1}{2}}\ c$} }
+          child {[onslide=<2-5>{color=white}] node (t4) [terminal, onslide=<2-5>{color=white}] [label=below:{$(0,0)$}] {}
+              edge from parent node[right] {$s\ \visible<16>{\frac{1}{2}}$} }
           edge from parent node[right] {\, \, C}
       }
       edge from parent node[left] [label=left:{L}] {}
   }
-  child { [onslide=<3>{color=white}] node (R) [terminal, onslide=<3>{color=white}] [label=below:{$(1,1)$}] {}
+  child { [onslide=<2>{color=white}] node (R) [terminal, onslide=<2>{color=white}] [label=below:{$(1,1)$}] {}
       edge from parent node[right] [label=right:{R}] {}
   }
 ;}
-\visible<5->{\draw[dotted] (A) -- (B);}
+\visible<4->{\draw[dotted] (A) -- (B);}
 
-\visible<11>{\draw[thick] (C) ellipse (.6cm and .6 cm);}
-\visible<13>{\draw[thick, blue] ($(A)!0.5!(B)$) ellipse (2cm and .65cm);}
-\visible<13>{\draw[thick, blue] (root) ellipse (.6cm and .6 cm);}
-\visible<14>{\draw[thick, red] (L) ellipse (.6cm and .6 cm);}
+\visible<9>{\draw[thick] (C) ellipse (.6cm and .6 cm);}
+\visible<11>{\draw[thick, blue] ($(A)!0.5!(B)$) ellipse (2cm and .65cm);}
+\visible<11>{\draw[thick, blue] (root) ellipse (.6cm and .6 cm);}
+\visible<12>{\draw[thick, red] (L) ellipse (.6cm and .6 cm);}
 
 \node (c1) at ($(t1)!0.5!(t2)$) {};
 \node (c2) [below of=c1] {};
 \node (c0) at ($(c1)!0.3!(c2)$) {};
-\visible<16>{\draw[dashed] (c0) ellipse (4cm and .75cm);}
+\visible<14>{\draw[dashed] (c0) ellipse (4cm and .75cm);}
 \node (R1) [below of=R] {};
 \node (R0) at ($(R)!0.3!(R1)$) {};
-\visible<16>{\draw[dashed] (R0) ellipse (.75cm and .6cm);}
-\visible<18>{\draw[dashed] ($(t3)!0.5!(t4)!0.25!(C)$) ellipse (1.5cm and 1.5cm);}
+\visible<14>{\draw[dashed] (R0) ellipse (.75cm and .6cm);}
+\visible<16>{\draw[dashed] ($(t3)!0.5!(t4)!0.25!(C)$) ellipse (1.5cm and 1.5cm);}
 \end{tikzpicture}
 }}
 
 \vspace{.45cm}
-\visible<19->{\Alert{Perfect Recall}}
+\visible<18->{\Alert{Perfect Recall}}
 \vspace{.45cm}
 
 \column{.45\textwidth}
-\visible<8->{\Alert{Elementos}}
+\visible<7->{\Alert{Elementos}}
 
 \begin{enumerate}
-  \visible<9->{\onslide<9,19->{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBb, R$.}}
-  \visible<10->{\onslide<10-11,19->{\item Funci\'on que asigna a cada historia (nodo) no terminal un jugador.}}
-  \visible<11->{
+  \visible<7->{\onslide<7,17->{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBb, R$.}}
+  \visible<8->{\onslide<8-9,17->{\item Funci\'on que asigna a cada historia (nodo) no terminal un jugador.}}
+  \visible<9->{
     \begin{itemize}
-      \onslide<11,19->{\item Nodos de Azar}
+      \onslide<9,17->{\item Nodos de Azar}
     \end{itemize}
   }
-  \visible<12->{\onslide<12-14,19->{\item Conjuntos de informaci\'on.}}
-  \visible<15->{\onslide<15-16,19->{\item Funci\'on que asigna por cada historia (nodo) terminal y cada jugador una utilidad.}}
-  \visible<17->{\onslide<17->{\item Distribuci\'on de probabilidad sobre el conjunto de acciones en cada nodo de azar.}}
+  \visible<10->{\onslide<10-12,17->{\item Conjuntos de informaci\'on.}}
+  \visible<13->{\onslide<13-14,17->{\item Funci\'on que asigna por cada historia (nodo) terminal y cada jugador una utilidad.}}
+  \visible<15->{\onslide<15->{\item Distribuci\'on de probabilidad sobre el conjunto de acciones en cada nodo de azar.}}
 \end{enumerate}
 \end{columns}
 \end{frame}
 
-\begin{frame}{\Large Forma Extensiva}
+\begin{frame}{\Large Forma Extensiva: Estrategias}
 \begin{columns}
 \column{.45\textwidth}
 \resizebox{\textwidth}{!}{
@@ -1488,13 +1492,12 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}{\Large One Card Poker (OCP)}
 \begin{center}
-\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+\resizebox{.9\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/ocp/OCP(50).png}} &
   {\includegraphics{../graphics/cfr/ocp/OCP(200).png}}
 \end{tabular}}
-\vspace{.5cm}
 
-\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+\resizebox{.9\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/ocp/OCP(1000).png}} &
   {\includegraphics{../graphics/cfr/ocp/OCP(5000).png}}
 \end{tabular}}
@@ -1533,13 +1536,12 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}{\Large Dudo}
 \begin{center}
-\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+\resizebox{.9\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/dudo/Dudo(4,2,2).png}} &
   {\includegraphics{../graphics/cfr/dudo/Dudo(5,2,2).png}}
 \end{tabular}}
-\vspace{.5cm}
 
-\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+\resizebox{.9\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/dudo/Dudo(6,1,2).png}} &
   {\includegraphics{../graphics/cfr/dudo/Dudo(6,2,1).png}}
 \end{tabular}}
@@ -1572,13 +1574,12 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}{\Large Domin\'o}
 \begin{center}
-\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+\resizebox{.9\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/domino/Domino(2,2).png}} &
   {\includegraphics{../graphics/cfr/domino/Domino(3,2).png}}
 \end{tabular}}
-\vspace{.5cm}
 
-\resizebox{.8\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+\resizebox{.9\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
   {\includegraphics{../graphics/cfr/domino/Domino(3,3).png}} &
   {\includegraphics{../graphics/cfr/domino/Domino(3,4).png}}
 \end{tabular}}
@@ -1586,38 +1587,73 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \end{frame}
 
 \begin{frame}{\Large Experimentos Nuevos}
-Agregar los experimentos con 200 horas.
-\end{frame}
-
-\begin{frame}{\Large Conclusiones y Recomendaciones}
-\visible<2->{\Alert{Conclusiones}}
-\begin{enumerate}
-  \visible<3->{\onslide<3,11->{\item Estudio de juegos no determinista con informaci\'on incompleta: forma normal y forma extensiva.}}
-  \visible<4->{\onslide<4,11->{\item Equilibrio de Nash como concepto principal de soluci\'on en los juegos de dos jugadores de suma cero.}}
-  \visible<5->{\onslide<5,11->{\item Algoritmos de Regret Matching y Counterfactual Regret Minimization para encontrar aproximaciones de equilibrios de Nash.}}
-  \visible<6->{\onslide<6,11->{\item Explotabilidad como m\'etrica de error en las estrategias encontradas.}}
-  \visible<7->{\onslide<7,11->{\item Resoluci\'on de diversos juegos con no determinismo e informaci\'on incompleta, incluyendo una versi\'on del domin\'o.}}
+\begin{enumerate}[--]
+  \visible<2->{\item Juegos no resueltos con $10$ horas de entrenamiento.}
+  \visible<3->{\item $200$ horas de entrenamiento.}
 \end{enumerate}
 
-\visible<8->{\Alert{Recomendaciones}}
+\vspace{.5cm}
+\visible<4->{%
+\Alert{Tabla de Resultados}
+\begin{center}
+\resizebox{.95\textwidth}{!}{\begin{tabular}{lrrrrrc}
+    \toprule
+    Juego & $N$ & $I$ & Iteraciones & $u(\sigma)$ & $\varepsilon_{\sigma}$ (\%) & Resuelto \\ \midrule
+    \onslide<4, 6->{Dudo$(4, 2, 2)$ &    13.107.101 &      327.680 &    2.276.259 &  0,00875 & 0,2382 & \cmark} \\
+    Dudo$(5, 2, 2)$ &                   471.858.976 &    7.864.320 &      133.863 & -0,00004 & 1,7695 & \xmark  \\
+    \onslide<4, 6->{Dudo$(6, 1, 2)$ &    66.060.163 &    1.769.472 &      543.485 &   -0,597 & 0,5102 & \cmark} \\
+    \onslide<4, 6->{Dudo$(6, 2, 1)$ &    66.060.163 &    1.769.472 &      513.786 &    0,597 & 0,6727 & \cmark} \\
+    \onslide<4, 6->{Domino$(3, 4)$  & 1.547.645.185 &      104.050 &  365.484.932 &   3.2027 & 0,1812 & \cmark} \\
+    \bottomrule
+\end{tabular}}
+\end{center}}
+\end{frame}
+
+\begin{frame}{\Large Experimentos Nuevos}
+\begin{center}
+\resizebox{.67\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/big_instances/Dudo(4,2,2).png}} &
+  {\includegraphics{../graphics/cfr/big_instances/Dudo(5,2,2).png}}
+\end{tabular}}
+\vspace{.5cm}
+
+\resizebox{\textwidth}{!}{\begin{tabular}{@{}ccc@{}}
+  {\includegraphics{../graphics/cfr/big_instances/Dudo(6,1,2).png}} &
+  {\includegraphics{../graphics/cfr/big_instances/Dudo(6,2,1).png}} &
+  {\includegraphics{../graphics/cfr/big_instances/Domino(3,4).png}}
+\end{tabular}}
+\end{center}
+\end{frame}
+
+\begin{frame}{\Large Conclusiones}
 \begin{enumerate}
-  \visible<9->{\onslide<9,11->{\item Resolver instancias mayores del juego de domin\'o para $2$ personas considerando abstracciones.}}
-  \visible<10->{\onslide<10,11->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}}
+  \visible<2->{\onslide<2,7->{\item Estudio de juegos no determinista con informaci\'on incompleta: forma normal y forma extensiva.}}
+  \visible<3->{\onslide<3,7->{\item Equilibrio de Nash como concepto principal de soluci\'on en los juegos de dos jugadores de suma cero.}}
+  \visible<4->{\onslide<4,7->{\item Algoritmos de Regret Matching y Counterfactual Regret Minimization para encontrar aproximaciones de equilibrios de Nash.}}
+  \visible<5->{\onslide<5,7->{\item Explotabilidad como m\'etrica de error en las estrategias encontradas.}}
+  \visible<6->{\onslide<6,7->{\item Resoluci\'on de diversos juegos con no determinismo e informaci\'on incompleta, incluyendo una versi\'on del domin\'o.}}
+\end{enumerate}
+\end{frame}
+
+\begin{frame}{\Large Recomendaciones}
+\begin{enumerate}
+  \visible<1->{\onslide<1,3->{\item Resolver instancias mayores del juego de domin\'o para $2$ personas considerando abstracciones.}}
+  \visible<2->{\onslide<2,3->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}}
 \end{enumerate}
 \end{frame}
 
 \begin{frame}
-  \centering{\resizebox{!}{.65cm}{\Alert{Demo}}}
+  \centering{\resizebox{!}{.5cm}{\Alert{Demo}}}
 \end{frame}
 
 \begin{frame}
-  \centering{\resizebox{!}{.65cm}{\Alert{Gracias por}}}
+  \centering{\resizebox{!}{.5cm}{\Alert{Gracias por}}}
   \vspace{.1cm}
 
-  \centering{\resizebox{!}{.65cm}{\Alert{su atenci\'on}}}
+  \centering{\resizebox{!}{.5cm}{\Alert{su atenci\'on}}}
 \end{frame}
 
 \begin{frame}
-  \centering{\resizebox{!}{.65cm}{\Alert{?`Preguntas?}}}
+  \centering{\resizebox{!}{.5cm}{\Alert{?`Preguntas?}}}
 \end{frame}
 \end{document}
