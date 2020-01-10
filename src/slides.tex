@@ -569,11 +569,11 @@ Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
 \begin{frame}{\Large Juegos de Dos Jugadores de Suma Cero}
 \begin{enumerate}[--]
   \visible<2->{\item Equilibrio de Nash como principal concepto de soluci\'on.}
-  \visible<3->{\item Valor del juego ($u$).}
-  \begin{itemize}
-  \visible<4->{\item El primer jugador garantiza al menos $u$, independientemente de la estrategia de su oponente.}
-  \visible<5->{\item El segundo jugador garantiza al menos $-u$, independientemente de la estrategia de su oponente.}
-  \end{itemize}
+  \visible<3->{\item Valor del juego ($u$): ganancia del primer jugador cuando ambos jugadores utilizan un equilibrio de Nash.}
+  % \begin{itemize}
+  % \visible<4->{\item El primer jugador garantiza al menos $u$, independientemente de la estrategia de su oponente.}
+  % \visible<5->{\item El segundo jugador garantiza al menos $-u$, independientemente de la estrategia de su oponente.}
+  % \end{itemize}
 \end{enumerate}
 \end{frame}
 
@@ -753,9 +753,10 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \begin{enumerate}
   \visible<2->{\item $4$ juegos para dos jugadores de suma cero.}
   \visible<3->{\item $10$ corridas por cada uno de los juegos y cada uno de los procedimientos.}
-  \visible<4->{\item Criterio de parada: regret incondicional menor que $0.005$.}
+  \visible<4->{\item Criterio de parada: regret incondicional menor que 0,005.}
   \visible<5->{\item Gr\'aficas del regret con respecto al n\'umero de iteraciones.}
-  \visible<6->{\item Verificaci\'on realizada con programaci\'on lineal.}%
+  \visible<6->{\item Verificaci\'on realizada con programaci\'on lineal.}
+  \visible<7->{\item Verificación: la explotabilidad mide la distancia entre la estrategia actual y un equilibrio de Nash.}
   % \visible<7->{ \onslide<7->{\item Tabla de resultados:}}%
   % \begin{itemize}%
   %   \visible<8->{ \onslide<8->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
@@ -1096,7 +1097,7 @@ level 4/.style={level distance=30mm}
   \visible<8->{\onslide<8-9,17->{\item Funci\'on que asigna a cada historia (nodo) no terminal un jugador.}}
   \visible<9->{
     \begin{itemize}
-      \onslide<9,17->{\item Nodos de Azar}
+      \onslide<9,17->{\item Nodos de azar.}
     \end{itemize}
   }
   \visible<10->{\onslide<10-12,17->{\item Conjuntos de informaci\'on.}}
@@ -1421,7 +1422,7 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
   \visible<2->{\onslide<2,10->{\item El \'arbol del juego se recorre repetidamente.}} %La m\'aquina juega contra s\'i misma a lo largo del tiempo.}}
   \visible<3->{\onslide<3,10->{\item Inicia con una estrategia uniforme en cada conjunto de informaci\'on.}}
   \visible<4->{\onslide<4,10->{\item En cada iteraci\'on se elige una mejor estrategia revisando las decisiones pasadas, utilizando las m\'etricas de regret.}}
-  \visible<5->{\onslide<5,10->{\item La estrategia promedio converge a un equilibrio de Nash; en la pr\'actica el algoritmo es detenido despu\'es de cierto n\'umero de iteraciones}}
+  \visible<5->{\onslide<5,10->{\item La estrategia promedio converge a un equilibrio de Nash; en la pr\'actica el algoritmo es detenido despu\'es de cierto n\'umero de iteraciones.}}
 \end{enumerate}
 \visible<6->{\Alert{?`C\'omo se mejora la estrategia en cada iteraci\'on?}}
 \begin{enumerate}[--]
@@ -1435,7 +1436,7 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{enumerate}
   \visible<2->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}
-  \visible<3->{\item CFR con muestreo en los nodos de azar (referencia).}
+  \visible<3->{\item CFR con muestreo en los nodos de azar.}
   \visible<4->{\item 10 horas de entrenamiento.}
   \visible<5->{\item Gr\'afica del regret con respecto al n\'umero de iteraciones.}
   \visible<6->{\item Verificaci\'on: la explotabilidad mide la distancia entre la estrategia actual y un equilibrio de Nash.}
@@ -1628,7 +1629,7 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \begin{enumerate}
   \visible<2->{\onslide<2,7->{\item La forma normal y forma extensiva son modelos adecuados para representar juegos con informaci\'on incompleta y no determinista.}}
   \visible<3->{\onslide<3,7->{\item El equilibrio de Nash es el principal concepto de soluci\'on utilizado para juegos de dos jugadores de suma cero.}}
-  \visible<4->{\onslide<4,7->{\item Los algoritmos de Regret Matching y Counterfactual Regret Minimization son efectivos para encontrar aproximaciones al equilibrio de Nash en el tipo de juegos mencionado.}}
+  \visible<4->{\onslide<4,7->{\item Los algoritmos de Regret Matching y Counterfactual Regret Minimization son efectivos para encontrar una aproximación a un equilibrio de Nash en el tipo de juego mencionado.}}
   \visible<5->{\onslide<5,7->{\item Se utiliz\'o la explotabilidad como m\'etrica para medir la distancia entre una estrategia y un equilibrio de Nash.}}
   \visible<6->{\onslide<6,7->{\item Se resolvieron diversos juegos captados por el modelo, incluyendo una versi\'on del juego de domin\'o.}}
 \end{enumerate}
