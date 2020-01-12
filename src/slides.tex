@@ -309,6 +309,26 @@
 \end{center}
 \end{frame}
 
+\begin{frame}{\Large Agenda}
+\begin{enumerate}
+\item Teor\'ia de juegos.
+\visible<2->{\item Juegos en forma normal:
+\begin{itemize}
+  \item Modelo y estrategias.
+  \item Equilibrio de Nash.
+  \item Regret Matching: algoritmo, experimentos y conclusiones.
+\end{itemize}}
+\visible<3->{\item Juegos en forma extensiva:
+\begin{itemize}
+  \item Modelo y estrategias.
+  \item Kuhn Poker.
+  \item Counterfactual Regret Minimization (CFR): algoritmo, experimentos y conclusiones.
+\end{itemize}}
+\visible<4->{\item Conclusiones y Recomendaciones.}
+\visible<4->{\item Demo.}
+\end{enumerate}
+\end{frame}
+
 \begin{frame}{\Large Teor\'ia de Juegos}
 \begin{block}{Definici\'on}
   \begin{itemize}
@@ -570,6 +590,7 @@ Todo juego finito tiene al menos un equilibrio de Nash (en estrategias mixtas).
 \begin{enumerate}[--]
   \visible<2->{\item Equilibrio de Nash como principal concepto de soluci\'on.}
   \visible<3->{\item Valor del juego ($u$): ganancia del primer jugador cuando ambos jugadores utilizan un equilibrio de Nash.}
+  \visible<4->{\item El juego ``batalla de los sexos'' no cumple estas condiciones.}
   % \begin{itemize}
   % \visible<4->{\item El primer jugador garantiza al menos $u$, independientemente de la estrategia de su oponente.}
   % \visible<5->{\item El segundo jugador garantiza al menos $-u$, independientemente de la estrategia de su oponente.}
@@ -756,7 +777,7 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
   \visible<4->{\item Criterio de parada: regret incondicional menor que 0,005.}
   \visible<5->{\item Gr\'aficas del regret con respecto al n\'umero de iteraciones.}
   \visible<6->{\item Verificaci\'on realizada con programaci\'on lineal.}
-  \visible<7->{\item Verificación: la explotabilidad mide la distancia entre la estrategia actual y un equilibrio de Nash.}
+  \visible<7->{\item Verificaci\'on: la explotabilidad mide la distancia entre la estrategia actual y un equilibrio de Nash.}
   % \visible<7->{ \onslide<7->{\item Tabla de resultados:}}%
   % \begin{itemize}%
   %   \visible<8->{ \onslide<8->{\item Ganancia esperada del primer jugador de la \'ultima estrategia obtenida.}}
@@ -778,6 +799,51 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \end{figure}
 }
 
+\begin{frame}{\Large Piedra, Papel o Tijera}
+\Alert{Valor del juego ($u$):} $0$.
+\vspace{.3cm}
+\begin{center} \resizebox{.9\textwidth}{!}{
+\begin{tabular}{l r r r}
+    \toprule
+    & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
+    Ganancia esperada $u(\sigma)$ & $-0,000012$ & $0,000004$ & $0,000022$ \\
+    Explotabilidad $\varepsilon_{\sigma}$ &  $0,006$ & $0,010$ & $0,009$ \\
+    Tiempo $T$ & $12,198$ & $0,345$ & $0,049$ \\
+    Iteraciones $I$ & $4.519.054,1$ & $6.601,3$ &  $19.321,1$ \\
+    $T/I$ & $2,70{\times}10^{-6}$ & $5,23{\times}10^{-5}$ & $2,54{\times}10^{-6}$ \\
+    \bottomrule
+\end{tabular}
+} \end{center}
+\graphicsRM{RPS}
+\end{frame}
+
+\begin{frame}{\Large Matching Pennies}
+\begin{columns}
+\column{.5\textwidth}
+\begin{enumerate}
+  \item Cada jugador posee una moneda y elige cara o sello.
+  \item Misma elecci\'on: gana el primer jugador.
+  \item Elecciones diferentes: gana el segundo jugador.
+  \item Tabla de pagos.
+\end{enumerate}
+\begin{center}
+\begin{tabular}{ c | c | c |}
+ \multicolumn{1}{c}{} & \multicolumn{1}{c}{cara} & \multicolumn{1}{c}{sello}  \\ \cline{2-3}
+ cara  &  1 & -1 \\ \cline{2-3}
+ sello & -1 &  1 \\ \cline{2-3}
+\end{tabular}
+\end{center}
+
+\column{.45\textwidth}
+\begin{center}
+\begin{tabular}{c}
+{\cutpic{5mm}{.5\textwidth}{../images/cara.jpg}} \\
+{\cutpic{5mm}{.5\textwidth}{../images/sello.jpg}}
+\end{tabular}
+\end{center}
+\end{columns}
+\end{frame}
+
 \begin{frame}{\Large Matching Pennies}
 \Alert{Valor del juego ($u$):} $0$.
 \vspace{.3cm}
@@ -796,23 +862,6 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \graphicsRM{matching-pennies}
 \end{frame}
 
-\begin{frame}{\Large Piedra, Papel o Tijera}
-\Alert{Valor del juego ($u$):} $0$.
-\vspace{.3cm}
-\begin{center} \resizebox{.9\textwidth}{!}{
-\begin{tabular}{l r r r}
-    \toprule
-    & \multicolumn{1}{c}{A} & \multicolumn{1}{c}{B} & \multicolumn{1}{c}{C} \\ \midrule
-    Ganancia esperada $u(\sigma)$ & $-0,000012$ & $0,000004$ & $0,000022$ \\
-    Explotabilidad $\varepsilon_{\sigma}$ &  $0,006$ & $0,010$ & $0,009$ \\
-    Tiempo $T$ & $12,198$ & $0,345$ & $0,049$ \\
-    Iteraciones $I$ & $4.519.054,1$ & $6.601,3$ &  $19.321,1$ \\
-    $T/I$ & $2,70{\times}10^{-6}$ & $5,23{\times}10^{-5}$ & $2,54{\times}10^{-6}$ \\
-    \bottomrule
-\end{tabular}
-} \end{center}
-\graphicsRM{RPS}
-\end{frame}
 
 \begin{frame}{\Large Ficha vs. Domin\'o}
 
@@ -1010,6 +1059,18 @@ $$ p(a) = \frac{\text{n\'umero de veces que el jugador eligi\'o }a}{\text{n\'ume
 \tikzset{onslide/.code args={<#1>#2}{%
   \only<#1>{\pgfkeysalso{#2}}
 }}
+
+\begin{frame}{\Large Forma Normal y Regret Matching: Conclusiones}
+\begin{enumerate}
+  \visible<2->{\item El equilibrio de Nash es un concepto de soluci\'on satisfactorio en juegos en forma normal de dos jugadores de suma cero.}
+  \visible<3->{\item Los algoritmos de Regret Matching permiten encontrar aproximaciones de un equilibrio de Nash en este tipo de juegos.}
+  \visible<4->{\item El procedimiento ``regret condicional'' necesita mayor n\'umero de iteraciones, y por lo tanto mayor tiempo, para converger.}
+  \visible<5->{\item El procedimiento ``vector invariante de probabilidad'' es el procedimiento con las iteraciones m\'as costosas.}
+  \visible<6->{\item El procedimiento ``regret incondicional'' es el m\'as eficiente.}
+  \visible<7->{\item Si el regret incondicional es menor a 0,005 por jugador, la estrategia emp\'irica tiene una explotabilidad no mayor que 0,01.}
+  \visible<8->{\item Fue posible resolver diversos juegos en forma normal.}
+\end{enumerate}
+\end{frame}
 
 \begin{frame}
   \centering{\resizebox{!}{.5cm}{\Alert{Forma Extensiva}}}
@@ -1427,14 +1488,18 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \end{frame}
 
 \begin{frame}{\Large CFR: Experimentos}
-
 \begin{enumerate}
-  \visible<2->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}
-  \visible<3->{\item CFR con muestreo en los nodos de azar.}
-  \visible<4->{\item 10 horas de entrenamiento.}
-  \visible<5->{\item Gr\'afica del regret con respecto al n\'umero de iteraciones.}
-  \visible<6->{\item Verificaci\'on: la explotabilidad mide la distancia entre la estrategia actual y un equilibrio de Nash.}
-  \visible<7->{\item Un juego se considera resuelto si la explotabilidad es menor que el $1\%$ de la m\'inima ganancia positiva posible.}
+  \visible<2->{\item CFR con muestreo en los nodos de azar.}
+  \visible<3->{\item Implementaci\'on propia del algoritmo.}
+  \visible<4->{\begin{itemize}
+    \item Input: definici\'on del juego.
+    \item \textbf{Definici\'on del juego}: implementaci\'on de las funciones que permiten recorrer el \'arbol de forma \'implicita.
+  \end{itemize}}
+  \visible<5->{\item Tres clases de juegos, cada uno con diferentes par\'ametros.}
+  \visible<6->{\item 10 horas de entrenamiento.}
+  \visible<7->{\item Gr\'afica del regret con respecto al n\'umero de iteraciones.}
+  \visible<8->{\item Verificaci\'on: la explotabilidad mide la distancia entre la estrategia actual y un equilibrio de Nash.}
+  \visible<9->{\item Un juego se considera resuelto si la explotabilidad es menor que el $1\%$ de la m\'inima ganancia positiva posible.}
     % \begin{columns}%
     % \column{.45\textwidth}%
     % \begin{itemize}
@@ -1619,20 +1684,42 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \end{center}
 \end{frame}
 
-\begin{frame}{\Large Conclusiones}
+\begin{frame}{\Large CFR: Conclusiones}
 \begin{enumerate}
-  \visible<2->{\item La forma normal y forma extensiva son modelos adecuados para representar juegos con informaci\'on incompleta y no determinista.}
-  \visible<3->{\item El equilibrio de Nash es el principal concepto de soluci\'on utilizado para juegos de dos jugadores de suma cero.}
-  \visible<4->{\item Los algoritmos de Regret Matching y Counterfactual Regret Minimization son efectivos para encontrar una aproximación a un equilibrio de Nash en el tipo de juego mencionado.}
-  \visible<5->{\item Se utiliz\'o la explotabilidad como m\'etrica para medir la distancia entre una estrategia y un equilibrio de Nash.}
-  \visible<6->{\item Se resolvieron diversos juegos captados por el modelo, incluyendo una versi\'on del juego de domin\'o.}
+  \item La forma extesiva es un modelo adecuado para representar juegos secuenciales con informaci\'on incompleta y no determinismo.
+  \item El algoritmo CFR permite encontrar un equilibrio de Nash en juegos en forma extensiva de dos jugadores de suma cero.
+  \item Se resolvieron diversos juegos captados por el modelos:
+  \begin{itemize}
+    \item OCP: el segundo tiene ventaja sobre el primer jugador: $u \in (-0.7, -0.5)$.
+    \item Dudo: el jugador con mayor n\'umero de dados tiene ventaja.
+    \item Domino: el primer jugador tiene ventaja sobre el segundo jugador: $u \in (2, 3.5)$.
+  \end{itemize}
 \end{enumerate}
 \end{frame}
 
-\begin{frame}{\Large Recomendaciones}
+% \begin{frame}{\Large Conclusiones}
+% \begin{enumerate}
+%   \visible<2->{\item La forma normal y forma extensiva son modelos adecuados para representar juegos con informaci\'on incompleta y no determinista.}
+%   \visible<3->{\item El equilibrio de Nash es el principal concepto de soluci\'on utilizado para juegos de dos jugadores de suma cero.}
+%   \visible<4->{\item Los algoritmos de Regret Matching y Counterfactual Regret Minimization son efectivos para encontrar una aproximaci\'on a un equilibrio de Nash en el tipo de juego mencionado.}
+%   \visible<5->{\item Se utiliz\'o la explotabilidad como m\'etrica para medir la distancia entre una estrategia y un equilibrio de Nash.}
+%   \visible<6->{\item Se resolvieron diversos juegos captados por el modelo, incluyendo una versi\'on del juego de domin\'o.}
+% \end{enumerate}
+% \end{frame}
+
+\begin{frame}{\Large Conclusiones y Recomendaciones}
+\visible<2->{\Alert{Conclusiones}}
 \begin{enumerate}
-  \visible<2->{\item Resolver instancias mayores del juego de domin\'o para $2$ personas considerando abstracciones.}
-  \visible<3->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}
+  \visible<2->{\item Los modelos utilizados son adecuados para los juegos planteados.}
+  \visible<3->{\item El equilibrio de Nash es un concepto de soluci\'on satisfactorio en juegos de dos jugadores de suma cero. No lo es cuando el juego no es de suma cero o tiene m\'as de dos jugadores.}
+  \visible<4->{\item Se utiliz\'o la explotabilidad como m\'etrica para medir la distancia entre la estrategia obtenida y un equilibrio de Nash.}
+  \visible<5->{\item Resoluci\'on de juegos: se encontraron aproximaciones con una explotabilidad no mayor que el $1\%$ de la m\'inima ganancia positiva posible.}
+\end{enumerate}
+
+\visible<6->{\Alert{Recomendaciones}}
+\begin{enumerate}
+  \visible<6->{\item Resolver instancias mayores del juego de domin\'o para $2$ personas considerando abstracciones.}
+  \visible<7->{\item Experimentos sobre el juego para $4$ personas considerando cada pareja como un \'unico jugador.}
 \end{enumerate}
 \end{frame}
 
