@@ -1737,4 +1737,167 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 \begin{frame}
   \centering{\resizebox{!}{.5cm}{\Alert{?`Preguntas?}}}
 \end{frame}
+
+\begin{frame}
+  \centering{\resizebox{!}{.5cm}{\Alert{Anexos}}}
+\end{frame}
+
+\begin{frame}{\Large Explotabilidad}
+\vspace{.5cm}
+
+\visible<2->{%
+\Alert{\only<2-5>{Equilibrio de Nash $\sigma^* = (\sigma^*_1, \sigma^*_2)$}\only<6->{Aproximaci\'on $\sigma' = (\sigma'_1, \sigma'_2)$}}
+\visible<3-5, 7->{%
+\begin{enumerate}
+  \visible<3-5, 7->{\item Primer jugador garantiza una ganancia esperada de \\ al menos \only<3-5>{$u$}\only<7->{$u-\varepsilon_1$}.}
+  \visible<4-5, 9->{\item Segundo jugador garantiza una ganancia esperada de \\ \only<4>{al menos $-u$}\only<5, 9->{a lo sumo }\only<5>{$u$}\only<9->{$u+\varepsilon_2$}\only<5, 9->{ para el primer jugador}.\visible<0>{fixheight}}
+\end{enumerate}}
+}
+
+\begin{center}
+  \begin{tikzpicture}
+  \visible<2->{\draw[<->, very thick] (-5.25, 0) -- (5.25, 0);}
+  \visible<2->{\draw[dashed] (0, 1.5) -- (0, -1);}
+  \visible<2->{\node[align=center] at (0.15, 0.2) {\small{$u$}};}
+  \visible<2->{\draw[fill=black] (0, 0) circle (0.05cm);}
+  \visible<3>{\draw[->, rounded corners, blue, very thick](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
+  \visible<3->{\draw[->, rounded corners, blue, very thin](0, 0) -- (0, -0.6) -- (5.25, -0.6);}
+  \visible<3->{\node[text width=3.5cm] at (3.5,-1) {$u_1(\sigma_1^*, \sigma_2) \geq u $};}
+  \only<4>{\node[text width=3.5cm] at (-3,-1) {$u_2(\sigma_1, \sigma^*_2) \geq -u $};}
+  \visible<4->{\draw[->, rounded corners, red, very thin](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
+  \visible<4-5>{\draw[->, rounded corners, red,  very thick](0, 0) -- (0, -0.5) -- (-5.25, -0.5);}
+  \visible<5->{\node[text width=3.5cm] at (-3,-1) {$u_1(\sigma_1, \sigma^*_2) \leq u $};}
+  \visible<7->{\draw[<->](-0.01, 1) -- (-1.5, 1);}
+  \visible<7->{\draw[dashed] (-1.5, 2) -- (-1.5, -0.45);}
+  \visible<7->{\node[text width=1cm] at (-0.4, 1.25) {$\varepsilon_1$};}
+  \visible<7->{\node[align=left] at (-0.9, 0.2) {\small{$u-\varepsilon_1$}};}
+  \visible<7->{\draw[fill=black] (-1.5, 0) circle (0.05cm);}
+  \visible<8->{\draw[->, rounded corners, blue, very thin](-1.5, 0) -- (-1.5, 0.6) -- (5.25, 0.6);}
+  \visible<8>{\draw[->, rounded corners, blue, very thick](-1.5, 0) -- (-1.5, 0.6) -- ( 5.25, 0.6);}
+  \visible<8->{\node[text width=3.5cm] at (3.5, 1) {$u_1(\sigma'_1, \sigma_2) \geq u - \varepsilon_1$};}
+  \visible<9->{\draw[<->](0.01, 1) -- (0.8, 1);}
+  \visible<9->{\draw[dashed] (0.8, 2) -- (0.8, -0.45);}
+  \visible<9->{\node[text width=1cm] at (0.7, 1.25) {$\varepsilon_2$};}
+  \visible<9->{\node[align=left] at (1.35, 0.2) {\small{$u+\varepsilon_2$}};}
+  \visible<9->{\draw[fill=black] (0.8, 0) circle (0.05cm);}
+  \visible<10->{\draw[->, rounded corners, red, very thin](0.8, 0) -- (0.8, 0.5) -- (-5.25, 0.5);}
+  \visible<10>{\draw[->, rounded corners, red,  very thick]( 0.8, 0) -- ( 0.8, 0.5) -- (-5.25, 0.5);}
+  \visible<10->{\node[text width=3.5cm] at (-3.25, 1) {$u_1(\sigma_1, \sigma'_2) \leq u + \varepsilon_2$};}
+  \visible<11->{\draw[<->](-1.5, 1.7) -- (0.8, 1.7);}
+  \visible<11->{\node[text width=1cm] at (0.1, 2) {$\varepsilon$};}
+  \end{tikzpicture}
+
+\visible<11->{\Alert{{\Large \textbf{$\varepsilon = \varepsilon_1 + \varepsilon_2$}}}}
+\end{center}
+\end{frame}
+
+\begin{frame}{\Large Perfect Recall}
+
+\begin{columns}
+\column{.4\textwidth}
+\begin{enumerate}
+  \visible<3->{\item El jugador recuerda lo que sab\'ia.}
+  \visible<4->{\item El jugador recuerda lo que eligi\'o.}
+\end{enumerate}
+\vspace{.5cm}
+\visible<11->{En un juego con perfect recall las estrategias mixtas y de comportamiento tienen el mismo poder expresivo.}
+\visible<5->{%
+\column{.575\textwidth}
+\resizebox{\textwidth}{!}{\begin{tikzpicture}[
+chance/.style={circle, fill=gray, thick, minimum size = 4mm},
+player1/.style={circle, fill=blue, thick, minimum size = 4mm},
+player2/.style={circle, fill=red, thick, minimum size=4mm},
+terminal/.style={rectangle, draw=black, fill=black, thick, minimum size=2mm},
+level 1/.style={sibling distance=50mm, level distance=25mm},
+level 2/.style={sibling distance=25mm, level distance=25mm},
+level 3/.style={sibling distance=20mm, level distance=20mm},
+]
+
+\node[chance] [label = {Nodo de azar}] {}
+  child { [onslide=<5>{color=white}] node[player1, onslide=<5>{color=white}] [label=above:{A}] {}
+    child { [onslide=<5-6>{color=white}] node[terminal, onslide=<5-6>{color=white}] [label=below:{$1$}] {}
+      edge from parent node[left] {P}
+    }
+    child { [onslide=<5-6>{color=white}] node (A) [player1, onslide=<5-6>{color=white}] [label=above:{B}] {}
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$2$}] {}
+        edge from parent node[left] {M}
+      }
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
+        edge from parent node[right] {I}
+      }
+      edge from parent node[right] {C}
+    }
+    edge from parent node[left] [label=above:{$2, 1\ \ $}] {}
+  }
+  child { [onslide=<5>{color=white}] node[player2, onslide=<5>{color=white}] [label=above:{Z}] {}
+    child { [onslide=<5-7>{color=white}] node (C) [terminal, onslide=<5-7>{color=white}] [label=below:{$-1$}] {}
+      edge from parent node[left] {P}
+    }
+    child { [onslide=<5-7>{color=white}] node (B) [player1, onslide=<5-7>{color=white}] [label=above:{B}] {}
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$-2$}] {}
+        edge from parent node[left] {M}
+      }
+      child { [onslide=<5-9>{color=white}] node[terminal, onslide=<5-9>{color=white}] [label=below:{$0$}] {}
+        edge from parent node[right] {I}
+      }
+      edge from parent node[right] {C}
+    }
+    edge from parent node[right] [label=above:{$\ \ 1, 2$}] {}
+  }
+;
+
+\visible<9->{\draw[dashed] (A.east) .. controls ++(135:-18mm) and ++(45:-18mm) .. (B.west);}
+\end{tikzpicture}}}
+\end{columns}
+\end{frame}
+
+\begin{frame}{\Large Dilema del prisionero.}
+
+Dos prisionerso son sospechosos de un crimen y se interrogan en celdas separadas.
+\begin{enumerate}[--]
+  \item Si los dos sospechosos se acusan entre entre s\'i ambos reciben una pena de 9 a\~nos de prisi\'on.
+  \item Si ninguno acusa al otro, la sentencia ser\'a de 1 a~no de prisi\'on.
+  \item Si uno de ellos acusa al otro y el otro no lo hace, quien acus\'o queda en libertad y el otro prisionero es condenado a 15 a\~nos de prisi\'on.
+\end{enumerate}
+\begin{center}
+\begin{tabular}{ c | c | c |}
+ \multicolumn{1}{c}{} & \multicolumn{1}{c}{Acusar} & \multicolumn{1}{c}{No Acusar}  \\ \cline{2-3}
+ Acusar  &  ($-1,-1$) & ($-15,0$) \\ \cline{2-3}
+ No Acusar    &  ($0,-15$) & ($-9,-9$) \\ \cline{2-3}
+\end{tabular}
+\end{center}
+
+\RedAlert{Si el juego no es de suma cero, el equilibrio de Nash no es un concepto de soluci\'on satisfactorio.}
+\end{frame}
+
+\begin{frame}{\Large N Jugadores}
+
+\RedAlert{El tercer jugador siempre pierde, pero su decisi\'on afecta las ganancias de los otros $2$ jugadores.}
+\end{frame}
+
+\begin{frame}{Aplicaciones: Seguro de desempleo}
+(Rasmusen, 2000) Suponga un individuo. \'El est\'a desempleado y seguir\'a sin buscar empleo mientras el gobierno le ayude a mantener su estilo de vida. El gobierno tratar\'a de darle una ayuda de forma que el individuo est\'e incentivado a buscar un empleo.
+
+\begin{center}
+\begin{tabular}{ c | c | c |}
+ \multicolumn{1}{c}{} & \multicolumn{1}{c}{Buscar Trabajo} & \multicolumn{1}{c}{Descansar}  \\ \cline{2-3}
+ Ayudar    &  ($5,4$) & ($-3,5$) \\ \cline{2-3}
+ No Ayudar &  ($-3,3$) & ($0,0$) \\ \cline{2-3}
+\end{tabular}
+\end{center}
+\end{frame}
+
+\begin{frame}{Aplicaciones: Monopolio Natural}
+En este juego existen dos empresas que participan en un monopolio natural. Es decir, el mercado no es lo suficientemente grande para soportar dos empresas. Cada una de las empresas tiene la opci\'on de salir o permanecer en el mercado.
+
+\begin{center}
+\begin{tabular}{ c | c | c |}
+ \multicolumn{1}{c}{} & \multicolumn{1}{c}{Salir} & \multicolumn{1}{c}{Permanecer}  \\ \cline{2-3}
+ Salir      & \quad \quad ($0,0$) \quad \quad & ($0,4$) \\ \cline{2-3}
+ Permanecer & \quad \quad ($4,0$) \quad \quad & ($-2,-2$) \\ \cline{2-3}
+\end{tabular}
+\end{center}
+
+\end{frame}
+
 \end{document}
