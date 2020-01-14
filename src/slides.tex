@@ -1935,4 +1935,372 @@ level 3/.style={sibling distance=30mm, level distance=25mm},
 \end{center}
 \end{frame}
 
+\begin{frame}
+  \centering{\resizebox{!}{.5cm}{\Alert{Definiciones y Teoremas}}}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Juegos en Forma Normal o Estrat\'egica}
+\begin{block}{Definici\'on}
+\label{def:forma-normal}
+Un juego de N personas en \textbf{forma normal} (o estrat\'egica) es una tupla $\Gamma = (N, (S_i)_{i \in N}, (u_i)_{i \in N})$, donde:
+  \begin{itemize}[]
+    \item $N = \{1, 2, \dots, N\}$ es el conjunto de jugadores.
+    \item  $S_i$ es el conjunto de \textbf{estrategias puras} (o acciones) del jugador $i$.
+    \item $u_i : \Pi _{i \in N} S_i \rightarrow \mathbb{R}$ es la \textbf{funci\'on de pago} del jugador $i$.
+  \end{itemize}
+\end{block}
+
+\begin{block}{Definici\'on}
+Un \textbf{perfil estrat\'egico} (o perfil de acci\'on) es una $N$-tupla formada por una estrategia pura para cada jugador. $S = \Pi_{i \in N}S_i$ es el conjunto de perfiles estrat\'egicos y $s = (s_i)_{i \in N}$ representa un elemento gen\'erico de $S$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Una \textbf{estrategia mixta} del jugador $i$, denotada con $\sigma_i$, es una distribuci\'on de probabilidad sobre el conjunto $S_i$; es decir $\sigma_i \in \Delta(S_i)$. Se denota con $\sigma_i(s_i)$ la probabilidad de que el jugador $i$ elija la acci\'on $s_i \in S_i$.
+\end{block}
+
+\begin{block}{Definici\'on}
+El \textbf{soporte} (support) de una estrategia mixta $\sigma_i \in \Delta(S_i)$ del jugador $i$ es el conjunto de estrategias puras con una probabilidad positiva de ser elegidas:
+$$\text{support}(\sigma_i)\ =\ \{s_i : \sigma_i(s_i) > 0 \} \,.$$
+\end{block}
+
+\begin{block}{Definici\'on}
+Un \textbf{perfil estrat\'egico mixto} $\sigma$ consiste en una estrategia mixta para cada jugador; es decir, $\sigma \in \Pi_{i \in N} \Delta(S_i)$ es una tupla de forma $\sigma=(\sigma_i)_{i \in N}$.
+\end{block}
+
+\begin{block}{Definici\'on}
+La \textbf{ganancia esperada} del jugador $i$ dado un perfil estrat\'egico mixto $\sigma$ es
+\begin{align*}
+u_i(\sigma)\ =\ \sum_{s \in S} u_i(s) \sigma(s) = \sum_{s \in S} u_i(s) \prod _{j \in N} \sigma_j(s_j) \\ =\ \sum_{s \in S} u_i(s) \sigma_i(s_i) \sigma_{-i}(s_{-i})\,.
+\end{align*}
+\end{block}
+
+\begin{block}{Teorema}
+La ganancia esperada $u_i(\sigma)$ del jugador $i$ dado el perfil estrat\'egico $\sigma$ satisface:
+\begin{align*}
+u_i(\sigma)\ =\ \sum_{s_i\in S_i} \sigma_i(s_i) \sum_{s_{-i}\in S_{-i}} \sigma_{-i}(s_{-i}) u_i(s_i,s_{-i}) \,.
+\end{align*}
+\end{block}
+
+\begin{block}{Definici\'on}
+Sea $i\in N$ un jugador, $\sigma_i$ una estrategia mixta para el jugador $i$, y $\sigma_{-i}$ un perfil estrat\'egico mixto para el resto de los jugadores. Se dice que $\sigma_i$ es una \textbf{mejor respuesta} con respecto a $\sigma_{-i}$ si y s\'olo si $u_i(\sigma_i,\sigma_{-i}) \geq u_i(\sigma'_i,\sigma_{-i})$ para toda estrategia mixta $\sigma'_i$ para el jugador $i$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Sea $\sigma^*_i$ una estrategia mixta para el jugador $i$ que es mejor respuesta a $\sigma_{-i}$. Cualquier estrategia mixta $\sigma_i$ para el jugador $i$ cuyo soporte sea un subconjunto del soporte de $\sigma^*_i$ es tambi\'en una mejor respuesta a $\sigma_{-i}$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Un perfil estrat\'egico mixto $\sigma$ es un \textbf{equilibrio de Nash} si y s\'olo si para todo jugador $i$, la estrategia $\sigma_i$ es mejor respuesta del jugador $i$ para $\sigma_{-i}$.
+\end{block}
+
+\begin{block}{Teorema}
+Todo juego finito tiene al menos un equilibrio de Nash.
+\end{block}
+
+\begin{block}{Definici\'on}
+Una distribuci\'on $\psi\in\Delta(S)$ es un \textbf{equilibrio correlacionado} si y s\'olo si para cualquier jugador $i$, y para cualesquiera estrategias puras $x, y \in S_i$,
+$$ \sum_{s_{-i}\in S_{-i}} \psi(x,s_{-i}) [ u_i(x,s_{-i}) - u_i(y,s_{-i})]\ \geq\ 0 \,. $$
+\end{block}
+
+\begin{block}{Teorema}
+Si $\sigma$ es un equilibrio de Nash, entonces $\sigma$ es un equilibrio correlacionado.
+\end{block}
+
+\begin{block}{Teorema}
+Sea $\psi\in\Delta(S)$ un equilibrio correlacionado. Si $\psi$ se factoriza como $\psi=\prod_{i\in N} \sigma_i$ donde $\{\sigma_i\}_{i\in N}$ es un conjunto de estrategias mixtas para cada jugador (i.e., $\psi(s)=\prod_{i \in N} \sigma_i(s_i)$ para todo $s\in S$), entonces $\psi$ es un equilibrio de Nash.
+\end{block}
+
+\begin{block}{Teorema}
+Sean $\sigma$ y $\sigma'$ dos equilibrios correlacionados, y $\alpha$ un n\'umero real en $(0,1)$. Entonces, la distribuci\'on $\alpha\sigma + (1-\alpha)\sigma'$ es un equilibrio correlacionado.
+\end{block}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Juegos en Forma Extesiva}
+
+\begin{block}{Definici\'on I}
+Un juego finito en \textbf{forma extensiva} con \textbf{informaci\'on incompleta} tiene los siguientes componentes:
+\begin{itemize}
+  \item Un conjunto finito $N$ de \textbf{jugadores}.
+  \item Un conjunto finito $H$ de secuencias, las posible \textbf{historias} de acciones, tal que la secuencia vac\'ia est\'a en $H$, y cada prefijo de una secuencia en $H$ tambi\'en est\'a en $H$. $Z \subseteq H$ son las historias terminales (aquellas que no son prefijo de ninguna otra secuencia). $A(h) = \{ a : (h, a) \in H \}$ son las acciones disponibles despu\'es de una historia no terminal $h \in H$. Si la historia $h$ es prefijo de la historia $h'$ escribimos $h\sqsubseteq h'$, y si $h$ es un prefijo propio de $h'$ escribimos $h\sqsubset h'$.
+\end{itemize}
+\end{block}
+\begin{block}{Definici\'on II}
+\begin{itemize}
+  \item Una funci\'on $P$ que asigna a cada historia no terminal (cada elemento de $H \setminus Z)$ un elemento de $N \cup \{c \}$. $P$ es la \textbf{funci\'on de jugador}. $P(h)$ es el jugador que toma una acci\'on despu\'es de la historia $h$. Si $P(h) = c$ entonces la acci\'on tomada despu\'es de la historia $h$ es determinada por el azar. Este tipo de nodos ser\'an denominados \textbf{nodos de azar}.
+  \item Una funci\'on $f_c$ que asocia con cada historia $h$, para la cual $P(h) = c$, una medida de probabilidad $f_c(\cdot|h)$ sobre $A(h)$: $f_c(a|h)$ es la probabilidad de que la acci\'on $a$ ocurra dado $h$. Cada medida de probabilidad es independiente de cualquier otra de estas medidas.
+\end{itemize}
+\end{block}
+\begin{block}{Definici\'on III}
+\begin{itemize}
+  \item Para cada jugador $i \in N$, una partici\'on $\mathcal{I}_i$ de $\{h \in H : P(h) = i\}$ con la propiedad de que $A(h) = A(h')$ siempre que $h$ y $h'$ est\'en en el mismo bloque de la partici\'on. Para $I_i \in \mathcal{I}_i$ se denota por $A(I_i)$ el conjunto $A(h)$ y por $P(I_i)$ el jugador $P(h)$ para cualquier $h \in I_i$. $\mathcal{I}_i$ es la \textbf{partici\'on de informaci\'on} del jugador $i$, un conjunto $I_i \in \mathcal{I}_i$ es un \textbf{conjunto de informaci\'on} del jugador $i$.
+  \item Para cada jugador $i \in N$, una funci\'on de utilidad $u_i$ de los estados terminales $Z$ a los reales $\mathbb{R}$. Si $N = \{1,2\}$ y $u_1 = -u_2$, se dice que se tiene un \textbf{juego de dos jugadores de suma cero en forma extensiva}. Se define $\Delta_{u,i} = \max_z u_i(z) - \min_z u_i(z)$ como el rango de utilidades del jugador $i$.
+\end{itemize}
+\end{block}
+
+\begin{block}{Definici\'on}
+Una \textbf{estrategia pura} para el jugador $i$ es una funci\'on $s_i : \mathcal{I}_i \rightarrow \bigcup_{I_i \in \mathcal{I}_i}A(I_i)$ tal que $s_i(I_i) \in A(I_i)$, donde $A(I_i) = A(h)$ para cualquier $h \in I_i$ es el conjunto de acciones permitidas despu\'es de la historia $h$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Una \textbf{estrategia mixta} $\sigma^m_i$ para el jugador $i$ es una distribuci\'on de probabilidad sobre $S_i$. Es decir, $\sigma_i^m \in \Delta(S_i)$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Un \textbf{perfil estrat\'egico mixto} $\sigma^m \in \prod_{i \in N} \Delta(S_i)$ consiste en una estrategia mixta para cada jugador de forma $\sigma^m = (\sigma_1^m, \sigma_2^m, ...., \sigma_N^m)$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Una \textbf{estrategia de comportamiento} para el jugador $i$ consiste en una distribuci\'on de probabilidad para cada conjunto de informaci\'on $I_i \in \mathcal{I}_i$ sobre el conjunto de acciones $A(I_i)$ que pueden ejecutarse en $I_i$.
+Es decir, una estrategia de comportamiento es una tupla $(\sigma^b_i(I_i))_{I_i \in \mathcal{I}_i}$ donde $\sigma^b_i(I_i) \in \Delta(A(I_i))$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Un \textbf{perfil estrat\'egico de comportamiento} $\sigma^b$ es una estrategia de comportamiento para cada jugador.
+\end{block}
+
+\begin{block}{Definici\'on}
+Sea $\Sigma=\prod_{i\in N}\Sigma_i$ el conjunto de perfiles mixtos o de comportamiento, seg\'un sea el caso, para los jugadores en $N$ ($\Sigma_i$ es el conjunto de estrategias del jugador $i$).
+Para $\varepsilon\geq 0$, se dice que un perfil estrat\'egico $\sigma \in \Sigma$ es un \textbf{$\varepsilon$-equilibrio de Nash} si y s\'olo si para todo jugador $i$ y perfil $\sigma'_i\in\Sigma_i$,
+$$ u_i(\sigma) + \varepsilon\ \geq\ u_i(\sigma'_i, \sigma_{-i}) \,. $$
+El perfil $\sigma\in\Sigma$ es un \textbf{equilibrio de Nash} si y s\'olo si $\sigma$ es un $0$-equilibrio de Nash.
+\end{block}
+
+\begin{block}{Definici\'on}
+Se dice que el jugador $i$ tiene \textbf{\textit{perfect recall}} en el juego $\Gamma$ (en forma extensiva) si para cualquier par de historias $h_1, h_2$ con $P(h_1) = P(h_2) = i$, tales que $I(h_1) = I(h_2)$ las siguientes condiciones se cumplen:
+\begin{align*}
+& h \sqsubseteq h_1\ \implies\ (\exists h' \sqsubseteq h_2 : I(h) = I(h')) \,, \\
+& (h_1, a) \sqsubseteq h\  \land\ (h_2, b)\sqsubseteq h'\ \land\ a \neq b\ \  \implies\ I(h) \neq I(h') \,.
+\end{align*}
+\end{block}
+
+\begin{block}{Definici\'on}
+Se dice que dos estrategias $\sigma$ y $\sigma'$ son equivalentes si la probabilidad de alcanzar cualquier historia terminal es la misma; i.e., $\pi^\sigma(z) = \pi^{\sigma'}(z)$ para todo $z \in Z$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Sea $s_i \in S_i$ una estrategia pura del jugador $i$ e $I_i \in \mathcal{I}$ un conjunto de informaci\'on de dicho jugador. Se dice que $I_i$ es alcanzable bajo $s_i$ si existe una historia $h \in H$ tal que $h \in I_i$ y para toda historia (prefijo) $h' \sqsubset h$ se cumple que: si $P(h') = i$, entonces $(h', s_i(I(h')))$ $\sqsubset$ $h$ y si $P(h') = c$ entonces existe una acci\'on $a$ tal que $(h', a) \sqsubset h$ y la probabilidad de elegir la acci\'on $a$ en $h'$ es positiva, i.e., $f_c(a|h') > 0$.
+\end{block}
+
+\begin{block}{Teorema}
+Si para el jugador $i$ se cumple que $I(h')\neq I(h)$ para cualquier par de historias $h$ y $h'$ tal que $h'\sqsubset h$ y $P(h)=P(h')=i$, entonces para cualquier estrategia de comportamiento $\sigma^b_i \in B^i$ para el jugador $i$, existe una estrategia mixta $\sigma^m_i$ que es \textbf{equivalente} a $\sigma^b_i$. En particular, la estrategia mixta $\sigma^m_i$ viene dada por:
+\begin{align*}
+\sigma^m_i(s_i)\ :=\ \prod_{I_i \in \mathcal{I}_i} \sigma^b_i(I_i)(s_i(I_i)) \,.
+\end{align*}
+\end{block}
+
+\begin{block}{Teorema}
+Considere un juego finito de $N$ personas. Si el jugador $i$ tiene ``perfect recall",  entonces para cada estrategia mixta $\sigma^m_i \in \Delta(S_i)$ del jugador $i$, existe una estrategia de comportamiento $\sigma^b_i \in B^i$ equivalente a $\sigma^m_i$.
+\end{block}
+
+\begin{block}{Teorema}
+Considere un juego finito de $N$ personas. Si el jugador $i$ tiene ``perfect recall",  entonces para cada estrategia mixta $\sigma^m_i \in \Delta(S_i)$ del jugador $i$, existe una estrategia de comportamiento $\sigma^b_i \in B^i$ equivalente a $\sigma^m_i$.
+\end{block}
+
+\begin{block}{Teorema}
+En un juego con \textit{perfect recall}, cualquier estrategia mixta de un agente dado puede ser remplazada por una estrategia de comportamiento equivalente, y cualquier estrategia de comportamiento puede ser remplazada por una estrategia mixta equivalente. Dos estrategias son equivalentes en el sentido en que inducen los mismos resultados de probabilidades, para cualquier perfil estrat\'egico fijo (mixto o de comportamiento) del resto de los agentes.
+\end{block}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Explotabilidad}
+
+\begin{block}{Teorema}
+Sea $\sigma^* = (\sigma^*_1, \sigma^*_2)$ un equilibrio de Nash de un juego de dos jugadores de suma cero, tal que $u_1(\sigma) = u$. Entonces $u_i(\sigma^*) \leq u_i(\sigma^*_i, \sigma_{-i})$, para cualquier estrategia $\sigma_{-i}$.
+\end{block}
+
+\begin{block}{Teorema}
+Sean $\sigma = (\sigma_1, \sigma_2)$ y $\sigma' = (\sigma'_1, \sigma'_2)$ equilibrios de Nash en un juego de dos jugadores con suma cero. Entonces $\sigma'' = (\sigma_1, \sigma'_2)$ y $\sigma''' = (\sigma'_1, \sigma_2)$ son tambi\'en equilibrios de Nash. Adem\'as, $u_i(\sigma) = u_i(\sigma') = u_i(\sigma'') = u_i(\sigma''')$, para $i \in \{1, 2\}$.
+\end{block}
+
+\begin{block}{Definici\'on}
+Sea $\sigma^* = (\sigma^*_1, \sigma^*_2)$ un equilibrio de Nash en un juego de dos jugadores de suma cero. Sea $\sigma = (\sigma_1, \sigma_2)$ una aproximaci\'on a $\sigma^*$. Sean $\sigma^{\prime}_1$ y $\sigma^{\prime}_2$ las mejores respuesta a $\sigma_2$ y $\sigma_1$, respectivamente. Se definen $\varepsilon_1 = u_2(\sigma_1, \sigma^{\prime}_2) - u_2(\sigma^*)$ y $\varepsilon_2 = u_1(\sigma^{\prime}_1, \sigma_2) - u_1(\sigma^*)$. Luego, la explotabilidad de $\sigma$ es igual a $\varepsilon_{\sigma} = \varepsilon_1 + \varepsilon_2$
+\end{block}
+
+\begin{block}{Teorema}
+Sean $\sigma$ y $\sigma^{\prime}$ las estrategias definidas en la definici\'on anterior. Luego:
+$$\varepsilon_{\sigma} =  u_2(\sigma_1, \sigma^{\prime}_2) + u_1(\sigma^{\prime}_1, \sigma_2)$$
+\end{block}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Regret Matching}
+\Alert{Regret Condicional}
+
+\begin{align*}
+  D_i^t(j, k)\ =\ \frac{1}{t} \sum_{\substack{1\leq \tau \leq t \\s^\tau_i = j}} u_i(k, s_{-i}^{\tau}) - u_i(s^{\tau}) \\
+  R_i^t(j, k)\ =\ [D_i^t(j, k)]^+\ =\ \max\{0, D_i^t(j, k)\} \\
+  \begin{cases}
+    p_{t+1}^i(k)\ :=\  \frac{1}{\mu} R_i^t(j, k) & \text{ si $k \neq j$} \\
+    p_{t+1}^i(j)\ :=\ 1 - \sum_{k \in S_i, k \neq j} p_{t+1}^i(k) & \text{si $k=j$}
+  \end{cases}
+\end{align*}
+
+\begin{block}{Teorema}
+Si cada jugador juega de acuerdo al procedimiento descrito arriba, entonces la distribuci\'on emp\'rica del juego $z_t$ converge (a.s.) cuando $t \rightarrow \infty$ al conjunto de equilibrios correlacionado del juego $\Gamma$.
+\end{block}
+
+\begin{block}{Teorema}
+Sea $(s_t)_{t = 1, 2, ...}$ una secuencia de juegos de $\Gamma$.
+Entonces, $R_i^t(j, k)$ converge a $0$ para cada $i$ y cada $j, k \in S_i$, con $j \neq k$, si y s\'olo si la secuencia de distribuciones emp\'ricas $z_t$ converge al conjunto de equilibrio correlacionado.
+\end{block}
+
+\framebreak
+\Alert{Vector Invariante de Probabilidad}
+
+\begin{align*}
+  \begin{cases}
+    M^i_t(j, k)\ :=\  \frac{1}{\mu} R_i^t(j, k) & \text{ si $k \neq j$} \\
+    M^i_t(j, j)\ :=\ 1 - \sum_{k \in S_i, k \neq j} R^t_i(j,k) & \text{si $k=j$}
+  \end{cases}
+\end{align*}
+Considere un vector (fila) invariante de probabilidad $q^i_t$ (dicho vector siempre existe), donde $q^i_t\in \Delta(S_i)$, para la matriz $M^t$. Es decir, $q^i_t$ satisface $q^i_t \times M^i_t = q^i_t$.
+
+\begin{block}{Teoream}
+Sea $R_t^i(j, j) = 0$. El vector $q_t^i$, definido previamente, cumple que:
+\begin{align*}
+\label{eq:proc-B}
+q^i_t(j)\sum_{k \in S_i} R^t_i(j,k)\ =\ \sum_{k \in S_i} q_t^i(k)R_i^t(k,j) \,.
+\end{align*}
+\end{block}
+
+\begin{block}{Teorema}
+Supongamos que a cada per\'iodo $t+1$, el jugador $i$ elige las estrategias acorde a un vector de distribuci\'on de probabilidad $q_t^i$ que satisface la ecuaci\'on anterior. Entonces, $R^i_t(j, k)$ converge a cero (a.s.) para todo $j, k \in S_i$ con $j \neq k$.
+\end{block}
+
+\framebreak
+
+\Alert{Regret Incondicional}
+\begin{block}{Definition}
+Un procedimiento adaptativo es \textbf{universalmente consistente} para el jugador $i$ si:
+\begin{align*}
+  \limsup_{t \rightarrow \infty } \left[ \max_{k \in S_i} \frac{1}{t} \sum_{\tau = 1}^{t} u_i(k, s_{-i}^{\tau}) - \frac{1}{t} \sum_{\tau = 1}^{t} u_i(s_{\tau}) \right]\ \leq\ 0\quad (a. s.) \,.
+\end{align*}
+\end{block}
+
+\begin{align*}
+D_i^t(k)\ =\ \frac{1}{t} \sum_{\tau = 1}^{t} u_i(k, s_{-i}^{\tau}) - u_i(s_{\tau}) \\
+R_i^t(k)\ =\ [D_i^t(k)]^+\ =\ \max\{0, D_i^t(k)\}
+\end{align*}
+
+\begin{block}{Teorema}
+El procedimiento adaptativo definido previamente es universalmente consistente para el jugador $i$.
+\end{block}
+
+\begin{block}{Teorema}
+En un procedimiento adaptativo de \textit{Regret Matching}, si el \textit{regret} condicional converge a $0$, entonces el procedimiento es universalmente consistente.
+\end{block}
+
+\begin{block}{Teorema}
+Sea $\Gamma$ un juego de dos jugadores de suma cero y sea $(s^t)_{t=1,2,..., T}$ una secuencia de juegos de $\Gamma$, tales que, para todo $s_i \in S_i$, para todo $i \in {1, 2}$:
+\begin{align*}
+\frac{1}{T}\sum_{t = 1}^{T}u_i(s_i, s_{-i}^t) - \frac{1}{T} \sum_{t = 1}^T u_i(s^t)\ \leq\ \varepsilon
+\end{align*}
+para alg\'un $\varepsilon > 0$. Sea $\bar{\sigma}^T = (\bar{\sigma_1}^T, \bar{\sigma_2}^T)$, donde:
+\begin{align*}
+\bar{\sigma}_i^T(s_i)\ =\ \frac{|\{ t \leq T : s_i^t = s_i\}|}{T} \,,
+\end{align*}
+es decir, $\bar{\sigma}^T$ es la distribuci\'on emp\'irica de probabilidad, note que $|\{ t \leq T : s_i^t = s_i\}|$ es igual al n\'umero de veces que se eligi\'o $s_i$ hasta el tiempo $T$. Entonces, $\bar{\sigma}^T$ es un $2\varepsilon$-equilibrio de Nash.
+\end{block}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Counterfactual Regret Minimization}
+\begin{block}{Definici\'on}
+Considere $T$ repeticiones de un juego en forma extensiva indexadas en tiempo por $t=1,2,\ldots,T$. Sea $\sigma^t$ el perfil estrat\'egico de comportamiento utilizado por los jugadores a tiempo $t$ (i.e., $\sigma^t$ consiste de una estrategia de comportamiento $\sigma^t_i$ para cada jugador $i$) . El \textbf{regret promedio general} del jugador $i$ a tiempo $T$ es:
+\begin{align*}
+R_i^T\ =\ \max_{\sigma^*_i \in B_i} \, \frac{1}{T}\, \sum_{t = 1}^T \, u_i(\sigma_i^*, \sigma_{-i}^t) - u_i(\sigma^t)
+\end{align*}
+donde $B_i$ es el conjunto de estrategias de comportamiento para el jugador $i$.
+\end{block}
+
+Se denotar\'a con $\bar{\sigma}_i^{T}$ la estrategia promedio del jugador $i$, i.e, para cada conjunto de informaci\'on $I \in \mathcal{I}_i$ y para cada acci\'on $a \in A(I)$ se define:
+\begin{align*}
+\bar{\sigma}_i^{T}(I)(a)\ =\ \frac{\sum_{t = 1}^T \pi^{\sigma^t}_i(I)\,\sigma^t(I)(a)}{\sum_{t = 1}^T \pi^{\sigma^t}_i(I)}
+\end{align*}
+
+\begin{block}{Teorema}
+En un juego de dos jugadores de suma cero si el regret promedio general a tiempo $T$ es menor que $\varepsilon$ entonces $\bar{\sigma}^{T}=(\bar\sigma^T_1,\bar\sigma^T_2)$ es un $2\varepsilon$-equilibrio de Nash.
+\end{block}
+
+\begin{block}{Definici\'on}
+Sea $\sigma$ un perfil estrat\'egico e $I \in \mathcal{I}_i$ un conjunto de informaci\'on del jugador $i$, la \textbf{utilidad contrafactual} del par $(\sigma,I)$ es la ganancia esperada dado que el conjunto $I$ es alcanzado y todos los jugadores juegan con la estrategia $\sigma$ con excepci\'on del jugador $i$ que juega para alcanzar $I$. Formalmente:
+\begin{align*}
+u_i(\sigma, I)\ =\ \frac{\sum_{h \in I, z \in Z} \pi^\sigma_{-i}(h)\, \pi^\sigma(h, z)\, u_i(z)}{\pi^\sigma_{-i}(I)}
+\end{align*}
+donde $Z$ denota el conjunto de historias terminales, $\pi^\sigma_{-i}(h)$ denota la probabilidad de alcanzar $h$ dado que todos los jugadores utilizan $\sigma$ excepto el jugador $i$ que juega para alcanzar $h$, y $\pi^\sigma(h,h')$ denota la probabilidad de ir de la historia $h$ a la historia $h'$ dado el perfil estrat\'egico $\sigma$; i.e., $\pi^\sigma(h,h')=\pi^\sigma(h')/\pi^\sigma(h)$ si $h \sqsubseteq h'$, y $\pi^\sigma(h, h') = 0$ en caso contrario.
+\end{block}
+
+\begin{block}{Definici\'on}
+El \textbf{regret contrafactual inmediato} es:
+\begin{align*}
+R_{i, \text{imm}}^T(I)\ =\  \max_{a \in A(I)} \, \frac{1}{T} \, \sum_{t = 1}^T \, \pi^{\sigma^t}_{-i}(I) \biggl[ u_i(\sigma^t|_{I \rightarrow a}, I) - u_i(\sigma^t, I) \biggr]\,.
+\end{align*}
+\end{block}
+
+\begin{block}{Teorema}
+$R_i^T\ \leq\ \sum_{I \in \mathcal{I}_i} R_{i, \text{imm}}^{T, +}(I)$
+\end{block}
+
+\framebreak
+\Alert{Regret Minimization}
+
+\begin{block}{Definici\'on}
+El \textit{regret} promedio de no haber elegido la acci\'on $a \in A$ hasta tiempo $T$, y en su lugar elegir la acci\'on $a'$ con probabilidad $p^t(a')$ para $t=1,2,\ldots,T$, se define como:
+\begin{align*}
+R^T(a)\ =\ \frac{1}{T} \sum_{t = 1}^T \left[u^t(a) - \sum_{a' \in A}p^t(a')u^t(a')\right] \,.
+\end{align*}
+\end{block}
+
+\framebreak
+Sea $R^{t, +}(a) = \max\{R^t(a), 0\}$, el algoritmo de \textit{Regret Minimization} consiste en utilizar a tiempo $t$ una distribuci\'on de probabilidad $p^t$, definida por:
+\begin{align*}
+p^t(a)\ =\
+\begin{cases}
+\frac{R^{t, +}(a)}{\sum_{a' \in A} R^{t, +}(a')}\ & \text{si }\ \sum_{a' \in A} R^{t, +}(a') > 0 \,, \\
+\frac{1}{|A|}\ & \text{en otro caso} \,.
+\end{cases}
+\end{align*}
+
+\begin{block}{Teorema}
+Si $|u| = \max_{t \in \{1, 2, ... T\}} \max_{a, a' \in A}\bigl[u^t(a) - u^t(a')\bigr]$, entonces el regret del algoritmo de Regret Minimization est\'a acotado por:
+\begin{align*}
+\max_{a \in A}\,R^t(a)\ \leq\ |u| \sqrt{\frac{|A|}{T}} \,.
+\end{align*}
+\end{block}
+
+\framebreak
+\Alert{CFR}
+
+Se mantiene para cada conjunto de informaci\'on $I \in \mathcal{I}_i$ y cada acci\'on $a \in A(I)$, la medida de regret:
+\begin{align*}
+R_i^T(I, a)\ =\ \frac{1}{T} \sum_{t = 1}^T \pi^{\sigma^t}_{-i}(I)\biggl[u_i(\sigma^t|_{I \rightarrow a}, I) - u_i(\sigma^t, I)\biggr]
+\end{align*}
+
+Para $R_i^{T, +}(I, a) = \max\{R_i^T(I, a), 0\}$, definimos la estrategia $\sigma^{T+1}_i$ elegida por el jugador $i$ a tiempo $T+1$:
+\begin{align*}
+\sigma_i^{T+1}(I)(a)\ =\
+\begin{cases}
+\frac{R_i^{T, +}(I, a)}{\sum_{a' \in A(I)} R_i^{T, +}(I, a')} & \text{si } \sum_{a' \in A(I) R_i^{T, +}(I, a')} > 0 \,, \\
+\frac{1}{|A(I)|} & \text{en otro caso.}
+\end{cases}
+\end{align*}
+
+\framebreak
+\begin{block}{Teorema}
+Si el jugador $i$ selecciona las acciones de acuerdo a la Ecuaci\'on anterior, entonces $R^T_{i, \text{imm}}(I) \leq \Delta_{u, i} \sqrt{|A_i|/T}$, donde $|A_i| = \max \{ |A(h)| : P(h) = i \}$ es el m\'aximo n\'umero de acciones que el jugador $i$ tiene disponibles en una historia dada y  $\Delta_{u,i} = \max_{z \in Z}u_i(z) - \min_{z \in Z}u_i(z)$ es el rango de las utilidades del jugador $i$. Luego:
+\begin{align*}
+R_i^T\ \leq\ \sum_{I\in\mathcal{I}_i} R^{T,+}_{i,imm}(I) \
+        \leq\ \Delta_{u,i}\,|\mathcal{I}_i|\,\sqrt{\frac{|A_i|}{T}} \,.
+\end{align*}
+\end{block}
+
+\framebreak
+\Alert{Monte Carlo CFR}
+\begin{align*}
+\tilde{u}_i(\sigma, I | j)\ =\ \sum_{h \in I, z \in Q_j} \frac{\pi^\sigma_{-i}(h)\,\pi^\sigma(h, z)\, u_i(z)}{q(z)\,\pi^\sigma_{-i}(I)} \,.
+\end{align*}
+
+\begin{block}{Teorema}
+$E_{j \sim q_j} [\tilde{u}_i(\sigma, I | j)]\ =\ u_i(\sigma, I)$.
+\end{block}
+
+\end{frame}
+
 \end{document}
