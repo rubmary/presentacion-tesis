@@ -1090,70 +1090,70 @@ level 4/.style={level distance=30mm}
 ]
 \visible<2->{
 \node[player1] (root) {}
-  child { [onslide=<2>{color=white}] node (L) [player2, onslide=<2>{color=white}]  {}
-      child { [onslide=<2-3>{color=white}] node (A) [player1, onslide=<2-3>{color=white}]  {}
-            child {[onslide=<2-4>{color=white}] node [terminal, onslide=<2-4>{color=white}] [label=below:{$(0,0)$}] {}
+  child { node (L) [player2]  {}
+      child { [onslide=<2>{color=white}] node (A) [player1, onslide=<2>{color=white}]  {}
+            child {[onslide=<2-3>{color=white}] node [terminal, onslide=<2-3>{color=white}] [label=below:{$(0,0)$}] {}
                 edge from parent node[left] {$a$} }
-            child {[onslide=<2-4>{color=white}] node [terminal, onslide=<2-4>{color=white}] [label=below:{$(2,4)$}] {}
+            child {[onslide=<2-3>{color=white}] node [terminal, onslide=<2-3>{color=white}] [label=below:{$(2,4)$}] {}
                 edge from parent node[right] {$b$}}
             edge from parent node[left] {A\, \, }
       }
-      child { [onslide=<2-3>{color=white}] node (B) [player1, onslide=<2-3>{color=white}] {}
-          child {[onslide=<2-4>{color=white}] node (t1) [terminal, onslide=<2-4>{color=white}] [label=below:{$(2,4)$}] {}
+      child { [onslide=<2>{color=white}] node (B) [player1, onslide=<2>{color=white}] {}
+          child {[onslide=<2-3>{color=white}] node (t1) [terminal, onslide=<2-3>{color=white}] [label=below:{$(2,4)$}] {}
               edge from parent node[left] {$a$} }
-          child {[onslide=<2-4>{color=white}] node (t2) [terminal, onslide=<2-4>{color=white}] [label=below:{$(0,0)$}] {}
+          child {[onslide=<2-3>{color=white}] node (t2) [terminal, onslide=<2-3>{color=white}] [label=below:{$(0,0)$}] {}
               edge from parent node[right] {$b$} }
           edge from parent node[right] {B}
       }
-      child { [onslide=<2-3>{color=white}] node (C) [chance, onslide=<2-3>{color=white}] {}
-          child {[onslide=<2-5>{color=white}] node (t3) [terminal, onslide=<2-5>{color=white}] [label=below:{$(4,4)$}] {}
-              edge from parent node[left] {$\visible<16>{\frac{1}{2}}\ c$} }
-          child {[onslide=<2-5>{color=white}] node (t4) [terminal, onslide=<2-5>{color=white}] [label=below:{$(0,0)$}] {}
-              edge from parent node[right] {$s\ \visible<16>{\frac{1}{2}}$} }
+      child { [onslide=<2>{color=white}] node (C) [chance, onslide=<2>{color=white}] {}
+          child {[onslide=<2-4>{color=white}] node (t3) [terminal, onslide=<2-4>{color=white}] [label=below:{$(4,4)$}] {}
+              edge from parent node[left] {$\visible<15>{\frac{1}{2}}\ c$} }
+          child {[onslide=<2-4>{color=white}] node (t4) [terminal, onslide=<2-4>{color=white}] [label=below:{$(0,0)$}] {}
+              edge from parent node[right] {$s\ \visible<15>{\frac{1}{2}}$} }
           edge from parent node[right] {\, \, C}
       }
       edge from parent node[left] [label=left:{L}] {}
   }
-  child { [onslide=<2>{color=white}] node (R) [terminal, onslide=<2>{color=white}] [label=below:{$(1,1)$}] {}
+  child { node (R) [terminal] [label=below:{$(1,1)$}] {}
       edge from parent node[right] [label=right:{R}] {}
   }
 ;}
-\visible<4->{\draw[dotted] (A) -- (B);}
+\visible<3->{\draw[dotted] (A) -- (B);}
 
-\visible<9>{\draw[thick] (C) ellipse (.6cm and .6 cm);}
-\visible<11>{\draw[thick, blue] ($(A)!0.5!(B)$) ellipse (2cm and .65cm);}
-\visible<11>{\draw[thick, blue] (root) ellipse (.6cm and .6 cm);}
-\visible<12>{\draw[thick, red] (L) ellipse (.6cm and .6 cm);}
+\visible<8>{\draw[thick] (C) ellipse (.6cm and .6 cm);}
+\visible<10>{\draw[thick, blue] ($(A)!0.5!(B)$) ellipse (2cm and .65cm);}
+\visible<10>{\draw[thick, blue] (root) ellipse (.6cm and .6 cm);}
+\visible<11>{\draw[thick, red] (L) ellipse (.6cm and .6 cm);}
 
 \node (c1) at ($(t1)!0.5!(t2)$) {};
 \node (c2) [below of=c1] {};
 \node (c0) at ($(c1)!0.3!(c2)$) {};
-\visible<14>{\draw[dashed] (c0) ellipse (4cm and .75cm);}
+\visible<13>{\draw[dashed] (c0) ellipse (4cm and .75cm);}
 \node (R1) [below of=R] {};
 \node (R0) at ($(R)!0.3!(R1)$) {};
-\visible<14>{\draw[dashed] (R0) ellipse (.75cm and .6cm);}
-\visible<16>{\draw[dashed] ($(t3)!0.5!(t4)!0.25!(C)$) ellipse (1.5cm and 1.5cm);}
+\visible<13>{\draw[dashed] (R0) ellipse (.75cm and .6cm);}
+\visible<15>{\draw[dashed] ($(t3)!0.5!(t4)!0.25!(C)$) ellipse (1.5cm and 1.5cm);}
 \end{tikzpicture}
 }}
 
 \vspace{.1cm}
-\visible<17->{\Alert{Perfect Recall}\\
+\visible<16->{\Alert{Perfect Recall}\\
 Se recuerda de forma perfecta todo lo que se ha visto.}
 
 \column{.45\textwidth}
-\visible<7->{\Alert{Elementos}}
+\visible<6->{\Alert{Elementos}}
 
 \begin{enumerate}
-  \visible<7->{\onslide<7>{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBb, R$.}}
-  \visible<8->{\onslide<8-9>{\item Funci\'on que asigna a cada historia (nodo) no terminal un jugador.}}
-  \visible<9->{
+  \visible<6->{\onslide<6>{\item Historias o nodos.\\Ej: $\emptyset$, $LA, LBb, R$.}}
+  \visible<7->{\onslide<7-8>{\item Funci\'on que asigna a cada historia (nodo) no terminal un jugador.}}
+  \visible<8->{
     \begin{itemize}
-      \onslide<9>{\item Nodos de azar.}
+      \onslide<8>{\item Nodos de azar.}
     \end{itemize}
   }
-  \visible<10->{\onslide<10-12>{\item Conjuntos de informaci\'on.}}
-  \visible<13->{\onslide<13-14>{\item Funci\'on que asigna por cada historia (nodo) terminal y cada jugador una utilidad.}}
-  \visible<15->{\onslide<15-16>{\item Distribuci\'on de probabilidad sobre el conjunto de acciones en cada nodo de azar.}}
+  \visible<9->{\onslide<9-11>{\item Conjuntos de informaci\'on.}}
+  \visible<12->{\onslide<12-13>{\item Funci\'on que asigna por cada historia (nodo) terminal y cada jugador una utilidad.}}
+  \visible<14->{\onslide<14-15>{\item Distribuci\'on de probabilidad sobre el conjunto de acciones en cada nodo de azar.}}
 \end{enumerate}
 \end{columns}
 \end{frame}
