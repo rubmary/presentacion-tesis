@@ -16,6 +16,8 @@
 %\usepackage{realboxes}
 %\usepackage{algorithmic}
 
+\usepackage{media9}
+
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{enumerate}
@@ -1719,6 +1721,18 @@ level 3/.style={sibling distance=6.5mm, level distance=14mm},
 
 \begin{frame}
   \centering{\resizebox{!}{.5cm}{\Alert{Demo}}}
+\end{frame}
+
+\begin{frame}
+\includemedia[
+  width=\textwidth,
+  height=.77\textwidth,
+  activate=pageopen,
+  passcontext,
+  transparent,
+  addresource=../video/demo,
+  flashvars={source=../video/demo}
+]{\includegraphics[width=\textwidth]{../video/estadisticas.png}}{VPlayer.swf}
 \end{frame}
 
 \begin{frame}
